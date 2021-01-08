@@ -18,8 +18,6 @@ class AllElementViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        allElementNameList = UserDefaults.standard.object(forKey: "elementName") as! [String]
 
         tableView.delegate = self
         tableView.dataSource = self

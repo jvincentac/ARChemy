@@ -25,7 +25,11 @@ class Home: UIViewController {
     var discoverer: String = ""
     var symbol: String = ""
     var numberOfElectrons: Int = 0
-    var numberOfProtons: Int = 0
+    var numerOfNeutrons: Int = 0
+    var atomicMass: String = ""
+    var group: Int = 0
+    var period: Int = 0
+    var type: String = ""
     
     override func viewDidLoad() {
         setupPage()
@@ -36,19 +40,9 @@ class Home: UIViewController {
         elementName = elementName.capitalizingFirstLetter()
         getElementDataByName2(elementName: elementName)
         
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//            self.showLabel(label: self.labelElementInfo)
-//
-//            self.labelElementInfo.text = "\(self.elementDictionary["Element"] ?? "Invalid Element") \nDiscoverer: \(self.elementDictionary["Discoverer"] ?? "Invalid Element") \nNumber of Electrons: \(self.elementDictionary["NumberofElectrons"] ?? "Invalid Element") \nNumber of Protons: \(self.elementDictionary["NumberofProtons"] ?? "Invalid Element") \nSymbol: \(self.elementDictionary["Symbol"] ?? "Invalid Element")"
-//
-//            if !(self.labelElementInfo.text?.contains("Invalid"))! {
-//                self.toARBtn.isHidden = false
-//            }
-//        }
-        
         self.showLabel(label: self.labelElementInfo)
         
-        self.labelElementInfo.text = "\(self.elementName) \nDiscoverer: \(self.discoverer) \nNumber of Electrons: \(self.numberOfElectrons) \nNumber of Protons: \(self.numberOfProtons) \nSymbol: \(self.symbol)"
+        self.labelElementInfo.text = "\(self.elementName) \nDiscoverer: \(self.discoverer) \nNumber of Electrons: \(self.numberOfElectrons) \nNumber of Neutrons: \(self.numerOfNeutrons) \nSymbol: \(self.symbol) \nGroup: \(self.group) \nPeriod: \(self.period) \nAtomic Mass: \(self.atomicMass) \nType: \(self.type)"
         
         if !(self.labelElementInfo.text?.contains("Not"))! {
             self.toARBtn.isHidden = false
@@ -63,8 +57,8 @@ class Home: UIViewController {
     }
     
     @IBAction func toAllElementButton(_ sender: Any) {
-        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AllElement") as! AllElementViewController
-        sb.modalPresentationStyle = .fullScreen
+        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ElementDesc") as! DescriptionViewController
+//        sb.modalPresentationStyle = .fullScreen
         present(sb, animated: true, completion: nil)
     }
 }
@@ -109,14 +103,19 @@ extension Home {
                 self.discoverer = element.value(forKeyPath: "discoverer") as! String
                 self.symbol = element.value(forKeyPath: "symbol") as! String
                 self.numberOfElectrons = element.value(forKeyPath: "electrons") as! Int
-                self.numberOfProtons = element.value(forKeyPath: "protons") as! Int
+                self.numerOfNeutrons = element.value(forKeyPath: "neutrons") as! Int
+                self.type = element.value(forKeyPath: "type") as! String
+                self.group = element.value(forKeyPath: "group") as! Int
+                self.period = element.value(forKeyPath: "period") as! Int
+                self.atomicMass = element.value(forKeyPath: "atomicMass") as! String
                 break
             }
-            
-            self.discoverer = "Not Found"
-            self.symbol = "Not Found"
-            self.numberOfProtons = 0
-            self.numberOfElectrons = 0
+            else {
+                self.discoverer = "Not Found"
+                self.symbol = "Not Found"
+                self.numerOfNeutrons = 0
+                self.numberOfElectrons = 0
+            }
         }
     }
     

@@ -32,7 +32,7 @@ class ARView: UIViewController, ARSCNViewDelegate {
         // Set the scene to the view
         sceneView.scene = scene
         
-        addSphere()
+        addSphere(x: 0, y: 0, z: -1)
         addText(text: text)
     }
     
@@ -58,6 +58,15 @@ class ARView: UIViewController, ARSCNViewDelegate {
     @IBAction func backToHome(_ sender: Any) {
         let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home") as! Home
         sb.modalPresentationStyle = .fullScreen
+        present(sb, animated: true, completion: nil)
+    }
+    
+    @IBAction func addElement(_ sender: Any) {
+        addSphere(x: 10, y: -10, z: -1)
+        addSphere(x: -10, y: -10, z: -1)
+    }
+    @IBAction func toDesc(_ sender: Any) {
+        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ElementDesc") as! DescriptionViewController
         present(sb, animated: true, completion: nil)
     }
 }
@@ -91,12 +100,12 @@ extension ARView {
         sceneView.scene.rootNode.addChildNode(boxNode)
     }
     
-    func addSphere() {
+    func addSphere(x: Int, y: Int, z: Int) {
         let sphere = SCNSphere(radius: 0.1)
         sphere.firstMaterial?.diffuse.contents = UIColor.green
         
         let sphereNode = SCNNode(geometry: sphere)
-        sphereNode.position = SCNVector3(0, 0, -1)
+        sphereNode.position = SCNVector3(x, y, z)
         sceneView.scene.rootNode.addChildNode(sphereNode)
     }
     

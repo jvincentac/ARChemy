@@ -4,6 +4,7 @@
 //
 //  Created by Vincent Alexander Christian on 29/11/20.
 //
+//  intinya ini nanti jadi onboarding, semua yang hanya perlu jalan 1x
 
 import UIKit
 import CoreData
@@ -74,9 +75,13 @@ extension InitViewController {
                         let discoverer = String(describing: tempArrayOfElementName[idx]["Discoverer"]!)
                         let symbol = String(describing: tempArrayOfElementName[idx]["Symbol"]!)
                         let numberOfElectrons = Int16(String(describing: tempArrayOfElementName[idx]["NumberofElectrons"]!))
-                        let numberOfProtons = Int16(String(describing: tempArrayOfElementName[idx]["NumberofProtons"]!))
+                        let numberOfNeutrons = Int16(String(describing: tempArrayOfElementName[idx]["NumberofNeutrons"]!))
+                        let atomicMass = String(describing: tempArrayOfElementName[idx]["AtomicMass"]!)
+                        let type = String(describing: tempArrayOfElementName[idx]["Type"]!)
+                        let group = Int16(String(describing: tempArrayOfElementName[idx]["Group"]!))
+                        let period = Int16(String(describing: tempArrayOfElementName[idx]["Period"]!))
                         
-                        saveToCoreData(name: name, discoverer: discoverer, symbol: symbol, numberOfElectrons: numberOfElectrons!, numberOfProtons: numberOfProtons!)
+                        saveToCoreData(name: name, type: type, symbol: symbol, neutrons: numberOfNeutrons!, electrons: numberOfElectrons!, discoverer: discoverer, atomicMass: atomicMass, group: group ?? 0, period: period ?? 0)
                     }
                     
                     UserDefaults.standard.setValue(temp, forKey: "elementName")
@@ -92,7 +97,7 @@ extension InitViewController {
         dataTask.resume()
     }
     
-    func saveToCoreData(name: String, discoverer: String, symbol: String, numberOfElectrons: Int16, numberOfProtons: Int16) {
+    func saveToCoreData(name: String, type: String, symbol: String, neutrons: Int16, electrons: Int16, discoverer: String, atomicMass: String, group: Int16, period: Int16) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
@@ -104,15 +109,38 @@ extension InitViewController {
         let element = NSManagedObject(entity: entity, insertInto: managedContext)
         
         element.setValue(name, forKey: "name")
-        element.setValue(discoverer, forKey: "discoverer")
+        element.setValue(type, forKey: "type")
         element.setValue(symbol, forKey: "symbol")
-        element.setValue(numberOfElectrons, forKey: "electrons")
-        element.setValue(numberOfProtons, forKey: "protons")
+        element.setValue(neutrons, forKey: "neutrons")
+        element.setValue(electrons, forKey: "electrons")
+        element.setValue(discoverer, forKey: "discoverer")
+        element.setValue(atomicMass, forKey: "atomicMass")
+        element.setValue(group, forKey: "group")
+        element.setValue(period, forKey: "period")
+        
         
         do {
             try managedContext.save()
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
+    }
+    
+    func saveQuestionToCoreData(question: String, answer: String, w1: String, w2: String, w3: String, w4: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "Question", in: managedContext)!
+        
+        let questions = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        questions.setValue(question, forKey: "question")
+        questions.setValue(answer, forKey: "answer")
+        questions.setValue(w1, forKey: "w1")
+        questions.setValue(w2, forKey: "w2")
+        questions.setValue(w3, forKey: "w3")
     }
 }
