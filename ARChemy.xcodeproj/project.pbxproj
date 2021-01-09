@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		756D5D8825A972630028BD33 /* ARModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D5D8725A972630028BD33 /* ARModeViewController.swift */; };
+		756D5D8B25A974720028BD33 /* LatihanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D5D8A25A974720028BD33 /* LatihanViewController.swift */; };
+		756D5D8F25A974950028BD33 /* LatihanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D5D8D25A974950028BD33 /* LatihanTableViewCell.swift */; };
+		756D5D9025A974950028BD33 /* LatihanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 756D5D8E25A974950028BD33 /* LatihanTableViewCell.xib */; };
+		756D5D9525A9786B0028BD33 /* MateriTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D5D9325A9786B0028BD33 /* MateriTableViewCell.swift */; };
+		756D5D9625A9786B0028BD33 /* MateriTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 756D5D9425A9786B0028BD33 /* MateriTableViewCell.xib */; };
+		756D5D9925A9787D0028BD33 /* MateriViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D5D9825A9787D0028BD33 /* MateriViewController.swift */; };
 		9D3BA525257417D300E866A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3BA524257417D300E866A6 /* AppDelegate.swift */; };
 		9D3BA527257417D300E866A6 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D3BA526257417D300E866A6 /* art.scnassets */; };
 		9D3BA529257417D300E866A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3BA528257417D300E866A6 /* ViewController.swift */; };
@@ -24,6 +31,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		756D5D8725A972630028BD33 /* ARModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARModeViewController.swift; sourceTree = "<group>"; };
+		756D5D8A25A974720028BD33 /* LatihanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatihanViewController.swift; sourceTree = "<group>"; };
+		756D5D8D25A974950028BD33 /* LatihanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatihanTableViewCell.swift; sourceTree = "<group>"; };
+		756D5D8E25A974950028BD33 /* LatihanTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LatihanTableViewCell.xib; sourceTree = "<group>"; };
+		756D5D9325A9786B0028BD33 /* MateriTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriTableViewCell.swift; sourceTree = "<group>"; };
+		756D5D9425A9786B0028BD33 /* MateriTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MateriTableViewCell.xib; sourceTree = "<group>"; };
+		756D5D9825A9787D0028BD33 /* MateriViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriViewController.swift; sourceTree = "<group>"; };
 		9D3BA521257417D300E866A6 /* ARChemy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARChemy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D3BA524257417D300E866A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D3BA526257417D300E866A6 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -53,6 +67,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		756D5D8325A971C60028BD33 /* Three Main Pages */ = {
+			isa = PBXGroup;
+			children = (
+				756D5D8625A971FC0028BD33 /* Materi Pages */,
+				756D5D8525A971F20028BD33 /* Latihan Pages */,
+				756D5D8425A971D60028BD33 /* ARMode Pages */,
+			);
+			path = "Three Main Pages";
+			sourceTree = "<group>";
+		};
+		756D5D8425A971D60028BD33 /* ARMode Pages */ = {
+			isa = PBXGroup;
+			children = (
+				756D5D8725A972630028BD33 /* ARModeViewController.swift */,
+			);
+			path = "ARMode Pages";
+			sourceTree = "<group>";
+		};
+		756D5D8525A971F20028BD33 /* Latihan Pages */ = {
+			isa = PBXGroup;
+			children = (
+				756D5D8A25A974720028BD33 /* LatihanViewController.swift */,
+				756D5D8D25A974950028BD33 /* LatihanTableViewCell.swift */,
+				756D5D8E25A974950028BD33 /* LatihanTableViewCell.xib */,
+			);
+			path = "Latihan Pages";
+			sourceTree = "<group>";
+		};
+		756D5D8625A971FC0028BD33 /* Materi Pages */ = {
+			isa = PBXGroup;
+			children = (
+				756D5D9325A9786B0028BD33 /* MateriTableViewCell.swift */,
+				756D5D9425A9786B0028BD33 /* MateriTableViewCell.xib */,
+				756D5D9825A9787D0028BD33 /* MateriViewController.swift */,
+			);
+			path = "Materi Pages";
+			sourceTree = "<group>";
+		};
 		9D3BA518257417D300E866A6 = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +124,7 @@
 		9D3BA523257417D300E866A6 /* ARChemy */ = {
 			isa = PBXGroup;
 			children = (
+				756D5D8325A971C60028BD33 /* Three Main Pages */,
 				9D67134225A87F7C00935A60 /* Model */,
 				9DCF6C0525741B72001B55D4 /* ARVIew */,
 				9DCF6C0925741B86001B55D4 /* View */,
@@ -173,9 +226,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D3BA527257417D300E866A6 /* art.scnassets in Resources */,
+				756D5D9625A9786B0028BD33 /* MateriTableViewCell.xib in Resources */,
 				9D3BA531257417D400E866A6 /* LaunchScreen.storyboard in Resources */,
 				9D3BA52E257417D400E866A6 /* Assets.xcassets in Resources */,
 				9D3BA52C257417D300E866A6 /* Main.storyboard in Resources */,
+				756D5D9025A974950028BD33 /* LatihanTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,10 +247,15 @@
 				9DCF6C0F25741B87001B55D4 /* InitViewController.swift in Sources */,
 				9DCF6C0E25741B87001B55D4 /* Home.swift in Sources */,
 				9DCF6C0725741B72001B55D4 /* ARView.swift in Sources */,
+				756D5D8B25A974720028BD33 /* LatihanViewController.swift in Sources */,
+				756D5D9925A9787D0028BD33 /* MateriViewController.swift in Sources */,
+				756D5D8825A972630028BD33 /* ARModeViewController.swift in Sources */,
 				9D67134425A87F8A00935A60 /* ElementModel.swift in Sources */,
+				756D5D8F25A974950028BD33 /* LatihanTableViewCell.swift in Sources */,
 				9D67134025A41EF600935A60 /* DescriptionViewController.swift in Sources */,
 				9DCF6C0D25741B87001B55D4 /* AllElementViewController.swift in Sources */,
 				9D6F83872590581C00FB4821 /* Helper.swift in Sources */,
+				756D5D9525A9786B0028BD33 /* MateriTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
