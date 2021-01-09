@@ -153,11 +153,11 @@ extension ARModeViewController {
             }
         }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toARPage" {
-            
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "toARPage" {
+//            
+//        }
+//    }
 }
 
 

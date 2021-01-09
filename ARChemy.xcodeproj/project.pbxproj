@@ -14,6 +14,7 @@
 		756D5D9525A9786B0028BD33 /* MateriTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D5D9325A9786B0028BD33 /* MateriTableViewCell.swift */; };
 		756D5D9625A9786B0028BD33 /* MateriTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 756D5D9425A9786B0028BD33 /* MateriTableViewCell.xib */; };
 		756D5D9925A9787D0028BD33 /* MateriViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D5D9825A9787D0028BD33 /* MateriViewController.swift */; };
+		756D5D9D25A9F9C60028BD33 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D5D9C25A9F9C60028BD33 /* QuizViewController.swift */; };
 		9D3BA525257417D300E866A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3BA524257417D300E866A6 /* AppDelegate.swift */; };
 		9D3BA527257417D300E866A6 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D3BA526257417D300E866A6 /* art.scnassets */; };
 		9D3BA529257417D300E866A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3BA528257417D300E866A6 /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 		756D5D9325A9786B0028BD33 /* MateriTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriTableViewCell.swift; sourceTree = "<group>"; };
 		756D5D9425A9786B0028BD33 /* MateriTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MateriTableViewCell.xib; sourceTree = "<group>"; };
 		756D5D9825A9787D0028BD33 /* MateriViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriViewController.swift; sourceTree = "<group>"; };
+		756D5D9C25A9F9C60028BD33 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		9D3BA521257417D300E866A6 /* ARChemy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARChemy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D3BA524257417D300E866A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D3BA526257417D300E866A6 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				756D5D8A25A974720028BD33 /* LatihanViewController.swift */,
 				756D5D8D25A974950028BD33 /* LatihanTableViewCell.swift */,
 				756D5D8E25A974950028BD33 /* LatihanTableViewCell.xib */,
+				756D5D9C25A9F9C60028BD33 /* QuizViewController.swift */,
 			);
 			path = "Latihan Pages";
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				756D5D8825A972630028BD33 /* ARModeViewController.swift in Sources */,
 				9D67134425A87F8A00935A60 /* ElementModel.swift in Sources */,
 				756D5D8F25A974950028BD33 /* LatihanTableViewCell.swift in Sources */,
+				756D5D9D25A9F9C60028BD33 /* QuizViewController.swift in Sources */,
 				9D67134025A41EF600935A60 /* DescriptionViewController.swift in Sources */,
 				9DCF6C0D25741B87001B55D4 /* AllElementViewController.swift in Sources */,
 				9D6F83872590581C00FB4821 /* Helper.swift in Sources */,
