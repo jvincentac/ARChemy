@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
     
 class ARModeViewController: UIViewController, UISearchBarDelegate{
@@ -14,13 +15,31 @@ class ARModeViewController: UIViewController, UISearchBarDelegate{
     
     @IBOutlet weak var ZatTableView: UITableView!
     
-    var namaZat : [String] = ["Oksigen","Hidrogen","Nitrogen"]
+    var namaZat : [String] = []
+    
+    //copy dari vincent
+    var elementName = ""
+    var elementDictionary: [String:Any] = [:]
+    
+    var elements: [NSManagedObject] = []
+    
+    var discoverer: String = ""
+    var symbol: String = ""
+    var numberOfElectrons: Int = 0
+    var numerOfNeutrons: Int = 0
+    var atomicMass: String = ""
+    var group: Int = 0
+    var period: Int = 0
+    var type: String = ""
+    //copy dari vincent
     
     // search bar array
     var filteredData : [String]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getAllElements()
         
         ZatTableView.delegate = self
         ZatTableView.dataSource = self
@@ -72,11 +91,82 @@ extension ARModeViewController : UITableViewDataSource{
         
         return cell
         
+    }
+}
+
+extension ARModeViewController {
+    func getElementDataByName2(elementName: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
         
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Element")
+        
+        do {
+            elements = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        for element in elements {
+            if elementName == element.value(forKeyPath: "name") as? String ?? "nil" {
+                self.discoverer = element.value(forKeyPath: "discoverer") as! String
+                self.symbol = element.value(forKeyPath: "symbol") as! String
+                self.numberOfElectrons = element.value(forKeyPath: "electrons") as! Int
+                self.numerOfNeutrons = element.value(forKeyPath: "neutrons") as! Int
+                self.type = element.value(forKeyPath: "type") as! String
+                self.group = element.value(forKeyPath: "group") as! Int
+                self.period = element.value(forKeyPath: "period") as! Int
+                self.atomicMass = element.value(forKeyPath: "atomicMass") as! String
+                break
+            }
+            else {
+                self.discoverer = "Not Found"
+                self.symbol = "Not Found"
+                self.numerOfNeutrons = 0
+                self.numberOfElectrons = 0
+            }
+        }
     }
     
+    func getAllElements(){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Element")
+        
+        do {
+            elements = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        for element in elements {
+            elementName = (element.value(forKeyPath: "name") as? String)!
+            namaZat.append(elementName)
+            elementName = ""
+            }
+        }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toARPage" {
+            
+        }
+    }
 }
+
+
+
+
+
+
+
+
 
 
 

@@ -133,14 +133,9 @@
                                 <rect key="frame" x="0.0" y="293" width="414" height="420"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="Zn6-53-sGG">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="bvw-RP-6hH">
-                                        <rect key="frame" x="0.0" y="72" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bvw-RP-6hH" id="Pr6-pf-E5Z">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -155,6 +150,11 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yoY-ET-0DG">
+                                <rect key="frame" x="0.0" y="249" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ugg-eM-A2H"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -162,12 +162,28 @@
                     <tabBarItem key="tabBarItem" title="Item" id="8lg-mx-qMR"/>
                     <connections>
                         <outlet property="ZatTableView" destination="sth-bT-dtz" id="IC8-O5-29f"/>
-                        <outlet property="searchZat" destination="Zn6-53-sGG" id="qc7-gW-20q"/>
+                        <outlet property="searchZat" destination="yoY-ET-0DG" id="vQH-JC-ZFd"/>
+                        <segue destination="x9X-zu-MRN" kind="showDetail" identifier="toARPage" id="9Q2-qd-ZZc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rh8-9e-851" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2350.7246376811595" y="1393.5267857142856"/>
+            <point key="canvasLocation" x="-2271" y="1380"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="fyM-lZ-U4x">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="x9X-zu-MRN" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xGf-9S-icQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Nv9-Ww-WGf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QMd-Y4-rRL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1425" y="1379"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="Krh-wY-K6n">
