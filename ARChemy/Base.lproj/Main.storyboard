@@ -183,7 +183,7 @@ Yuk pahami materi pembelajaran yang sudah disiapkan!</string>
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26G-XP-hNp">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26G-XP-hNp">
                                         <rect key="frame" x="61" y="62" width="309" height="138"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -247,6 +247,7 @@ Yuk pahami materi pembelajaran yang sudah disiapkan!</string>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="LabelQuestion" destination="26G-XP-hNp" id="QJ6-e0-bmq"/>
                         <outlet property="answer1" destination="BXg-td-eHQ" id="A79-9e-m8s"/>
                         <outlet property="answer2" destination="FYs-rD-boO" id="Df4-a2-msr"/>
                         <outlet property="answer3" destination="9vs-r2-7lT" id="8FC-zW-AY1"/>

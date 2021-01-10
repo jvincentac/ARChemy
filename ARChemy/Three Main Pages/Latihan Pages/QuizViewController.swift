@@ -8,8 +8,12 @@
 import UIKit
 
 class QuizViewController: UIViewController {
-    var question : [String] = ["berapakah Jumlah Proton dari ","berapakah jumlah Netron dari "]
+    var question : [String] = ["Berapakah Jumlah Proton dari ","Berapakah jumlah Netron dari "]
     
+    var correctAnswer : String = "8"
+    
+    
+    @IBOutlet weak var LabelQuestion: UILabel!
     @IBOutlet weak var answer1: UILabel!
     @IBOutlet weak var answer2: UILabel!
     @IBOutlet weak var answer3: UILabel!
@@ -24,12 +28,19 @@ class QuizViewController: UIViewController {
 //    var answer3 : String = ""
 //    var answer4 : String = ""
 //
-    var shuffleAnswer : Int = Int.random(in: 1..<4)
-    
+    var questionChoice : String = ""
+    var shuffleAnswer : Int = Int.random(in: 0..<4)
+    var correctAnswerIndex : Int = 0
+
+// this is for shuffle() for eliminating same numbers
+    var number : [Int] = [0,1,2,3,4,5,6,7,8,9]
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        correctAnswerIndex = shuffleAnswer
+        questionChoice = question.randomElement()!
         
         shuffle()
         
@@ -37,6 +48,8 @@ class QuizViewController: UIViewController {
         print(answer2.text = answer[1])
         print(answer3.text = answer[2])
         print(answer4.text = answer[3])
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -55,11 +68,36 @@ class QuizViewController: UIViewController {
 
 extension QuizViewController {
     func shuffle(){
+        
+        
+        for j in number {
+            if(Int(correctAnswer) == j){
+            number.remove(at: j)
+            }
+        }
+
         for i in 0..<4 {
-//            if(i == 1){
+            if(i == correctAnswerIndex ){
+                answer[i] = correctAnswer
+                                
+            }else{
+                answer[i] = String(number.randomElement()!)
+                
+//                for j in number {
+//                    if(Int(answer[i]) == j){
+//                    number.remove(at: j)
+//                    }
+//                }
+                
+            }
+        }
+//        number.removeAll()
+//        var number : [Int] = [0,1,2,3,4,5,6,7,8,9]
+    }
+    
+    func chooseQuestion(){
+        if(questionChoice == "Berapakah Jumlah Proton dari "){
             
-            answer[i] = String(Int.random(in: 1..<9))
-//            }
         }
     }
 }

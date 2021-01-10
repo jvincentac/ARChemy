@@ -15,6 +15,7 @@
 		756D5D9625A9786B0028BD33 /* MateriTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 756D5D9425A9786B0028BD33 /* MateriTableViewCell.xib */; };
 		756D5D9925A9787D0028BD33 /* MateriViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D5D9825A9787D0028BD33 /* MateriViewController.swift */; };
 		756D5D9D25A9F9C60028BD33 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D5D9C25A9F9C60028BD33 /* QuizViewController.swift */; };
+		756D5DA325AADD2D0028BD33 /* GetAllElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D5DA225AADD2D0028BD33 /* GetAllElements.swift */; };
 		9D3BA525257417D300E866A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3BA524257417D300E866A6 /* AppDelegate.swift */; };
 		9D3BA527257417D300E866A6 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D3BA526257417D300E866A6 /* art.scnassets */; };
 		9D3BA529257417D300E866A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3BA528257417D300E866A6 /* ViewController.swift */; };
@@ -40,6 +41,7 @@
 		756D5D9425A9786B0028BD33 /* MateriTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MateriTableViewCell.xib; sourceTree = "<group>"; };
 		756D5D9825A9787D0028BD33 /* MateriViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriViewController.swift; sourceTree = "<group>"; };
 		756D5D9C25A9F9C60028BD33 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
+		756D5DA225AADD2D0028BD33 /* GetAllElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllElements.swift; sourceTree = "<group>"; };
 		9D3BA521257417D300E866A6 /* ARChemy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARChemy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D3BA524257417D300E866A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D3BA526257417D300E866A6 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 		756D5D8325A971C60028BD33 /* Three Main Pages */ = {
 			isa = PBXGroup;
 			children = (
+				756D5DA125AADD140028BD33 /* Functions */,
 				756D5D8625A971FC0028BD33 /* Materi Pages */,
 				756D5D8525A971F20028BD33 /* Latihan Pages */,
 				756D5D8425A971D60028BD33 /* ARMode Pages */,
@@ -106,6 +109,14 @@
 				756D5D9825A9787D0028BD33 /* MateriViewController.swift */,
 			);
 			path = "Materi Pages";
+			sourceTree = "<group>";
+		};
+		756D5DA125AADD140028BD33 /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				756D5DA225AADD2D0028BD33 /* GetAllElements.swift */,
+			);
+			path = Functions;
 			sourceTree = "<group>";
 		};
 		9D3BA518257417D300E866A6 = {
@@ -248,6 +259,7 @@
 				9D3BA525257417D300E866A6 /* AppDelegate.swift in Sources */,
 				9D6F8384258FC87000FB4821 /* ARChemy.xcdatamodeld in Sources */,
 				9DCF6C0F25741B87001B55D4 /* InitViewController.swift in Sources */,
+				756D5DA325AADD2D0028BD33 /* GetAllElements.swift in Sources */,
 				9DCF6C0E25741B87001B55D4 /* Home.swift in Sources */,
 				9DCF6C0725741B72001B55D4 /* ARView.swift in Sources */,
 				756D5D8B25A974720028BD33 /* LatihanViewController.swift in Sources */,
