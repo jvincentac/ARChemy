@@ -9,8 +9,12 @@ import UIKit
 
 class QuizViewController: UIViewController {
     var question : [String] = ["Berapakah Jumlah Proton dari ","Berapakah jumlah Netron dari "]
+    var namazat : [String] = ["Hydrogen","Oxygen","Nitrogen"]
     
-    var correctAnswer : String = "8"
+    var indexRecord : Int = 0
+    var AnswerProton : [String] = ["8","2","1"]
+    var AnswerNetron : [String] = ["1","4","5"]
+    var correctAnswer : String = ""
     
     
     @IBOutlet weak var LabelQuestion: UILabel!
@@ -20,16 +24,17 @@ class QuizViewController: UIViewController {
     @IBOutlet weak var answer4: UILabel!
     
 
-    
-    var answer : [String] = ["","","",""]
-//
-//    var answer1 : String = String(Int.random(in: 1..<9))
-//    var answer2 : String = ""
-//    var answer3 : String = ""
-//    var answer4 : String = ""
-//
     var questionChoice : String = ""
+    var questionZatName : String = ""
+    
+//array for 4 labels
+    var answer : [String] = ["","","",""]
+
+
+//shuffle 4 label answer1-4
     var shuffleAnswer : Int = Int.random(in: 0..<4)
+    
+//temp var for filling correctAnswer value index
     var correctAnswerIndex : Int = 0
 
 // this is for shuffle() for eliminating same numbers
@@ -39,16 +44,15 @@ class QuizViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         correctAnswerIndex = shuffleAnswer
         questionChoice = question.randomElement()!
+        questionZatName = namazat.randomElement()!
         
+        chooseQuestion()
         shuffle()
-        
-        print(answer1.text = answer[0])
-        print(answer2.text = answer[1])
-        print(answer3.text = answer[2])
-        print(answer4.text = answer[3])
-        
+ 
+
         
         // Do any additional setup after loading the view.
     }
@@ -91,13 +95,48 @@ extension QuizViewController {
                 
             }
         }
+        
+        print(answer1.text = answer[0])
+        print(answer2.text = answer[1])
+        print(answer3.text = answer[2])
+        print(answer4.text = answer[3])
+        
 //        number.removeAll()
 //        var number : [Int] = [0,1,2,3,4,5,6,7,8,9]
     }
     
     func chooseQuestion(){
         if(questionChoice == "Berapakah Jumlah Proton dari "){
+            LabelQuestion.text = "Berapakah Jumlah Proton dari \(questionZatName)"
             
+            //taking index and zat name that suit with the questionZatName that we use to ask the users
+            for (index, zat) in namazat.enumerated(){
+                                if(questionZatName == zat ){
+                                    indexRecord = index
+                                    print(indexRecord)
+                                }
+            }
+            
+            correctAnswer = AnswerProton[indexRecord]
+            
+            
+
+        }else{
+            LabelQuestion.text = "Berapakah Jumlah Netron dari \(questionZatName)"
+            
+            for (index, zat) in namazat.enumerated(){
+                                if(questionZatName == zat ){
+                                    indexRecord = index
+                                    print(indexRecord)
+                                }
+            }
+            
+            correctAnswer = AnswerNetron[indexRecord]
         }
     }
+    
+//    func getData(){
+//        let vc = storyboard?.instantiateInitialViewController(identifier : "test" ) as! ARModeViewController
+//    }
+    
 }

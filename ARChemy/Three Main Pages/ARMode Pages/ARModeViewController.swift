@@ -15,6 +15,7 @@ class ARModeViewController: UIViewController, UISearchBarDelegate{
     
     @IBOutlet weak var ZatTableView: UITableView!
     
+    
     var namaZat : [String] = []
     
     //copy dari vincent
@@ -47,6 +48,7 @@ class ARModeViewController: UIViewController, UISearchBarDelegate{
         searchZat.delegate = self
         
         filteredData = namaZat
+        
     }
 
 
