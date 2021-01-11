@@ -18,12 +18,20 @@ class QuizViewController: UIViewController {
     
     
     @IBOutlet weak var LabelQuestion: UILabel!
+    
+    //label in the box 1,2,3,4
     @IBOutlet weak var answer1: UILabel!
     @IBOutlet weak var answer2: UILabel!
     @IBOutlet weak var answer3: UILabel!
     @IBOutlet weak var answer4: UILabel!
     
+    //button in the box 1,2,3,4
 
+    @IBOutlet weak var box1: UIButton!
+    @IBOutlet weak var box2: UIButton!
+    @IBOutlet weak var box3: UIButton!
+    @IBOutlet weak var box4: UIButton!
+    
     var questionChoice : String = ""
     var questionZatName : String = ""
     
@@ -40,6 +48,20 @@ class QuizViewController: UIViewController {
 // this is for shuffle() for eliminating same numbers
     var number : [Int] = [0,1,2,3,4,5,6,7,8,9]
 
+// var boolean for checking isClick or no on the button
+    var box1clicked : Bool = false
+    var box2clicked : Bool = false
+    var box3clicked : Bool = false
+    var box4clicked : Bool = false
+    
+    var boxClicked : [Bool] = [false,true]
+    let kotakKosong = UIImage(named: "kotak polos")
+    let kotakPilih = UIImage(named: "kotak pilihan")
+
+//var to check the answer is correct or no with the check button
+    var trueorfalse : Bool = false
+    
+    @IBOutlet weak var checkAnswerButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,12 +74,89 @@ class QuizViewController: UIViewController {
         chooseQuestion()
         shuffle()
  
-
+        
         
         // Do any additional setup after loading the view.
     }
     
 
+    @IBAction func box1Tapped(_ sender: UIButton) {
+        box1.setImage(kotakPilih, for: .normal)
+        box2.setImage(kotakKosong, for: .normal)
+        box3.setImage(kotakKosong, for: .normal)
+        box4.setImage(kotakKosong, for: .normal)
+        
+        box1clicked = true
+        box2clicked = false
+        box3clicked = false
+        box4clicked = false
+    }
+    
+    @IBAction func box2Tapped(_ sender: UIButton) {
+        box2.setImage(kotakPilih, for: .normal)
+        box1.setImage(kotakKosong, for: .normal)
+        box3.setImage(kotakKosong, for: .normal)
+        box4.setImage(kotakKosong, for: .normal)
+        
+        box1clicked = false
+        box2clicked = true
+        box3clicked = false
+        box4clicked = false
+    }
+    
+    @IBAction func box3Tapped(_ sender: UIButton) {
+        box3.setImage(kotakPilih, for: .normal)
+        box2.setImage(kotakKosong, for: .normal)
+        box1.setImage(kotakKosong, for: .normal)
+        box4.setImage(kotakKosong, for: .normal)
+        
+        box1clicked = false
+        box2clicked = false
+        box3clicked = true
+        box4clicked = false
+    }
+    
+    @IBAction func box4Tapped(_ sender: UIButton) {
+        box4.setImage(kotakPilih, for: .normal)
+        box2.setImage(kotakKosong, for: .normal)
+        box3.setImage(kotakKosong, for: .normal)
+        box1.setImage(kotakKosong, for: .normal)
+        
+        box1clicked = false
+        box2clicked = false
+        box3clicked = false
+        box4clicked = true
+    }
+    
+    @IBAction func checkAnswerAction(_ sender: UIButton) {
+        if(box1clicked == true){
+            if(answer1.text == correctAnswer){
+                trueorfalse = true
+            }else{
+                trueorfalse = false
+            }
+        }else if(box2clicked == true){
+            if(answer2.text == correctAnswer){
+                trueorfalse = true
+            }else{
+                trueorfalse = false
+            }
+        }else if(box3clicked == true){
+            if(answer3.text == correctAnswer){
+                trueorfalse = true
+            }else{
+                trueorfalse = false
+            }
+        }else{
+            if(answer4.text == correctAnswer){
+                trueorfalse = true
+            }else{
+                trueorfalse = false
+            }
+        }
+    }
+    
+    
     /*
     // MARK: - Navigation
 
@@ -73,26 +172,24 @@ class QuizViewController: UIViewController {
 extension QuizViewController {
     func shuffle(){
         
-        
-        for j in number {
+        for (index , j) in number.enumerated(){
             if(Int(correctAnswer) == j){
-            number.remove(at: j)
+            number.remove(at: index)
             }
         }
 
         for i in 0..<4 {
             if(i == correctAnswerIndex ){
                 answer[i] = correctAnswer
-                                
             }else{
                 answer[i] = String(number.randomElement()!)
                 
-//                for j in number {
-//                    if(Int(answer[i]) == j){
-//                    number.remove(at: j)
-//                    }
-//                }
-                
+                for (index , j) in number.enumerated(){
+                    if(Int(answer[i]) == j){
+                    number.remove(at: index)
+                    print(number)
+                    }
+                }
             }
         }
         
@@ -133,6 +230,10 @@ extension QuizViewController {
             
             correctAnswer = AnswerNetron[indexRecord]
         }
+    }
+    
+    func changeTheBox(){
+        
     }
     
 //    func getData(){

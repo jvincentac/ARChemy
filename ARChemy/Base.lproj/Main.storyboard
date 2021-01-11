@@ -194,26 +194,45 @@ Yuk pahami materi pembelajaran yang sudah disiapkan!</string>
                                         <rect key="frame" x="183" y="694" width="48" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Check "/>
+                                        <connections>
+                                            <action selector="checkAnswerAction:" destination="qCd-Tm-uWV" eventType="touchUpInside" id="qYs-y2-0o2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gc3-h6-Wdq">
+                                        <rect key="frame" x="38" y="236" width="160" height="160"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="kotak polos"/>
+                                        <connections>
+                                            <action selector="box1Tapped:" destination="qCd-Tm-uWV" eventType="touchUpInside" id="xJD-SN-0qG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiv-1C-m1H">
+                                        <rect key="frame" x="230" y="236" width="160" height="160"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="kotak polos"/>
+                                        <connections>
+                                            <action selector="box2Tapped:" destination="qCd-Tm-uWV" eventType="touchUpInside" id="Rbk-NQ-GAB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DeZ-eO-R1i">
+                                        <rect key="frame" x="230" y="426" width="160" height="160"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="kotak polos"/>
+                                        <connections>
+                                            <action selector="box4Tapped:" destination="qCd-Tm-uWV" eventType="touchUpInside" id="d5S-hB-feR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbO-Qs-ZVx">
+                                        <rect key="frame" x="38" y="426" width="160" height="160"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="kotak polos"/>
+                                        <connections>
+                                            <action selector="box3Tapped:" destination="qCd-Tm-uWV" eventType="touchUpInside" id="kfU-YC-bHC"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.92549639939999995" green="0.92547899479999995" blue="0.9254907966" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="kotak polos" translatesAutoresizingMaskIntoConstraints="NO" id="KTv-gi-Pr8">
-                                <rect key="frame" x="11" y="220" width="206" height="180"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="kotak polos" translatesAutoresizingMaskIntoConstraints="NO" id="aly-iT-QQn">
-                                <rect key="frame" x="199" y="220" width="206" height="180"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="kotak polos" translatesAutoresizingMaskIntoConstraints="NO" id="VpE-JK-Pxa">
-                                <rect key="frame" x="199" y="408" width="206" height="180"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="kotak polos" translatesAutoresizingMaskIntoConstraints="NO" id="mYn-pb-oHY">
-                                <rect key="frame" x="11" y="408" width="206" height="180"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXg-td-eHQ">
                                 <rect key="frame" x="93" y="300" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -252,6 +271,11 @@ Yuk pahami materi pembelajaran yang sudah disiapkan!</string>
                         <outlet property="answer2" destination="FYs-rD-boO" id="Df4-a2-msr"/>
                         <outlet property="answer3" destination="9vs-r2-7lT" id="8FC-zW-AY1"/>
                         <outlet property="answer4" destination="gRL-JE-YRo" id="ioy-bG-N5F"/>
+                        <outlet property="box1" destination="Gc3-h6-Wdq" id="w7v-Co-8Pd"/>
+                        <outlet property="box2" destination="yiv-1C-m1H" id="wvv-kH-Dd4"/>
+                        <outlet property="box3" destination="JbO-Qs-ZVx" id="iOi-sN-Fx6"/>
+                        <outlet property="box4" destination="DeZ-eO-R1i" id="6Rs-5h-qGD"/>
+                        <outlet property="checkAnswerButton" destination="IVX-VC-DPp" id="WtJ-lR-ztA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EBG-2l-b6n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
