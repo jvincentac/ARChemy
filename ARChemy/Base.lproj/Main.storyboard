@@ -114,7 +114,7 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="93.75"/>
         </scene>
-        <!--Latihan-->
+        <!--Materi-->
         <scene sceneID="c4Q-X8-akb">
             <objects>
                 <viewController id="tm5-qS-kJ1" customClass="MateriViewController" customModule="ARChemy" customModuleProvider="target" sceneMemberID="viewController">
@@ -189,7 +189,7 @@ Yuk pahami materi pembelajaran yang sudah disiapkan!</string>
                         <viewLayoutGuide key="safeArea" id="ziM-gR-GMB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Latihan" image="latihan" id="aLj-aK-Oxt">
+                    <tabBarItem key="tabBarItem" title="Materi" image="materi" id="aLj-aK-Oxt">
                         <inset key="imageInsets" minX="0.0" minY="26" maxX="0.0" maxY="25"/>
                     </tabBarItem>
                     <connections>
@@ -422,7 +422,7 @@ Yuk pahami materi pembelajaran yang sudah disiapkan!</string>
             </objects>
             <point key="canvasLocation" x="-2352" y="1391"/>
         </scene>
-        <!--Materi-->
+        <!--Latihan-->
         <scene sceneID="Krh-wY-K6n">
             <objects>
                 <viewController storyboardIdentifier="LatihanPage" id="NHD-zm-W1U" customClass="LatihanViewController" customModule="ARChemy" customModuleProvider="target" sceneMemberID="viewController">
@@ -500,7 +500,7 @@ lupa untuk melatih kemampuanmu dengan soal-soal ini</string>
                         <viewLayoutGuide key="safeArea" id="URi-hB-oas"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Materi" image="materi" id="4Ge-ky-vKO">
+                    <tabBarItem key="tabBarItem" title="Latihan" image="latihan" id="4Ge-ky-vKO">
                         <inset key="imageInsets" minX="0.0" minY="26" maxX="0.0" maxY="25"/>
                     </tabBarItem>
                     <connections>
