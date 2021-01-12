@@ -32,7 +32,6 @@ class ARModeViewController: UIViewController, UISearchBarDelegate{
     var group: Int = 0
     var period: Int = 0
     var type: String = ""
-    //copy dari vincent
     
     // search bar array
     var filteredData : [String]!
@@ -50,11 +49,6 @@ class ARModeViewController: UIViewController, UISearchBarDelegate{
         filteredData = namaZat
         
     }
-
-
-    
-
-    
     // MARK : Search Bar Config
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
@@ -76,7 +70,18 @@ class ARModeViewController: UIViewController, UISearchBarDelegate{
 
 extension ARModeViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(namaZat[indexPath.row])
+
+        let search = filteredData[indexPath.row]
+        getElementDataByName2(elementName: search)
+        
+        let newElement = ElementModel(atomicMass: atomicMass, discoverer: discoverer, electrons: Int16(numberOfElectrons), group: Int16(group), name: search, neutrons: Int16(numerOfNeutrons), period: Int16(period), symbol: symbol, type: type)
+        
+        InitViewController.arrayOfElements.append(newElement)
+        
+//        print(InitViewController.arrayOfElements[0].name)
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ElementDesc") as! DescriptionViewController
+        present(sb, animated: true, completion: nil)
     }
 }
 

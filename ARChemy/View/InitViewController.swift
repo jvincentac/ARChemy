@@ -11,6 +11,10 @@ import CoreData
 
 class InitViewController: UIViewController {
     
+    var arrayOfElement: [ElementModel] = []
+    
+    static var arrayOfElements: [ElementModel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,7 +22,7 @@ class InitViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home") as! Home
+        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InitTab")
         sb.modalPresentationStyle = .fullScreen
         present(sb, animated: true, completion: nil)
     }

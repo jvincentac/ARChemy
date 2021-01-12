@@ -9,11 +9,11 @@ import Foundation
 import UIKit
 
 class LatihanViewController: UIViewController {
-    
 
     @IBOutlet weak var LatihanTableView: UITableView!
     
     var ListLatihan :[String] = ["Latihan 1","Latihan 2","Latihan 3"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,6 +46,6 @@ extension LatihanViewController : UITableViewDataSource{
 
         return LatihanCell
     }
-    
-    
 }
+
+
