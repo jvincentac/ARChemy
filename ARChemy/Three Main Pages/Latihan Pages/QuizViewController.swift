@@ -57,16 +57,19 @@ class QuizViewController: UIViewController {
     var boxClicked : [Bool] = [false,true]
     let kotakKosong = UIImage(named: "kotak polos")
     let kotakPilih = UIImage(named: "kotak pilihan")
-
+    let kotakBenar = UIImage(named: "kotak benar")
+    let kotakSalah = UIImage(named: "kotak salah")
+    
 //var to check the answer is correct or no with the check button
     var trueorfalse : Bool = false
     
+    @IBOutlet weak var trueorfalseImage: UIImageView!
     @IBOutlet weak var checkAnswerButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        trueorfalseImage.isHidden = true
         correctAnswerIndex = shuffleAnswer
         questionChoice = question.randomElement()!
         questionZatName = namazat.randomElement()!
@@ -82,9 +85,7 @@ class QuizViewController: UIViewController {
 
     @IBAction func box1Tapped(_ sender: UIButton) {
         box1.setImage(kotakPilih, for: .normal)
-        box2.setImage(kotakKosong, for: .normal)
-        box3.setImage(kotakKosong, for: .normal)
-        box4.setImage(kotakKosong, for: .normal)
+        AllEmptyExceptBox1()
         
         box1clicked = true
         box2clicked = false
@@ -94,9 +95,7 @@ class QuizViewController: UIViewController {
     
     @IBAction func box2Tapped(_ sender: UIButton) {
         box2.setImage(kotakPilih, for: .normal)
-        box1.setImage(kotakKosong, for: .normal)
-        box3.setImage(kotakKosong, for: .normal)
-        box4.setImage(kotakKosong, for: .normal)
+        AllEmptyExceptBox2()
         
         box1clicked = false
         box2clicked = true
@@ -106,9 +105,7 @@ class QuizViewController: UIViewController {
     
     @IBAction func box3Tapped(_ sender: UIButton) {
         box3.setImage(kotakPilih, for: .normal)
-        box2.setImage(kotakKosong, for: .normal)
-        box1.setImage(kotakKosong, for: .normal)
-        box4.setImage(kotakKosong, for: .normal)
+        AllEmptyExceptBox3()
         
         box1clicked = false
         box2clicked = false
@@ -118,9 +115,7 @@ class QuizViewController: UIViewController {
     
     @IBAction func box4Tapped(_ sender: UIButton) {
         box4.setImage(kotakPilih, for: .normal)
-        box2.setImage(kotakKosong, for: .normal)
-        box3.setImage(kotakKosong, for: .normal)
-        box1.setImage(kotakKosong, for: .normal)
+        AllEmptyExceptBox4()
         
         box1clicked = false
         box2clicked = false
@@ -153,6 +148,47 @@ class QuizViewController: UIViewController {
             }else{
                 trueorfalse = false
             }
+        }
+        
+        if(trueorfalse == true){
+            trueorfalseImage.isHidden = false
+            trueorfalseImage.image = UIImage(named: "true")
+            disableAllBoxButton()
+        }else{
+            trueorfalseImage.isHidden = false
+            trueorfalseImage.image = UIImage(named: "false")
+            disableAllBoxButton()
+//            if(box1clicked == true){
+//                box1.setImage(kotakSalah, for: .normal)
+//            }else if(box1clicked == true){
+//                box2.setImage(kotakSalah, for: .normal)
+//            }else if(box1clicked == true){
+//                box3.setImage(kotakSalah, for: .normal)
+//            }else{
+//                box4.setImage(kotakSalah, for: .normal)
+//            }
+            checkAnswerButton.setTitle("Cek Jawaban", for: .normal)
+            
+        }
+        
+        if(checkAnswerButton.titleLabel?.text == "Cek Jawaban"){
+            if(correctAnswer == answer[correctAnswerIndex]){
+                if(correctAnswerIndex+1 == 1){
+                    box1.setImage(kotakBenar, for: .normal)
+                    AllEmptyExceptBox1()
+                    
+                }else if(correctAnswerIndex+1 == 2){
+                    box2.setImage(kotakBenar, for: .normal)
+                    AllEmptyExceptBox2()
+                }else if(correctAnswerIndex+1 == 3){
+                    box3.setImage(kotakBenar, for: .normal)
+                    AllEmptyExceptBox3()
+                }else{
+                    box4.setImage(kotakBenar, for: .normal)
+                    AllEmptyExceptBox4()
+                }
+            }
+            checkAnswerButton.setTitle("Lanjut", for: .normal)
         }
     }
     
@@ -232,12 +268,37 @@ extension QuizViewController {
         }
     }
     
-    func changeTheBox(){
-        
+    func disableAllBoxButton(){
+        box1.isEnabled = false
+        box2.isEnabled = false
+        box3.isEnabled = false
+        box4.isEnabled = false
     }
     
-//    func getData(){
-//        let vc = storyboard?.instantiateInitialViewController(identifier : "test" ) as! ARModeViewController
-//    }
+    func AllEmptyExceptBox1(){
+        box2.setImage(kotakKosong, for: .normal)
+        box3.setImage(kotakKosong, for: .normal)
+        box4.setImage(kotakKosong, for: .normal)
+    }
+
+    
+    func AllEmptyExceptBox2(){
+        box3.setImage(kotakKosong, for: .normal)
+        box1.setImage(kotakKosong, for: .normal)
+        box4.setImage(kotakKosong, for: .normal)
+    }
+    
+    
+    func AllEmptyExceptBox3(){
+        box2.setImage(kotakKosong, for: .normal)
+        box1.setImage(kotakKosong, for: .normal)
+        box4.setImage(kotakKosong, for: .normal)
+    }
+    
+    func AllEmptyExceptBox4(){
+        box2.setImage(kotakKosong, for: .normal)
+        box1.setImage(kotakKosong, for: .normal)
+        box3.setImage(kotakKosong, for: .normal)
+    }
     
 }

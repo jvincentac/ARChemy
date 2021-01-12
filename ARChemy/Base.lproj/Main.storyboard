@@ -191,9 +191,11 @@ Yuk pahami materi pembelajaran yang sudah disiapkan!</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVX-VC-DPp">
-                                        <rect key="frame" x="183" y="694" width="48" height="30"/>
+                                        <rect key="frame" x="109" y="613" width="196" height="59"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Check "/>
+                                        <state key="normal" title="Check " backgroundImage="kotakButtonQuiz">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
                                         <connections>
                                             <action selector="checkAnswerAction:" destination="qCd-Tm-uWV" eventType="touchUpInside" id="qYs-y2-0o2"/>
                                         </connections>
@@ -214,14 +216,6 @@ Yuk pahami materi pembelajaran yang sudah disiapkan!</string>
                                             <action selector="box2Tapped:" destination="qCd-Tm-uWV" eventType="touchUpInside" id="Rbk-NQ-GAB"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DeZ-eO-R1i">
-                                        <rect key="frame" x="230" y="426" width="160" height="160"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="kotak polos"/>
-                                        <connections>
-                                            <action selector="box4Tapped:" destination="qCd-Tm-uWV" eventType="touchUpInside" id="d5S-hB-feR"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbO-Qs-ZVx">
                                         <rect key="frame" x="38" y="426" width="160" height="160"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -230,6 +224,23 @@ Yuk pahami materi pembelajaran yang sudah disiapkan!</string>
                                             <action selector="box3Tapped:" destination="qCd-Tm-uWV" eventType="touchUpInside" id="kfU-YC-bHC"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DeZ-eO-R1i">
+                                        <rect key="frame" x="230" y="426" width="160" height="160"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="kotak polos"/>
+                                        <connections>
+                                            <action selector="box4Tapped:" destination="qCd-Tm-uWV" eventType="touchUpInside" id="d5S-hB-feR"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="true" translatesAutoresizingMaskIntoConstraints="NO" id="15O-qh-Yuz">
+                                        <rect key="frame" x="85" y="690" width="244" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wrX-Y6-OQq">
+                                        <rect key="frame" x="0.0" y="-62" width="414" height="165"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.55294117649999996" green="0.5450980392" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.92549639939999995" green="0.92547899479999995" blue="0.9254907966" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
@@ -276,6 +287,7 @@ Yuk pahami materi pembelajaran yang sudah disiapkan!</string>
                         <outlet property="box3" destination="JbO-Qs-ZVx" id="iOi-sN-Fx6"/>
                         <outlet property="box4" destination="DeZ-eO-R1i" id="6Rs-5h-qGD"/>
                         <outlet property="checkAnswerButton" destination="IVX-VC-DPp" id="WtJ-lR-ztA"/>
+                        <outlet property="trueorfalseImage" destination="15O-qh-Yuz" id="sRs-7B-pkx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EBG-2l-b6n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -613,9 +625,11 @@ lupa untuk melatih kemampuanmu dengan soal-soal ini</string>
         <image name="gambar materi" width="460" height="507"/>
         <image name="gambar modeAR" width="413" height="480"/>
         <image name="kotak polos" width="444" height="444"/>
+        <image name="kotakButtonQuiz" width="414" height="144"/>
         <image name="latihan" width="78" height="78"/>
         <image name="materi" width="84" height="84"/>
         <image name="modeAR" width="84" height="84"/>
+        <image name="true" width="660" height="84"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
