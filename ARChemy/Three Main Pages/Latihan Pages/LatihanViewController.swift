@@ -21,6 +21,8 @@ class LatihanViewController: UIViewController {
         LatihanTableView.delegate = self
         LatihanTableView.dataSource = self
         
+        LatihanTableView.separatorStyle = .none
+        
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -30,7 +32,9 @@ class LatihanViewController: UIViewController {
 
 extension LatihanViewController : UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Test")
+        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Quiz") as! QuizViewController
+        sb.modalPresentationStyle = .fullScreen
+        present(sb, animated: true, completion: nil)
     }
 }
 

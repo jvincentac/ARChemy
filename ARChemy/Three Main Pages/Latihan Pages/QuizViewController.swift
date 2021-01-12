@@ -76,13 +76,16 @@ class QuizViewController: UIViewController {
         
         chooseQuestion()
         shuffle()
- 
         
-        
-        // Do any additional setup after loading the view.
+        configurePage()
     }
     
-
+    @IBAction func backBtn(_ sender: Any) {
+        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InitTab")
+        sb.modalPresentationStyle = .fullScreen
+        present(sb, animated: true, completion: nil)
+    }
+    
     @IBAction func box1Tapped(_ sender: UIButton) {
         box1.setImage(kotakPilih, for: .normal)
         AllEmptyExceptBox1()
@@ -142,7 +145,7 @@ class QuizViewController: UIViewController {
             }else{
                 trueorfalse = false
             }
-        }else{
+        }else if(box4clicked == true){
             if(answer4.text == correctAnswer){
                 trueorfalse = true
             }else{
@@ -158,15 +161,6 @@ class QuizViewController: UIViewController {
             trueorfalseImage.isHidden = false
             trueorfalseImage.image = UIImage(named: "false")
             disableAllBoxButton()
-//            if(box1clicked == true){
-//                box1.setImage(kotakSalah, for: .normal)
-//            }else if(box1clicked == true){
-//                box2.setImage(kotakSalah, for: .normal)
-//            }else if(box1clicked == true){
-//                box3.setImage(kotakSalah, for: .normal)
-//            }else{
-//                box4.setImage(kotakSalah, for: .normal)
-//            }
             checkAnswerButton.setTitle("Cek Jawaban", for: .normal)
             
         }
@@ -190,24 +184,25 @@ class QuizViewController: UIViewController {
             }
             checkAnswerButton.setTitle("Lanjut", for: .normal)
         }
+        else if (checkAnswerButton.titleLabel?.text == "Lanjut") {
+            let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InitTab")
+            sb.modalPresentationStyle = .fullScreen
+            present(sb, animated: true, completion: nil)
+        }
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension QuizViewController {
-    func shuffle(){
+    func configurePage() {
+        answer1.textColor = .black
+        answer2.textColor = .black
+        answer3.textColor = .black
+        answer4.textColor = .black
         
+        checkAnswerButton.isUserInteractionEnabled = false
+    }
+    
+    func shuffle(){
         for (index , j) in number.enumerated(){
             if(Int(correctAnswer) == j){
             number.remove(at: index)

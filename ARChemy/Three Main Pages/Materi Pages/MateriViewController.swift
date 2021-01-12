@@ -29,7 +29,9 @@ class MateriViewController: UIViewController {
 }
 
 extension MateriViewController : UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
 }
 
 extension MateriViewController : UITableViewDataSource {
