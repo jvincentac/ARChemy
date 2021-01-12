@@ -78,9 +78,8 @@ extension ARModeViewController : UITableViewDelegate {
         
         InitViewController.arrayOfElements.append(newElement)
         
-//        print(InitViewController.arrayOfElements[0].name)
-        
-        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ElementDesc") as! DescriptionViewController
+//        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ElementDesc") as! DescriptionViewController
+        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ARView") as! ARView
         present(sb, animated: true, completion: nil)
     }
 }

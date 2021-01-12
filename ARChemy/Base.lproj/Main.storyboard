@@ -29,10 +29,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2X-dx-BbC">
-                                <rect key="frame" x="347" y="44" width="47" height="36"/>
+                                <rect key="frame" x="348" y="44" width="46" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Done"/>
+                                <state key="normal" title="Clear"/>
                                 <connections>
                                     <action selector="doneBtn:" destination="Vos-ad-Pnb" eventType="touchUpInside" id="M1e-EY-lyx"/>
                                 </connections>
@@ -61,9 +61,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="773"/>
                             </arscnView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="95W-in-xkG">
-                                <rect key="frame" x="20" y="810" width="374" height="30"/>
+                                <rect key="frame" x="20" y="781" width="374" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="backToHome:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Pb0-76-cax"/>
                                 </connections>
@@ -311,7 +314,7 @@ Yuk pahami materi pembelajaran yang sudah disiapkan!</string>
         <!--Mode AR-->
         <scene sceneID="Nfc-Xz-t2j">
             <objects>
-                <viewController id="ZZz-tv-HwK" customClass="ARModeViewController" customModule="ARChemy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ARMode" id="ZZz-tv-HwK" customClass="ARModeViewController" customModule="ARChemy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pyO-Oh-Meg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

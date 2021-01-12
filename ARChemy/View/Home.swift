@@ -53,7 +53,7 @@ class Home: UIViewController {
     @IBAction func toARButton(_ sender: Any) {
         let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ARView") as! ARView
         sb.modalPresentationStyle = .fullScreen
-        sb.text = self.labelElementInfo.text ?? ""
+        
         present(sb, animated: true, completion: nil)
     }
     
