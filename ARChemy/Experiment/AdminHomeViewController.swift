@@ -27,7 +27,12 @@ class AdminHomeViewController: UIViewController {
     }
 
     @IBAction func addMateriBtn(_ sender: Any) {
+        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewMaterial") as! NewMateriViewController
+        sb.isEdit = false
+        sb.teacher = teacher
+        sb.modalPresentationStyle = .fullScreen
         
+        present(sb, animated: true, completion: nil)
     }
     
     @IBAction func addLatihanBtn(_ sender: Any) {
@@ -35,6 +40,23 @@ class AdminHomeViewController: UIViewController {
         sb.teacher = teacher
         sb.modalPresentationStyle = .fullScreen
         present(sb, animated: true, completion: nil)
+    }
+}
+
+extension AdminHomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row < latihanList.count {
+            
+        }
+        else {
+            let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewMaterial") as! NewMateriViewController
+            sb.isEdit = true
+            sb.teacher = teacher
+            sb.material = materiList[indexPath.row - latihanList.count]
+            sb.modalPresentationStyle = .fullScreen
+            
+            present(sb, animated: true, completion: nil)
+        }
     }
 }
 

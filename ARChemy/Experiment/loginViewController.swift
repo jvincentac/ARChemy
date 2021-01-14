@@ -7,7 +7,7 @@
 
 import UIKit
 
-class loginViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     @IBOutlet weak var teacherTableView: UITableView!
     
@@ -42,7 +42,7 @@ class loginViewController: UIViewController {
     }
 }
 
-extension loginViewController: UITableViewDataSource {
+extension LoginViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         teacherList.count
     }
@@ -56,7 +56,7 @@ extension loginViewController: UITableViewDataSource {
     }
 }
 
-extension loginViewController {
+extension LoginViewController {
     private func checkData() {
         self.name = nameTextField.text!
         self.password = passwordTextField.text!

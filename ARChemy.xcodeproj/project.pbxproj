@@ -22,9 +22,10 @@
 		9D3A1C9725B02FA30064B9F0 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A1C9625B02FA30064B9F0 /* Question.swift */; };
 		9D3A1C9A25B0324F0064B9F0 /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A1C9925B0324F0064B9F0 /* Material.swift */; };
 		9D3A1CA025B032CE0064B9F0 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D3A1C9F25B032CE0064B9F0 /* CloudKit.framework */; };
-		9D3A1CA425B035230064B9F0 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A1CA325B035230064B9F0 /* loginViewController.swift */; };
+		9D3A1CA425B035230064B9F0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A1CA325B035230064B9F0 /* LoginViewController.swift */; };
 		9D3A1CA825B042FB0064B9F0 /* AdminHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A1CA725B042FB0064B9F0 /* AdminHomeViewController.swift */; };
 		9D3A1CAB25B045C10064B9F0 /* NewLatihanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A1CAA25B045C10064B9F0 /* NewLatihanViewController.swift */; };
+		9D3A1CB125B0551C0064B9F0 /* NewMateriViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A1CB025B0551C0064B9F0 /* NewMateriViewController.swift */; };
 		9D3BA525257417D300E866A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3BA524257417D300E866A6 /* AppDelegate.swift */; };
 		9D3BA527257417D300E866A6 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D3BA526257417D300E866A6 /* art.scnassets */; };
 		9D3BA529257417D300E866A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3BA528257417D300E866A6 /* ViewController.swift */; };
@@ -55,9 +56,10 @@
 		9D3A1C9925B0324F0064B9F0 /* Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
 		9D3A1C9C25B032C80064B9F0 /* ARChemy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ARChemy.entitlements; sourceTree = "<group>"; };
 		9D3A1C9F25B032CE0064B9F0 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		9D3A1CA325B035230064B9F0 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
+		9D3A1CA325B035230064B9F0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9D3A1CA725B042FB0064B9F0 /* AdminHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHomeViewController.swift; sourceTree = "<group>"; };
 		9D3A1CAA25B045C10064B9F0 /* NewLatihanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLatihanViewController.swift; sourceTree = "<group>"; };
+		9D3A1CB025B0551C0064B9F0 /* NewMateriViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMateriViewController.swift; sourceTree = "<group>"; };
 		9D3BA521257417D300E866A6 /* ARChemy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARChemy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D3BA524257417D300E866A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D3BA526257417D300E866A6 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -135,9 +137,10 @@
 		9D3A1CA225B034FE0064B9F0 /* Experiment */ = {
 			isa = PBXGroup;
 			children = (
-				9D3A1CA325B035230064B9F0 /* loginViewController.swift */,
+				9D3A1CA325B035230064B9F0 /* LoginViewController.swift */,
 				9D3A1CA725B042FB0064B9F0 /* AdminHomeViewController.swift */,
 				9D3A1CAA25B045C10064B9F0 /* NewLatihanViewController.swift */,
+				9D3A1CB025B0551C0064B9F0 /* NewMateriViewController.swift */,
 			);
 			path = Experiment;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D3BA529257417D300E866A6 /* ViewController.swift in Sources */,
+				9D3A1CB125B0551C0064B9F0 /* NewMateriViewController.swift in Sources */,
 				9D3BA525257417D300E866A6 /* AppDelegate.swift in Sources */,
 				9D6F8384258FC87000FB4821 /* ARChemy.xcdatamodeld in Sources */,
 				9D3A1C9725B02FA30064B9F0 /* Question.swift in Sources */,
@@ -300,7 +304,7 @@
 				9D3A1CAB25B045C10064B9F0 /* NewLatihanViewController.swift in Sources */,
 				756D5D9925A9787D0028BD33 /* MateriViewController.swift in Sources */,
 				756D5D8825A972630028BD33 /* ARModeViewController.swift in Sources */,
-				9D3A1CA425B035230064B9F0 /* loginViewController.swift in Sources */,
+				9D3A1CA425B035230064B9F0 /* LoginViewController.swift in Sources */,
 				9D67134425A87F8A00935A60 /* ElementModel.swift in Sources */,
 				756D5D8F25A974950028BD33 /* LatihanTableViewCell.swift in Sources */,
 				756D5D9D25A9F9C60028BD33 /* QuizViewController.swift in Sources */,

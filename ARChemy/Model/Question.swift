@@ -39,4 +39,14 @@ class Question: NSManagedObject {
         
         try? viewContext.save()
     }
+    
+    static func deleteQuestion(viewContext: NSManagedObjectContext = AppDelegate.viewContext, question: Question) {
+        fetchAll(viewContext: viewContext).forEach({
+            if $0 == question {
+                viewContext.delete($0)
+            }
+        })
+        
+        try? viewContext.save()
+    }
 }
