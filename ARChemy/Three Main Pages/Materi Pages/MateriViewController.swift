@@ -19,6 +19,9 @@ class MateriViewController: UIViewController {
         MateriTableView.delegate = self
         MateriTableView.dataSource = self
         
+        MateriTableView.separatorStyle = .none
+        MateriTableView.backgroundColor = .white
+        
         MateriTableView.register(MateriTableViewCell.nib(), forCellReuseIdentifier: MateriTableViewCell.identifier)
         // Do any additional setup after loading the view.
     }

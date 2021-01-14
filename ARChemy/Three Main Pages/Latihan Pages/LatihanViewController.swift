@@ -21,6 +21,8 @@ class LatihanViewController: UIViewController {
         LatihanTableView.delegate = self
         LatihanTableView.dataSource = self
         
+        LatihanTableView.backgroundColor = .white
+        
         LatihanTableView.separatorStyle = .none
         
     }

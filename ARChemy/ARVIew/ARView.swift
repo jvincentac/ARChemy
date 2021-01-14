@@ -32,6 +32,7 @@ class ARView: UIViewController, ARSCNViewDelegate {
         sceneView.scene = scene
         
         configureAR()
+//        addLine(x: 0, y: 0, z: -1.5)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -132,5 +133,15 @@ extension ARView {
         let sphereNode = SCNNode(geometry: sphere)
         sphereNode.position = SCNVector3(x, y, z)
         sceneView.scene.rootNode.addChildNode(sphereNode)
+    }
+    
+    func addLine(x: CGFloat, y: CGFloat, z: CGFloat) {
+        let line = SCNCylinder(radius: 0.05, height: 0.2)
+        line.firstMaterial?.diffuse.contents = UIColor.black
+        
+        let lineNode = SCNNode(geometry: line)
+        lineNode.position = SCNVector3(x, y, z)
+        
+        sceneView.scene.rootNode.addChildNode(lineNode)
     }
 }

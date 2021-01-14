@@ -87,6 +87,7 @@ class QuizViewController: UIViewController {
     }
     
     @IBAction func box1Tapped(_ sender: UIButton) {
+        checkAnswerButton.isUserInteractionEnabled = true
         box1.setImage(kotakPilih, for: .normal)
         AllEmptyExceptBox1()
         
@@ -97,6 +98,7 @@ class QuizViewController: UIViewController {
     }
     
     @IBAction func box2Tapped(_ sender: UIButton) {
+        checkAnswerButton.isUserInteractionEnabled = true
         box2.setImage(kotakPilih, for: .normal)
         AllEmptyExceptBox2()
         
@@ -107,6 +109,7 @@ class QuizViewController: UIViewController {
     }
     
     @IBAction func box3Tapped(_ sender: UIButton) {
+        checkAnswerButton.isUserInteractionEnabled = true
         box3.setImage(kotakPilih, for: .normal)
         AllEmptyExceptBox3()
         
@@ -117,6 +120,7 @@ class QuizViewController: UIViewController {
     }
     
     @IBAction func box4Tapped(_ sender: UIButton) {
+        checkAnswerButton.isUserInteractionEnabled = true
         box4.setImage(kotakPilih, for: .normal)
         AllEmptyExceptBox4()
         

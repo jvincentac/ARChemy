@@ -15,7 +15,6 @@ class ARModeViewController: UIViewController, UISearchBarDelegate{
     
     @IBOutlet weak var ZatTableView: UITableView!
     
-    
     var namaZat : [String] = []
     
     //copy dari vincent
@@ -43,6 +42,7 @@ class ARModeViewController: UIViewController, UISearchBarDelegate{
         
         ZatTableView.delegate = self
         ZatTableView.dataSource = self
+        ZatTableView.backgroundColor = .white
         
         searchZat.delegate = self
         
@@ -94,6 +94,8 @@ extension ARModeViewController : UITableViewDataSource{
         let cell = ZatTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         cell.textLabel?.text = filteredData[indexPath.row]
+        cell.textLabel?.textColor = .black
+        cell.backgroundColor = .white
         
         return cell
         
