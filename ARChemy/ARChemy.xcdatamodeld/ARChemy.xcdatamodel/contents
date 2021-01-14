@@ -11,15 +11,30 @@
         <attribute name="symbol" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="Question" representedClassName="Question" syncable="YES" codeGenerationType="class">
+    <entity name="Material" representedClassName=".Material" syncable="YES" codeGenerationType="category">
+        <attribute name="material" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Teacher" inverseName="materials" inverseEntity="Teacher"/>
+    </entity>
+    <entity name="Question" representedClassName=".Question" syncable="YES" codeGenerationType="category">
         <attribute name="answer" optional="YES" attributeType="String"/>
         <attribute name="question" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="w1" optional="YES" attributeType="String"/>
         <attribute name="w2" optional="YES" attributeType="String"/>
         <attribute name="w3" optional="YES" attributeType="String"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Teacher" inverseName="questions" inverseEntity="Teacher"/>
+    </entity>
+    <entity name="Teacher" representedClassName=".Teacher" syncable="YES" codeGenerationType="category">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <relationship name="materials" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Material" inverseName="owner" inverseEntity="Material"/>
+        <relationship name="questions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Question" inverseName="owner" inverseEntity="Question"/>
     </entity>
     <elements>
         <element name="Element" positionX="-63" positionY="-18" width="128" height="164"/>
-        <element name="Question" positionX="-54" positionY="27" width="128" height="104"/>
+        <element name="Question" positionX="-54" positionY="27" width="128" height="134"/>
+        <element name="Teacher" positionX="-36" positionY="72" width="128" height="89"/>
+        <element name="Material" positionX="-18" positionY="81" width="128" height="74"/>
     </elements>
 </model>

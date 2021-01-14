@@ -15,10 +15,16 @@
 		756D5D9625A9786B0028BD33 /* MateriTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 756D5D9425A9786B0028BD33 /* MateriTableViewCell.xib */; };
 		756D5D9925A9787D0028BD33 /* MateriViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D5D9825A9787D0028BD33 /* MateriViewController.swift */; };
 		756D5D9D25A9F9C60028BD33 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D5D9C25A9F9C60028BD33 /* QuizViewController.swift */; };
-		756D5DA325AADD2D0028BD33 /* GetAllElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D5DA225AADD2D0028BD33 /* GetAllElements.swift */; };
 		9D3A1C5325AD6A230064B9F0 /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A1C5025AD6A230064B9F0 /* Description.swift */; };
 		9D3A1C5425AD6A230064B9F0 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A1C5125AD6A230064B9F0 /* DescriptionViewController.swift */; };
 		9D3A1C5525AD6A230064B9F0 /* Description.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D3A1C5225AD6A230064B9F0 /* Description.xib */; };
+		9D3A1C9325B02E6C0064B9F0 /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A1C9225B02E6C0064B9F0 /* Teacher.swift */; };
+		9D3A1C9725B02FA30064B9F0 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A1C9625B02FA30064B9F0 /* Question.swift */; };
+		9D3A1C9A25B0324F0064B9F0 /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A1C9925B0324F0064B9F0 /* Material.swift */; };
+		9D3A1CA025B032CE0064B9F0 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D3A1C9F25B032CE0064B9F0 /* CloudKit.framework */; };
+		9D3A1CA425B035230064B9F0 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A1CA325B035230064B9F0 /* loginViewController.swift */; };
+		9D3A1CA825B042FB0064B9F0 /* AdminHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A1CA725B042FB0064B9F0 /* AdminHomeViewController.swift */; };
+		9D3A1CAB25B045C10064B9F0 /* NewLatihanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A1CAA25B045C10064B9F0 /* NewLatihanViewController.swift */; };
 		9D3BA525257417D300E866A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3BA524257417D300E866A6 /* AppDelegate.swift */; };
 		9D3BA527257417D300E866A6 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D3BA526257417D300E866A6 /* art.scnassets */; };
 		9D3BA529257417D300E866A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3BA528257417D300E866A6 /* ViewController.swift */; };
@@ -29,8 +35,6 @@
 		9D6F8384258FC87000FB4821 /* ARChemy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D6F8382258FC87000FB4821 /* ARChemy.xcdatamodeld */; };
 		9D6F83872590581C00FB4821 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6F83862590581C00FB4821 /* Helper.swift */; };
 		9DCF6C0725741B72001B55D4 /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF6C0625741B72001B55D4 /* ARView.swift */; };
-		9DCF6C0D25741B87001B55D4 /* AllElementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF6C0A25741B87001B55D4 /* AllElementViewController.swift */; };
-		9DCF6C0E25741B87001B55D4 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF6C0B25741B87001B55D4 /* Home.swift */; };
 		9DCF6C0F25741B87001B55D4 /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF6C0C25741B87001B55D4 /* InitViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,10 +47,17 @@
 		756D5D9425A9786B0028BD33 /* MateriTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MateriTableViewCell.xib; sourceTree = "<group>"; };
 		756D5D9825A9787D0028BD33 /* MateriViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriViewController.swift; sourceTree = "<group>"; };
 		756D5D9C25A9F9C60028BD33 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
-		756D5DA225AADD2D0028BD33 /* GetAllElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllElements.swift; sourceTree = "<group>"; };
 		9D3A1C5025AD6A230064B9F0 /* Description.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Description.swift; sourceTree = "<group>"; };
 		9D3A1C5125AD6A230064B9F0 /* DescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		9D3A1C5225AD6A230064B9F0 /* Description.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Description.xib; sourceTree = "<group>"; };
+		9D3A1C9225B02E6C0064B9F0 /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
+		9D3A1C9625B02FA30064B9F0 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		9D3A1C9925B0324F0064B9F0 /* Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
+		9D3A1C9C25B032C80064B9F0 /* ARChemy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ARChemy.entitlements; sourceTree = "<group>"; };
+		9D3A1C9F25B032CE0064B9F0 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		9D3A1CA325B035230064B9F0 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
+		9D3A1CA725B042FB0064B9F0 /* AdminHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHomeViewController.swift; sourceTree = "<group>"; };
+		9D3A1CAA25B045C10064B9F0 /* NewLatihanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLatihanViewController.swift; sourceTree = "<group>"; };
 		9D3BA521257417D300E866A6 /* ARChemy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARChemy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D3BA524257417D300E866A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D3BA526257417D300E866A6 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -59,8 +70,6 @@
 		9D6F8383258FC87000FB4821 /* ARChemy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ARChemy.xcdatamodel; sourceTree = "<group>"; };
 		9D6F83862590581C00FB4821 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		9DCF6C0625741B72001B55D4 /* ARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
-		9DCF6C0A25741B87001B55D4 /* AllElementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllElementViewController.swift; sourceTree = "<group>"; };
-		9DCF6C0B25741B87001B55D4 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		9DCF6C0C25741B87001B55D4 /* InitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,23 +78,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D3A1CA025B032CE0064B9F0 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		756D5D8325A971C60028BD33 /* Three Main Pages */ = {
-			isa = PBXGroup;
-			children = (
-				756D5DA125AADD140028BD33 /* Functions */,
-				756D5D8625A971FC0028BD33 /* Materi Pages */,
-				756D5D8525A971F20028BD33 /* Latihan Pages */,
-				756D5D8425A971D60028BD33 /* ARMode Pages */,
-			);
-			path = "Three Main Pages";
-			sourceTree = "<group>";
-		};
 		756D5D8425A971D60028BD33 /* ARMode Pages */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,14 +114,6 @@
 			path = "Materi Pages";
 			sourceTree = "<group>";
 		};
-		756D5DA125AADD140028BD33 /* Functions */ = {
-			isa = PBXGroup;
-			children = (
-				756D5DA225AADD2D0028BD33 /* GetAllElements.swift */,
-			);
-			path = Functions;
-			sourceTree = "<group>";
-		};
 		9D3A1C4F25AD6A230064B9F0 /* DescriptionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,11 +124,30 @@
 			path = DescriptionView;
 			sourceTree = "<group>";
 		};
+		9D3A1C9E25B032CE0064B9F0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9D3A1C9F25B032CE0064B9F0 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9D3A1CA225B034FE0064B9F0 /* Experiment */ = {
+			isa = PBXGroup;
+			children = (
+				9D3A1CA325B035230064B9F0 /* loginViewController.swift */,
+				9D3A1CA725B042FB0064B9F0 /* AdminHomeViewController.swift */,
+				9D3A1CAA25B045C10064B9F0 /* NewLatihanViewController.swift */,
+			);
+			path = Experiment;
+			sourceTree = "<group>";
+		};
 		9D3BA518257417D300E866A6 = {
 			isa = PBXGroup;
 			children = (
 				9D3BA523257417D300E866A6 /* ARChemy */,
 				9D3BA522257417D300E866A6 /* Products */,
+				9D3A1C9E25B032CE0064B9F0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,9 +162,10 @@
 		9D3BA523257417D300E866A6 /* ARChemy */ = {
 			isa = PBXGroup;
 			children = (
-				756D5D8325A971C60028BD33 /* Three Main Pages */,
+				9D3A1C9C25B032C80064B9F0 /* ARChemy.entitlements */,
 				9D67134225A87F7C00935A60 /* Model */,
 				9DCF6C0525741B72001B55D4 /* ARVIew */,
+				9D3A1CA225B034FE0064B9F0 /* Experiment */,
 				9DCF6C0925741B86001B55D4 /* View */,
 				9D3BA524257417D300E866A6 /* AppDelegate.swift */,
 				9D3BA526257417D300E866A6 /* art.scnassets */,
@@ -173,6 +184,9 @@
 			isa = PBXGroup;
 			children = (
 				9D67134325A87F8A00935A60 /* ElementModel.swift */,
+				9D3A1C9225B02E6C0064B9F0 /* Teacher.swift */,
+				9D3A1C9625B02FA30064B9F0 /* Question.swift */,
+				9D3A1C9925B0324F0064B9F0 /* Material.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -188,9 +202,10 @@
 		9DCF6C0925741B86001B55D4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				756D5D8625A971FC0028BD33 /* Materi Pages */,
+				756D5D8525A971F20028BD33 /* Latihan Pages */,
+				756D5D8425A971D60028BD33 /* ARMode Pages */,
 				9D3A1C4F25AD6A230064B9F0 /* DescriptionView */,
-				9DCF6C0A25741B87001B55D4 /* AllElementViewController.swift */,
-				9DCF6C0B25741B87001B55D4 /* Home.swift */,
 				9DCF6C0C25741B87001B55D4 /* InitViewController.swift */,
 			);
 			path = View;
@@ -273,19 +288,22 @@
 				9D3BA529257417D300E866A6 /* ViewController.swift in Sources */,
 				9D3BA525257417D300E866A6 /* AppDelegate.swift in Sources */,
 				9D6F8384258FC87000FB4821 /* ARChemy.xcdatamodeld in Sources */,
+				9D3A1C9725B02FA30064B9F0 /* Question.swift in Sources */,
 				9DCF6C0F25741B87001B55D4 /* InitViewController.swift in Sources */,
-				756D5DA325AADD2D0028BD33 /* GetAllElements.swift in Sources */,
-				9DCF6C0E25741B87001B55D4 /* Home.swift in Sources */,
+				9D3A1C9325B02E6C0064B9F0 /* Teacher.swift in Sources */,
 				9D3A1C5425AD6A230064B9F0 /* DescriptionViewController.swift in Sources */,
 				9D3A1C5325AD6A230064B9F0 /* Description.swift in Sources */,
 				9DCF6C0725741B72001B55D4 /* ARView.swift in Sources */,
+				9D3A1CA825B042FB0064B9F0 /* AdminHomeViewController.swift in Sources */,
 				756D5D8B25A974720028BD33 /* LatihanViewController.swift in Sources */,
+				9D3A1C9A25B0324F0064B9F0 /* Material.swift in Sources */,
+				9D3A1CAB25B045C10064B9F0 /* NewLatihanViewController.swift in Sources */,
 				756D5D9925A9787D0028BD33 /* MateriViewController.swift in Sources */,
 				756D5D8825A972630028BD33 /* ARModeViewController.swift in Sources */,
+				9D3A1CA425B035230064B9F0 /* loginViewController.swift in Sources */,
 				9D67134425A87F8A00935A60 /* ElementModel.swift in Sources */,
 				756D5D8F25A974950028BD33 /* LatihanTableViewCell.swift in Sources */,
 				756D5D9D25A9F9C60028BD33 /* QuizViewController.swift in Sources */,
-				9DCF6C0D25741B87001B55D4 /* AllElementViewController.swift in Sources */,
 				9D6F83872590581C00FB4821 /* Helper.swift in Sources */,
 				756D5D9525A9786B0028BD33 /* MateriTableViewCell.swift in Sources */,
 			);
@@ -434,6 +452,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ARChemy/ARChemy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P9W54VNRMY;
 				INFOPLIST_FILE = ARChemy/Info.plist;
@@ -453,6 +472,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ARChemy/ARChemy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P9W54VNRMY;
 				INFOPLIST_FILE = ARChemy/Info.plist;
