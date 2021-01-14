@@ -29,7 +29,7 @@ class NewMateriViewController: UIViewController {
     }
     
     @IBAction func CancelBtn(_ sender: Any) {
-        back()
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func SaveBtn(_ sender: Any) {

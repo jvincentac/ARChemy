@@ -37,7 +37,7 @@ class NewLatihanViewController: UIViewController {
     }
     
     @IBAction func cancelBtn(_ sender: Any) {
-        back()
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveBtn(_ sender: Any) {

@@ -46,7 +46,13 @@ class AdminHomeViewController: UIViewController {
 extension AdminHomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row < latihanList.count {
+            let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewLatihan") as! NewLatihanViewController
+            sb.isEdit = true
+            sb.teacher = teacher
+            sb.question = latihanList[indexPath.row]
+            sb.modalPresentationStyle = .fullScreen
             
+            present(sb, animated: true, completion: nil)
         }
         else {
             let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewMaterial") as! NewMateriViewController
