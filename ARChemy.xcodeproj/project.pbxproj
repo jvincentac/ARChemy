@@ -16,6 +16,10 @@
 		756D5D9925A9787D0028BD33 /* MateriViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D5D9825A9787D0028BD33 /* MateriViewController.swift */; };
 		756D5D9D25A9F9C60028BD33 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D5D9C25A9F9C60028BD33 /* QuizViewController.swift */; };
 		756D5DA325AADD2D0028BD33 /* GetAllElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D5DA225AADD2D0028BD33 /* GetAllElements.swift */; };
+		756D5DD425B0328F0028BD33 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D5DD325B0328F0028BD33 /* LoginViewController.swift */; };
+		756D5DD925B04B1E0028BD33 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D5DD825B04B1E0028BD33 /* AdminViewController.swift */; };
+		756D5DDE25B04B410028BD33 /* AdminTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D5DDC25B04B410028BD33 /* AdminTableViewCell.swift */; };
+		756D5DDF25B04B410028BD33 /* AdminTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 756D5DDD25B04B410028BD33 /* AdminTableViewCell.xib */; };
 		9D3A1C5325AD6A230064B9F0 /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A1C5025AD6A230064B9F0 /* Description.swift */; };
 		9D3A1C5425AD6A230064B9F0 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A1C5125AD6A230064B9F0 /* DescriptionViewController.swift */; };
 		9D3A1C5525AD6A230064B9F0 /* Description.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D3A1C5225AD6A230064B9F0 /* Description.xib */; };
@@ -44,6 +48,10 @@
 		756D5D9825A9787D0028BD33 /* MateriViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriViewController.swift; sourceTree = "<group>"; };
 		756D5D9C25A9F9C60028BD33 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		756D5DA225AADD2D0028BD33 /* GetAllElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllElements.swift; sourceTree = "<group>"; };
+		756D5DD325B0328F0028BD33 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		756D5DD825B04B1E0028BD33 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
+		756D5DDC25B04B410028BD33 /* AdminTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminTableViewCell.swift; sourceTree = "<group>"; };
+		756D5DDD25B04B410028BD33 /* AdminTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdminTableViewCell.xib; sourceTree = "<group>"; };
 		9D3A1C5025AD6A230064B9F0 /* Description.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Description.swift; sourceTree = "<group>"; };
 		9D3A1C5125AD6A230064B9F0 /* DescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		9D3A1C5225AD6A230064B9F0 /* Description.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Description.xib; sourceTree = "<group>"; };
@@ -123,6 +131,24 @@
 			path = Functions;
 			sourceTree = "<group>";
 		};
+		756D5DD125B032630028BD33 /* Login Page */ = {
+			isa = PBXGroup;
+			children = (
+				756D5DD325B0328F0028BD33 /* LoginViewController.swift */,
+			);
+			path = "Login Page";
+			sourceTree = "<group>";
+		};
+		756D5DD725B04ADB0028BD33 /* Admin Page */ = {
+			isa = PBXGroup;
+			children = (
+				756D5DD825B04B1E0028BD33 /* AdminViewController.swift */,
+				756D5DDC25B04B410028BD33 /* AdminTableViewCell.swift */,
+				756D5DDD25B04B410028BD33 /* AdminTableViewCell.xib */,
+			);
+			path = "Admin Page";
+			sourceTree = "<group>";
+		};
 		9D3A1C4F25AD6A230064B9F0 /* DescriptionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +178,8 @@
 		9D3BA523257417D300E866A6 /* ARChemy */ = {
 			isa = PBXGroup;
 			children = (
+				756D5DD725B04ADB0028BD33 /* Admin Page */,
+				756D5DD125B032630028BD33 /* Login Page */,
 				756D5D8325A971C60028BD33 /* Three Main Pages */,
 				9D67134225A87F7C00935A60 /* Model */,
 				9DCF6C0525741B72001B55D4 /* ARVIew */,
@@ -256,6 +284,7 @@
 				9D3BA527257417D300E866A6 /* art.scnassets in Resources */,
 				756D5D9625A9786B0028BD33 /* MateriTableViewCell.xib in Resources */,
 				9D3BA531257417D400E866A6 /* LaunchScreen.storyboard in Resources */,
+				756D5DDF25B04B410028BD33 /* AdminTableViewCell.xib in Resources */,
 				9D3BA52E257417D400E866A6 /* Assets.xcassets in Resources */,
 				9D3BA52C257417D300E866A6 /* Main.storyboard in Resources */,
 				756D5D9025A974950028BD33 /* LatihanTableViewCell.xib in Resources */,
@@ -274,9 +303,12 @@
 				9D3BA525257417D300E866A6 /* AppDelegate.swift in Sources */,
 				9D6F8384258FC87000FB4821 /* ARChemy.xcdatamodeld in Sources */,
 				9DCF6C0F25741B87001B55D4 /* InitViewController.swift in Sources */,
+				756D5DDE25B04B410028BD33 /* AdminTableViewCell.swift in Sources */,
+				756D5DD425B0328F0028BD33 /* LoginViewController.swift in Sources */,
 				756D5DA325AADD2D0028BD33 /* GetAllElements.swift in Sources */,
 				9DCF6C0E25741B87001B55D4 /* Home.swift in Sources */,
 				9D3A1C5425AD6A230064B9F0 /* DescriptionViewController.swift in Sources */,
+				756D5DD925B04B1E0028BD33 /* AdminViewController.swift in Sources */,
 				9D3A1C5325AD6A230064B9F0 /* Description.swift in Sources */,
 				9DCF6C0725741B72001B55D4 /* ARView.swift in Sources */,
 				756D5D8B25A974720028BD33 /* LatihanViewController.swift in Sources */,
