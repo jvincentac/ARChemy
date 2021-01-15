@@ -18,7 +18,7 @@ class MateriViewController: UIViewController {
     var database: DatabaseReference?
     
     var materi: [String: [String]] = [:]
-    var teacherName = ""
+    var teacherName = UserDefaults.standard.string(forKey: "materiTeacherName")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +31,13 @@ class MateriViewController: UIViewController {
         MateriTableView.register(MateriTableViewCell.nib(), forCellReuseIdentifier: MateriTableViewCell.identifier)
         
         database = Database.database().reference()
+        
+        configurePage(name: teacherName!)
+        searchGuruTextField.text = teacherName
+        
+        if searchGuruTextField.text == "Masukkan Nama Guru" {
+            searchGuruTextField.clearsOnBeginEditing = true
+        }
     }
     
     @IBAction func cariBtn(_ sender: Any) {
@@ -52,6 +59,7 @@ extension MateriViewController {
             }
             self.materi = value["materi"] as! [String: [String]]
             self.MateriTableView.reloadData()
+            UserDefaults.standard.setValue(name, forKey: "materiTeacherName")
         })
     }
 }

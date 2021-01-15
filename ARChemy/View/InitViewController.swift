@@ -12,17 +12,19 @@ import CoreData
 class InitViewController: UIViewController {
     
     var arrayOfElement: [ElementModel] = []
-    
     static var arrayOfElements: [ElementModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getAllElement()
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        UserDefaults.standard.setValue("Masukkan Nama Guru", forKey: "latihanTeacherName")
+        UserDefaults.standard.setValue("Masukkan Nama Guru", forKey: "materiTeacherName")
         if UserDefaults.standard.object(forKey: "isOnboarding") == nil {
+            getAllElement()
+            
             let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Onboarding") as! OnboardingViewController
             
             sb.modalPresentationStyle = .fullScreen
@@ -74,16 +76,14 @@ extension InitViewController {
                 do {
                     dictionary = try (JSONSerialization.jsonObject(with: data!, options: .mutableContainers)) as! [Any]
                     
+                    print(dictionary.count)
+                    
                     for dict in dictionary {
                         elementName = dict as! [String : Any]
                         tempArrayOfElementName.append(elementName)
                     }
                     
-                    var temp = [String]()
-                    
                     for idx in 1..<tempArrayOfElementName.count {
-                        temp.append(String(describing: tempArrayOfElementName[idx]["Element"]!))
-                        
                         let name = String(describing: tempArrayOfElementName[idx]["Element"]!)
                         let discoverer = String(describing: tempArrayOfElementName[idx]["Discoverer"]!)
                         let symbol = String(describing: tempArrayOfElementName[idx]["Symbol"]!)
@@ -96,8 +96,6 @@ extension InitViewController {
                         
                         saveToCoreData(name: name, type: type, symbol: symbol, neutrons: numberOfNeutrons!, electrons: numberOfElectrons!, discoverer: discoverer, atomicMass: atomicMass, group: group ?? 0, period: period ?? 0)
                     }
-                    
-                    UserDefaults.standard.setValue(temp, forKey: "elementName")
                     
                 } catch {
                     print("Error parsing")

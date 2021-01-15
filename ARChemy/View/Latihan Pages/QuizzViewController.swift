@@ -22,6 +22,7 @@ class QuizzViewController: UIViewController {
     var w2 = ""
     var w3 = ""
     
+    var teacherName = ""
     var choosenAnswer = ""
     var choosenButton: UIButton?
     var buttonArr: [UIButton] = []
