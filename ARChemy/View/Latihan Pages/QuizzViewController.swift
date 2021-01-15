@@ -25,6 +25,7 @@ class QuizzViewController: UIViewController {
     var choosenButton: UIButton?
     var buttonArr: [UIButton] = []
     var answers: [String] = []
+    var temp: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,7 @@ class QuizzViewController: UIViewController {
         answers.append(w1)
         answers.append(w2)
         answers.append(w3)
-
+        
         configurePage()
     }
     
@@ -91,8 +92,11 @@ extension QuizzViewController {
     func configurePage() {
         questionLabel.text = question
         var random = 0
-        
-        
+
+        for button in buttonArr {
+            random = Int.random(in: 0..<4)
+            button.setTitle(answers[random], for: .normal)
+        }
     }
     
     func checkAnswer() {
