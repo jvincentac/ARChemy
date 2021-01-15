@@ -29,6 +29,7 @@ class NewLatihanViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         database = Database.database().reference()
         
         if isEdit {
