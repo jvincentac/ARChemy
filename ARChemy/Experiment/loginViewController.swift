@@ -12,13 +12,10 @@ import FirebaseDatabase
 class LoginViewController: UIViewController {
     
     private var database: DatabaseReference?
-
-    @IBOutlet weak var teacherTableView: UITableView!
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    var teacherList: [Teacher] = Teacher.fetchAll()
     var name = ""
     var password = ""
     
@@ -34,9 +31,17 @@ class LoginViewController: UIViewController {
     @IBAction func loginBtn(_ sender: Any) {
         login(name: nameTextField.text!, password: passwordTextField.text!)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [self] in
             if self.isLogin == true{
                 print("login success")
+                
+                let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AdminHome") as! AdminHomeViewController
+                sb.modalPresentationStyle = .fullScreen
+                sb.teacher = self.teacher
+                sb.teacherName = nameTextField.text!
+
+                self.present(sb, animated: true, completion: nil)
+            
             }
             else {
                 print("wrong name or password")
@@ -52,23 +57,15 @@ class LoginViewController: UIViewController {
     }
 }
 
-extension LoginViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        teacherList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "TeacherCell")
-        
-        return cell
-    }
-}
-
 extension LoginViewController {
     func addNewTeacher(name: String, password: String) {
         teacher["password"] = password
-        teacher["latihan"] = [""]
-        teacher["materi"] = [""]
+        teacher["latihan"] = [
+            "Judul": ["Masukkan Judul","Masukkan Pertanyaan", "Masukkan Jawaban Benar", "Masukkan Jawaban Salah", "Masukkan Jawaban Salah", "Masukkan Jawaban Salah"]
+        ]
+        teacher["materi"] = [
+            "Judul": ["Masukkan Judul","Masukkan Isi"]
+        ]
         
         database?.child("\(name)").setValue(teacher)
     }
@@ -85,6 +82,7 @@ extension LoginViewController {
             }
             else {
                 self.isLogin = true
+                self.teacher = value
             }
         })
     }
