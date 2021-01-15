@@ -92,65 +92,7 @@ extension QuizzViewController {
         questionLabel.text = question
         var random = 0
         
-        for button in buttonArr {
-            random = Int.random(in: 0..<4)
-
-            if checkButton(check: answers[random]) {
-                button.setTitle(answers[random], for: .normal)
-            }
-        }
         
-//        while(checkEmptyButton()) {
-//            random = Int.random(in: 0..<4)
-//
-//            if checkButton(check: answers[random]) {
-//                fillButton().setTitle(answers[random], for: .normal)
-//            }
-//        }
-    }
-    
-    func fillButton() -> UIButton {
-        if answer1.title(for: .normal) == "" {
-            return answer1
-        }
-        else if answer2.title(for: .normal) == "" {
-            return answer2
-        }
-        else if answer3.title(for: .normal) == "" {
-            return answer3
-        }
-        else{
-            return answer4
-        }
-    }
-    
-    func checkEmptyButton() -> Bool {
-        if answer1.title(for: .normal) == "" {
-            return true
-        }
-        
-        if answer2.title(for: .normal) == "" {
-            return true
-        }
-        
-        if answer3.title(for: .normal) == "" {
-            return true
-        }
-        
-        if answer4.title(for: .normal) == "" {
-            return true
-        }
-        
-        return false
-    }
-    
-    func checkButton(check: String) -> Bool {
-        for button in buttonArr {
-            if button.title(for: .normal) == check {
-                return false
-            }
-        }
-        return true
     }
     
     func checkAnswer() {
