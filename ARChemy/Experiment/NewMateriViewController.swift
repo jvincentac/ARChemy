@@ -6,18 +6,24 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class NewMateriViewController: UIViewController {
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var materialTextField: UITextView!
     
-    var teacher: Teacher?
-    var material: Material?
     var isEdit: Bool = false
+    var database: DatabaseReference?
+    
+    var teacher: [String:Any] = [:]
+    var materi: [String: [String]] = [:]
+    var teacherName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        database = Database.database().reference()
 
         if isEdit {
             configurePage()
@@ -33,41 +39,27 @@ class NewMateriViewController: UIViewController {
     }
     
     @IBAction func SaveBtn(_ sender: Any) {
-        saveMaterial(teacher: teacher!, title: titleTextField.text!, material: materialTextField.text!)
+        saveMaterial(judul: titleTextField.text!, isi: materialTextField.text!)
         back()
     }
 }
 
 extension NewMateriViewController {
     func configurePage() {
-        titleTextField.text = material?.title
-        materialTextField.text = material?.material
+        
     }
     
     func back() {
         let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AdminHome") as! AdminHomeViewController
-        
         sb.modalPresentationStyle = .fullScreen
-        sb.modalTransitionStyle = .coverVertical
-        sb.teacher = teacher
-        
+        sb.teacherName = teacherName
         present(sb, animated: true, completion: nil)
     }
     
-    private func saveMaterial(teacher: Teacher, title: String, material: String) {
+    func saveMaterial(judul: String, isi: String) {
+        materi["\(judul)"] = ["\(judul)","\(isi)"]
+        teacher["materi"] = materi
         
-        if isEdit {
-            self.material?.title = self.titleTextField.text!
-            self.material?.material = self.materialTextField.text!
-        }
-        else {
-            let newMaterial = Material(context: AppDelegate.viewContext)
-            
-            newMaterial.owner = teacher
-            newMaterial.title = title
-            newMaterial.material = material
-        }
-        
-        try? AppDelegate.viewContext.save()
+        database?.child(teacherName).setValue(teacher)
     }
 }
