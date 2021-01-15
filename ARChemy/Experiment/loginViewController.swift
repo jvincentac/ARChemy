@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import FirebaseDatabase
+
 
 class LoginViewController: UIViewController {
+    
+    private var database: DatabaseReference?
 
     @IBOutlet weak var teacherTableView: UITableView!
     
@@ -18,26 +22,32 @@ class LoginViewController: UIViewController {
     var name = ""
     var password = ""
     
+    var teacher: [String: Any] = [:]
+    var isLogin = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        database = Database.database().reference()
+        
     }
     
     @IBAction func loginBtn(_ sender: Any) {
-        checkData()
+        login(name: nameTextField.text!, password: passwordTextField.text!)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            if self.isLogin == true{
+                print("login success")
+            }
+            else {
+                print("wrong name or password")
+            }
+        }
     }
     
     @IBAction func signUpBtn(_ sender: Any) {
-        addNewTeacher()
+        addNewTeacher(name: nameTextField.text!, password: passwordTextField.text!)
     }
     @IBAction func deleteAllTeacherBtn(_ sender: Any) {
-        Teacher.deleteAllTeacher()
-        teacherList = Teacher.fetchAll()
-        teacherTableView.reloadData()
-        
-        Question.deleteAllQuestion()
-        Material.deleteAll()
         
     }
 }
@@ -50,46 +60,32 @@ extension LoginViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "TeacherCell")
         
-        cell.textLabel?.text = "\(teacherList[indexPath.row].name ?? ""), password = \(teacherList[indexPath.row].password ?? "")"
-        
         return cell
     }
 }
 
 extension LoginViewController {
-    private func checkData() {
-        self.name = nameTextField.text!
-        self.password = passwordTextField.text!
+    func addNewTeacher(name: String, password: String) {
+        teacher["password"] = password
+        teacher["latihan"] = [""]
+        teacher["materi"] = [""]
         
-        let isExist: [Teacher] = Teacher.fetchAndCheck(viewContext: AppDelegate.viewContext, name: name, password: password)
-        
-        if isExist.isEmpty {
-            print("No Data")
-        }
-        else {
-            print("Success")
-            let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AdminHome") as! AdminHomeViewController
-            sb.teacher = isExist.first
-            sb.modalPresentationStyle = .fullScreen
-            present(sb, animated: true, completion: nil)
-        }
+        database?.child("\(name)").setValue(teacher)
     }
     
-    private func addNewTeacher() {
-        self.name = nameTextField.text!
-        self.password = passwordTextField.text!
-        saveTeacher(name: name, password: password)
-        teacherList = Teacher.fetchAll()
-        teacherTableView.reloadData()
-        nameTextField.text = ""
-        passwordTextField.text = ""
-    }
-    
-    private func saveTeacher(name: String, password: String) {
-        let teacher = Teacher(context: AppDelegate.viewContext)
-        teacher.name = name
-        teacher.password = password
-        
-        try? AppDelegate.viewContext.save()
+    func login(name: String, password: String) {
+        database?.child(name).observe(.value, with: { snapshot in
+            guard let value = snapshot.value as? [String:Any] else {
+                self.isLogin = false
+                return
+            }
+            
+            if value["password"] as! String != password {
+                self.isLogin = false
+            }
+            else {
+                self.isLogin = true
+            }
+        })
     }
 }
