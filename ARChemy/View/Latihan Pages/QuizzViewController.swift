@@ -14,6 +14,7 @@ class QuizzViewController: UIViewController {
     @IBOutlet weak var answer2: UIButton!
     @IBOutlet weak var answer3: UIButton!
     @IBOutlet weak var answer4: UIButton!
+    @IBOutlet weak var isCorrectImg: UIImageView!
     
     var question = ""
     var correctAnswer = ""
@@ -44,7 +45,10 @@ class QuizzViewController: UIViewController {
     }
     
     @IBAction func backBtn(_ sender: Any) {
+        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InitTab")
+        sb.modalPresentationStyle = .fullScreen
         
+        present(sb, animated: true, completion: nil)
     }
     
     @IBAction func checkBtn(_ sender: Any) {
@@ -92,18 +96,29 @@ extension QuizzViewController {
     func configurePage() {
         questionLabel.text = question
         var random = 0
+        var tempRandom: [Int] = []
 
         for button in buttonArr {
             random = Int.random(in: 0..<4)
+            
+            while tempRandom.contains(random) {
+                random = Int.random(in: 0..<4)
+            }
+            tempRandom.append(random)
+            
             button.setTitle(answers[random], for: .normal)
         }
+        
+        isCorrectImg.isHidden = true
     }
     
     func checkAnswer() {
         if choosenAnswer == correctAnswer {
-            
+            isCorrectImg.isHidden = false
         }
         else {
+            isCorrectImg.image = UIImage(named: "wrongAnswer")
+            isCorrectImg.isHidden = false
             redBorder(button: choosenButton!)
         }
     }
