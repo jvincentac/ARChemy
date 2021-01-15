@@ -58,7 +58,7 @@ class QuizzViewController: UIViewController {
     @IBAction func answer1Btn(_ sender: Any) {
         choosenAnswer = answer1.title(for: .normal)!
         choosenButton = answer1
-        greenBorder(button: answer1)
+        purpleBorder(button: answer1)
         clearBorder(button: answer2)
         clearBorder(button: answer3)
         clearBorder(button: answer4)
@@ -67,7 +67,7 @@ class QuizzViewController: UIViewController {
     @IBAction func answer2Btn(_ sender: Any) {
         choosenAnswer = answer2.title(for: .normal)!
         choosenButton = answer2
-        greenBorder(button: answer2)
+        purpleBorder(button: answer2)
         clearBorder(button: answer1)
         clearBorder(button: answer3)
         clearBorder(button: answer4)
@@ -76,7 +76,7 @@ class QuizzViewController: UIViewController {
     @IBAction func answer3Btn(_ sender: Any) {
         choosenAnswer = answer3.title(for: .normal)!
         choosenButton = answer3
-        greenBorder(button: answer3)
+        purpleBorder(button: answer3)
         clearBorder(button: answer2)
         clearBorder(button: answer1)
         clearBorder(button: answer4)
@@ -85,7 +85,7 @@ class QuizzViewController: UIViewController {
     @IBAction func answer4Btn(_ sender: Any) {
         choosenAnswer = answer4.title(for: .normal)!
         choosenButton = answer4
-        greenBorder(button: answer4)
+        purpleBorder(button: answer4)
         clearBorder(button: answer1)
         clearBorder(button: answer3)
         clearBorder(button: answer2)
@@ -115,9 +115,11 @@ extension QuizzViewController {
     func checkAnswer() {
         if choosenAnswer == correctAnswer {
             isCorrectImg.isHidden = false
+            isCorrectImg.image = UIImage(named: "true")
+            greenBorder(button: choosenButton!)
         }
         else {
-            isCorrectImg.image = UIImage(named: "wrongAnswer")
+            isCorrectImg.image = UIImage(named: "false")
             isCorrectImg.isHidden = false
             redBorder(button: choosenButton!)
         }
@@ -135,5 +137,10 @@ extension QuizzViewController {
     func redBorder(button: UIButton) {
         button.layer.borderWidth = 1
         button.layer.borderColor = .init(red: 255, green: 0, blue: 0, alpha: 1)
+    }
+    
+    func purpleBorder(button: UIButton) {
+        button.layer.borderWidth = 1
+        button.layer.borderColor = .init(red: 141/255, green: 139/255, blue: 237/255, alpha: 1)
     }
 }
