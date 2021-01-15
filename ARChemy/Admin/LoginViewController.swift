@@ -53,8 +53,11 @@ class LoginViewController: UIViewController {
     @IBAction func signUpBtn(_ sender: Any) {
         addNewTeacher(name: nameTextField.text!, password: passwordTextField.text!)
     }
-    @IBAction func deleteAllTeacherBtn(_ sender: Any) {
-        
+    
+    @IBAction func masukMuridBtn(_ sender: Any) {
+        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InitTab")
+        sb.modalPresentationStyle = .fullScreen
+        present(sb, animated: true, completion: nil)
     }
 }
 
