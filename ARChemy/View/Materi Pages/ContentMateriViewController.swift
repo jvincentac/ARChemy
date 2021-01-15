@@ -34,5 +34,7 @@ extension ContentMateriViewController {
     func configurePage() {
         titleTextField.text = judul
         materiTextField.text = konten
+        materiTextField.isUserInteractionEnabled = false
+        titleTextField.isUserInteractionEnabled = false
     }
 }

@@ -16,6 +16,8 @@ class LatihanViewController: UIViewController {
     
     var latihan: [String: [String]] = [:]
     
+    var teacherName = UserDefaults.standard.string(forKey: "latihanTeacherName")
+    
     var database: DatabaseReference?
     
     override func viewDidLoad() {
@@ -30,6 +32,14 @@ class LatihanViewController: UIViewController {
         LatihanTableView.backgroundColor = .white
         
         LatihanTableView.separatorStyle = .none
+        
+        configurePage(name: teacherName!)
+        searchGuruTextField.text = teacherName
+        
+        if searchGuruTextField.text == "Masukkan Nama Guru" {
+            searchGuruTextField.clearsOnBeginEditing = true
+        }
+        
     }
 
     @IBAction func CariBtn(_ sender: Any) {
@@ -51,6 +61,7 @@ extension LatihanViewController {
             }
             self.latihan = value["latihan"] as! [String: [String]]
             self.LatihanTableView.reloadData()
+            UserDefaults.standard.setValue(name, forKey: "latihanTeacherName")
         })
     }
 }

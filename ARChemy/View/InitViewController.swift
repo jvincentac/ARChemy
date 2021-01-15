@@ -12,7 +12,6 @@ import CoreData
 class InitViewController: UIViewController {
     
     var arrayOfElement: [ElementModel] = []
-    
     static var arrayOfElements: [ElementModel] = []
     
     override func viewDidLoad() {
@@ -22,6 +21,8 @@ class InitViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        UserDefaults.standard.setValue("Masukkan Nama Guru", forKey: "latihanTeacherName")
+        UserDefaults.standard.setValue("Masukkan Nama Guru", forKey: "materiTeacherName")
         if UserDefaults.standard.object(forKey: "isOnboarding") == nil {
             let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Onboarding") as! OnboardingViewController
             
