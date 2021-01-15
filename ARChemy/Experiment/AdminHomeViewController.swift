@@ -6,80 +6,87 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class AdminHomeViewController: UIViewController {
 
     @IBOutlet weak var combineTableView: UITableView!
     @IBOutlet weak var haiLabel: UILabel!
     
-    var latihanList: [Question] = []
-    var materiList: [Material] = []
-    var teacher: Teacher?
+    var database: DatabaseReference?
+    
+    var teacher: [String:Any] = [:]
+    var materi: [String: [String]] = [:]
+    var latihan: [String: [String]] = [:]
+    var teacherName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        latihanList = teacher?.questions?.allObjects as! [Question]
         
-        materiList = teacher?.materials?.allObjects as! [Material]
+        database = Database.database().reference()
         
-        haiLabel.text = "Hai, \(teacher?.name ?? "")!"
+        configurePage()
     }
 
     @IBAction func addMateriBtn(_ sender: Any) {
         let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewMaterial") as! NewMateriViewController
-        sb.isEdit = false
-        sb.teacher = teacher
+        
         sb.modalPresentationStyle = .fullScreen
+        sb.materi = self.materi
+        sb.teacher = self.teacher
+        sb.teacherName = self.teacherName
         
         present(sb, animated: true, completion: nil)
     }
     
     @IBAction func addLatihanBtn(_ sender: Any) {
         let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewLatihan") as! NewLatihanViewController
-        sb.teacher = teacher
+        
         sb.modalPresentationStyle = .fullScreen
+        sb.latihan = latihan
+        sb.teacher = self.teacher
+        sb.teacherName = self.teacherName
+        
         present(sb, animated: true, completion: nil)
+    }
+}
+
+extension AdminHomeViewController {
+    func configurePage() {
+        database?.child(teacherName).observe(.value, with: { snapshot in
+            guard let value = snapshot.value as? [String: Any] else {
+                return
+            }
+            
+            self.teacher = value
+            self.materi = value["materi"] as! [String: [String]]
+            self.latihan = value["latihan"] as! [String: [String]]
+        })
+        
+        haiLabel.text = "Hai, \(teacherName)!"
     }
 }
 
 extension AdminHomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row < latihanList.count {
-            let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewLatihan") as! NewLatihanViewController
-            sb.isEdit = true
-            sb.teacher = teacher
-            sb.question = latihanList[indexPath.row]
-            sb.modalPresentationStyle = .fullScreen
-            
-            present(sb, animated: true, completion: nil)
-        }
-        else {
-            let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewMaterial") as! NewMateriViewController
-            sb.isEdit = true
-            sb.teacher = teacher
-            sb.material = materiList[indexPath.row - latihanList.count]
-            sb.modalPresentationStyle = .fullScreen
-            
-            present(sb, animated: true, completion: nil)
-        }
+        
     }
 }
 
 extension AdminHomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return latihanList.count + materiList.count
+        return materi.count + latihan.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "CombineCell")
-        var word = ""
         
-        if indexPath.row < latihanList.count {
-            word = latihanList[indexPath.row].title!
+        var word = ""
+        if indexPath.row < self.latihan.count {
+            word = "L = \(Array(latihan.keys)[indexPath.row])"
         }
         else {
-            word = materiList[indexPath.row - latihanList.count].title!
+            word = "M = \(Array(materi.keys)[indexPath.row - latihan.count])"
         }
         
         cell.textLabel?.text = word
