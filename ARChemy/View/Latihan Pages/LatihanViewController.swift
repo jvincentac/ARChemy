@@ -12,11 +12,9 @@ import FirebaseDatabase
 class LatihanViewController: UIViewController {
 
     @IBOutlet weak var LatihanTableView: UITableView!
-    
-    var ListLatihan :[String] = ["Latihan 1","Latihan 2","Latihan 3"]
+    @IBOutlet weak var searchGuruTextField: UITextField!
     
     var latihan: [String: [String]] = [:]
-    var teacherName = ""
     
     var database: DatabaseReference?
     
@@ -32,19 +30,23 @@ class LatihanViewController: UIViewController {
         LatihanTableView.backgroundColor = .white
         
         LatihanTableView.separatorStyle = .none
-        
-        configurePage()
     }
 
+    @IBAction func CariBtn(_ sender: Any) {
+        configurePage(name: searchGuruTextField.text!)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
 }
 
 extension LatihanViewController {
-    func configurePage() {
-        database?.child("Vincent").observe(.value, with: { snapshot in
+    func configurePage(name: String) {
+        database?.child(name).observe(.value, with: { snapshot in
             guard let value = snapshot.value as? [String: Any] else {
+                self.latihan.removeAll()
+                self.LatihanTableView.reloadData()
                 return
             }
             self.latihan = value["latihan"] as! [String: [String]]
@@ -76,7 +78,6 @@ extension LatihanViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let LatihanCell = LatihanTableView.dequeueReusableCell(withIdentifier: LatihanTableViewCell.identifier, for: indexPath) as! LatihanTableViewCell
         LatihanCell.configure(with: Array(latihan.keys)[indexPath.row], imageName: "modeAR")
-        
 
         return LatihanCell
     }

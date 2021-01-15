@@ -15,7 +15,7 @@
 		756D5D9525A9786B0028BD33 /* MateriTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D5D9325A9786B0028BD33 /* MateriTableViewCell.swift */; };
 		756D5D9625A9786B0028BD33 /* MateriTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 756D5D9425A9786B0028BD33 /* MateriTableViewCell.xib */; };
 		756D5D9925A9787D0028BD33 /* MateriViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D5D9825A9787D0028BD33 /* MateriViewController.swift */; };
-		756D5D9D25A9F9C60028BD33 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D5D9C25A9F9C60028BD33 /* QuizViewController.swift */; };
+		9D2F875925B1E32600D54C30 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F875825B1E32600D54C30 /* OnboardingViewController.swift */; };
 		9D3A1C5325AD6A230064B9F0 /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A1C5025AD6A230064B9F0 /* Description.swift */; };
 		9D3A1C5425AD6A230064B9F0 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A1C5125AD6A230064B9F0 /* DescriptionViewController.swift */; };
 		9D3A1C5525AD6A230064B9F0 /* Description.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D3A1C5225AD6A230064B9F0 /* Description.xib */; };
@@ -53,7 +53,7 @@
 		756D5D9325A9786B0028BD33 /* MateriTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriTableViewCell.swift; sourceTree = "<group>"; };
 		756D5D9425A9786B0028BD33 /* MateriTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MateriTableViewCell.xib; sourceTree = "<group>"; };
 		756D5D9825A9787D0028BD33 /* MateriViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriViewController.swift; sourceTree = "<group>"; };
-		756D5D9C25A9F9C60028BD33 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
+		9D2F875825B1E32600D54C30 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		9D3A1C5025AD6A230064B9F0 /* Description.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Description.swift; sourceTree = "<group>"; };
 		9D3A1C5125AD6A230064B9F0 /* DescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		9D3A1C5225AD6A230064B9F0 /* Description.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Description.xib; sourceTree = "<group>"; };
@@ -112,7 +112,6 @@
 				756D5D8A25A974720028BD33 /* LatihanViewController.swift */,
 				756D5D8D25A974950028BD33 /* LatihanTableViewCell.swift */,
 				756D5D8E25A974950028BD33 /* LatihanTableViewCell.xib */,
-				756D5D9C25A9F9C60028BD33 /* QuizViewController.swift */,
 				9D5ACEDC25B1B79800C76623 /* QuizzViewController.swift */,
 			);
 			path = "Latihan Pages";
@@ -235,6 +234,7 @@
 				756D5D8425A971D60028BD33 /* ARMode Pages */,
 				9D3A1C4F25AD6A230064B9F0 /* DescriptionView */,
 				9DCF6C0C25741B87001B55D4 /* InitViewController.swift */,
+				9D2F875825B1E32600D54C30 /* OnboardingViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -377,9 +377,9 @@
 				756D5D8825A972630028BD33 /* ARModeViewController.swift in Sources */,
 				9D5ACEDA25B1AA4C00C76623 /* ContentMateriViewController.swift in Sources */,
 				9D3A1CA425B035230064B9F0 /* LoginViewController.swift in Sources */,
+				9D2F875925B1E32600D54C30 /* OnboardingViewController.swift in Sources */,
 				9D67134425A87F8A00935A60 /* ElementModel.swift in Sources */,
 				756D5D8F25A974950028BD33 /* LatihanTableViewCell.swift in Sources */,
-				756D5D9D25A9F9C60028BD33 /* QuizViewController.swift in Sources */,
 				9D6F83872590581C00FB4821 /* Helper.swift in Sources */,
 				756D5D9525A9786B0028BD33 /* MateriTableViewCell.swift in Sources */,
 			);
