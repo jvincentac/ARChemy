@@ -11,6 +11,7 @@ import FirebaseDatabase
 class MateriViewController: UIViewController {
     
     @IBOutlet weak var MateriTableView: UITableView!
+    @IBOutlet weak var searchGuruTextField: UITextField!
     
     var ListMateri :[String] = ["Apa itu Proton?","Apa itu Neutron?","Apa itu Elektron?"]
     
@@ -30,8 +31,10 @@ class MateriViewController: UIViewController {
         MateriTableView.register(MateriTableViewCell.nib(), forCellReuseIdentifier: MateriTableViewCell.identifier)
         
         database = Database.database().reference()
-        
-        configurePage()
+    }
+    
+    @IBAction func cariBtn(_ sender: Any) {
+        configurePage(name: searchGuruTextField.text!)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -40,9 +43,11 @@ class MateriViewController: UIViewController {
 }
 
 extension MateriViewController {
-    func configurePage() {
-        database?.child("Vincent").observe(.value, with: { snapshot in
+    func configurePage(name: String) {
+        database?.child(name).observe(.value, with: { snapshot in
             guard let value = snapshot.value as? [String: Any] else {
+                self.materi.removeAll()
+                self.MateriTableView.reloadData()
                 return
             }
             self.materi = value["materi"] as! [String: [String]]

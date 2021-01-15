@@ -22,9 +22,18 @@ class InitViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InitTab")
-        sb.modalPresentationStyle = .fullScreen
-        present(sb, animated: true, completion: nil)
+        if UserDefaults.standard.object(forKey: "isOnboarding") == nil {
+            let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Onboarding") as! OnboardingViewController
+            
+            sb.modalPresentationStyle = .fullScreen
+            present(sb, animated: true, completion: nil)
+        }
+        else {
+            let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login") as! LoginViewController
+            
+            sb.modalPresentationStyle = .fullScreen
+            present(sb, animated: true, completion: nil)
+        }
     }
 }
 
