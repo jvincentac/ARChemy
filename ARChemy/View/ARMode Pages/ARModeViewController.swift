@@ -78,7 +78,6 @@ extension ARModeViewController : UITableViewDelegate {
         
         InitViewController.arrayOfElements.append(newElement)
         
-//        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ElementDesc") as! DescriptionViewController
         let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ARView") as! ARView
         present(sb, animated: true, completion: nil)
     }
@@ -87,6 +86,7 @@ extension ARModeViewController : UITableViewDelegate {
 
 extension ARModeViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return filteredData.count
     }
     

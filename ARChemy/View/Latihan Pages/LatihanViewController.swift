@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseDatabase
 
 class LatihanViewController: UIViewController {
 
@@ -14,8 +15,15 @@ class LatihanViewController: UIViewController {
     
     var ListLatihan :[String] = ["Latihan 1","Latihan 2","Latihan 3"]
     
+    var latihan: [String: [String]] = [:]
+    var teacherName = ""
+    
+    var database: DatabaseReference?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        database = Database.database().reference()
         
         LatihanTableView.register(LatihanTableViewCell.nib(), forCellReuseIdentifier: LatihanTableViewCell.identifier)
         LatihanTableView.delegate = self
@@ -25,6 +33,7 @@ class LatihanViewController: UIViewController {
         
         LatihanTableView.separatorStyle = .none
         
+        configurePage()
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -32,9 +41,28 @@ class LatihanViewController: UIViewController {
     }
 }
 
+extension LatihanViewController {
+    func configurePage() {
+        database?.child("Vincent").observe(.value, with: { snapshot in
+            guard let value = snapshot.value as? [String: Any] else {
+                return
+            }
+            self.latihan = value["latihan"] as! [String: [String]]
+            self.LatihanTableView.reloadData()
+        })
+    }
+}
+
 extension LatihanViewController : UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Quiz") as! QuizViewController
+        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Quiz") as! QuizzViewController
+
+        sb.question = latihan[Array(latihan.keys)[indexPath.row]]![1]
+        sb.correctAnswer = latihan[Array(latihan.keys)[indexPath.row]]![2]
+        sb.w1 = latihan[Array(latihan.keys)[indexPath.row]]![3]
+        sb.w2 = latihan[Array(latihan.keys)[indexPath.row]]![4]
+        sb.w3 = latihan[Array(latihan.keys)[indexPath.row]]![5]
+
         sb.modalPresentationStyle = .fullScreen
         present(sb, animated: true, completion: nil)
     }
@@ -42,12 +70,12 @@ extension LatihanViewController : UITableViewDelegate{
 
 extension LatihanViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ListLatihan.count
+        return latihan.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let LatihanCell = LatihanTableView.dequeueReusableCell(withIdentifier: LatihanTableViewCell.identifier, for: indexPath) as! LatihanTableViewCell
-        LatihanCell.configure(with: ListLatihan[indexPath.row], imageName: "modeAR")
+        LatihanCell.configure(with: Array(latihan.keys)[indexPath.row], imageName: "modeAR")
         
 
         return LatihanCell

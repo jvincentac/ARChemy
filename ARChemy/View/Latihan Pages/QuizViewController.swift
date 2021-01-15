@@ -38,7 +38,6 @@ class QuizViewController: UIViewController {
 //array for 4 labels
     var answer : [String] = ["","","",""]
 
-
 //shuffle 4 label answer1-4
     var shuffleAnswer : Int = Int.random(in: 0..<4)
     
@@ -209,7 +208,7 @@ extension QuizViewController {
     func shuffle(){
         for (index , j) in number.enumerated(){
             if(Int(correctAnswer) == j){
-            number.remove(at: index)
+                number.remove(at: index)
             }
         }
 
@@ -222,19 +221,12 @@ extension QuizViewController {
                 for (index , j) in number.enumerated(){
                     if(Int(answer[i]) == j){
                     number.remove(at: index)
-                    print(number)
+                    
                     }
                 }
             }
         }
         
-        print(answer1.text = answer[0])
-        print(answer2.text = answer[1])
-        print(answer3.text = answer[2])
-        print(answer4.text = answer[3])
-        
-//        number.removeAll()
-//        var number : [Int] = [0,1,2,3,4,5,6,7,8,9]
     }
     
     func chooseQuestion(){
@@ -250,8 +242,6 @@ extension QuizViewController {
             }
             
             correctAnswer = AnswerProton[indexRecord]
-            
-            
 
         }else{
             LabelQuestion.text = "Berapakah Jumlah Netron dari \(questionZatName)"
