@@ -86,7 +86,6 @@ extension ARModeViewController : UITableViewDelegate {
 
 extension ARModeViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return filteredData.count
     }
     
@@ -160,12 +159,6 @@ extension ARModeViewController {
             elementName = ""
             }
         }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "toARPage" {
-//            
-//        }
-//    }
 }
 
 
