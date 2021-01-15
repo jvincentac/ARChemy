@@ -69,7 +69,30 @@ extension AdminHomeViewController {
 
 extension AdminHomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if indexPath.row < latihan.count {
+            let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewLatihan") as! NewLatihanViewController
+            
+            sb.modalPresentationStyle = .fullScreen
+            sb.latihan = latihan
+            sb.teacher = self.teacher
+            sb.teacherName = self.teacherName
+            sb.isEdit = true
+            sb.judul = Array(latihan.keys)[indexPath.row]
+            
+            present(sb, animated: true, completion: nil)
+        }
+        else {
+            let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewMaterial") as! NewMateriViewController
+            
+            sb.modalPresentationStyle = .fullScreen
+            sb.materi = self.materi
+            sb.teacher = self.teacher
+            sb.teacherName = self.teacherName
+            sb.isEdit = true
+            sb.judul = Array(materi.keys)[indexPath.row - latihan.count]
+            
+            present(sb, animated: true, completion: nil)
+        }
     }
 }
 

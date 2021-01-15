@@ -20,6 +20,8 @@ class NewMateriViewController: UIViewController {
     var materi: [String: [String]] = [:]
     var teacherName = ""
     
+    var judul = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,7 +48,8 @@ class NewMateriViewController: UIViewController {
 
 extension NewMateriViewController {
     func configurePage() {
-        
+        titleTextField.text = materi[judul]![0]
+        materialTextField.text = materi[judul]![1]
     }
     
     func back() {
@@ -57,9 +60,19 @@ extension NewMateriViewController {
     }
     
     func saveMaterial(judul: String, isi: String) {
-        materi["\(judul)"] = ["\(judul)","\(isi)"]
-        teacher["materi"] = materi
         
-        database?.child(teacherName).setValue(teacher)
+        if Array(materi.keys).contains(judul) && isEdit == false {
+            print("Judul Harus Unik")
+        }
+        else {
+            if isEdit {
+                materi["\(self.judul)"] = []
+            }
+            
+            materi["\(judul)"] = ["\(judul)","\(isi)"]
+            teacher["materi"] = materi
+            
+            database?.child(teacherName).setValue(teacher)
+        }
     }
 }

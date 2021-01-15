@@ -44,7 +44,8 @@ class LoginViewController: UIViewController {
             
             }
             else {
-                print("wrong name or password")
+                //disini kalo salah pass ato nama
+                print("")
             }
         }
     }
@@ -59,12 +60,23 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController {
     func addNewTeacher(name: String, password: String) {
+        database?.child(name).observe(.value, with: { snapshot in
+            guard let value = snapshot.value as? [String:Any] else {
+                self.isLogin = false
+                return
+            }
+            if Array(value.keys).contains(name) {
+                print("Name Already Exist")
+            }
+        })
+        
+        
         teacher["password"] = password
         teacher["latihan"] = [
-            "Judul": ["Masukkan Judul","Masukkan Pertanyaan", "Masukkan Jawaban Benar", "Masukkan Jawaban Salah", "Masukkan Jawaban Salah", "Masukkan Jawaban Salah"]
+            "Judul Latihan": ["Masukkan Judul","Masukkan Pertanyaan", "Masukkan Jawaban Benar", "Masukkan Jawaban Salah", "Masukkan Jawaban Salah", "Masukkan Jawaban Salah"]
         ]
         teacher["materi"] = [
-            "Judul": ["Masukkan Judul","Masukkan Isi"]
+            "Judul Materi": ["Masukkan Judul","Masukkan Isi"]
         ]
         
         database?.child("\(name)").setValue(teacher)

@@ -24,6 +24,8 @@ class NewLatihanViewController: UIViewController {
     var latihan: [String: [String]] = [:]
     var teacherName = ""
     
+    var judul = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,9 +67,19 @@ extension NewLatihanViewController {
     }
     
     func saveLatihan(judul: String, pertanyaan: String, benar: String, salah1: String, salah2: String, salah3: String) {
-        latihan["\(judul)"] = [judul,pertanyaan,benar,salah1,salah2,salah3]
-        teacher["latihan"] = latihan
         
-        database?.child(teacherName).setValue(teacher)
+        if Array(latihan.keys).contains(judul) {
+            print("Judul Harus Unik")
+        }
+        else {
+            if isEdit {
+                latihan["\(self.judul)"] = []
+            }
+            
+            latihan["\(judul)"] = [judul,pertanyaan,benar,salah1,salah2,salah3]
+            teacher["latihan"] = latihan
+            
+            database?.child(teacherName).setValue(teacher)
+        }
     }
 }
