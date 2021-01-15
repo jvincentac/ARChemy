@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class NewLatihanViewController: UIViewController {
 
@@ -16,12 +17,17 @@ class NewLatihanViewController: UIViewController {
     @IBOutlet weak var w2TextField: UITextField!
     @IBOutlet weak var w3TextField: UITextField!
     
-    var teacher: Teacher?
     var isEdit: Bool = false
-    var question: Question?
+    var database: DatabaseReference?
+    
+    var teacher: [String:Any] = [:]
+    var latihan: [String: [String]] = [:]
+    var teacherName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        database = Database.database().reference()
         
         if isEdit {
             configurePage()
@@ -41,51 +47,27 @@ class NewLatihanViewController: UIViewController {
     }
     
     @IBAction func saveBtn(_ sender: Any) {
-        saveQuestion(teacher: teacher!, title: titleTextField.text!, question: questionTextField.text!, correctAnswer: correctAnswerTextField.text!, w1: w1TextField.text!, w2: w2TextField.text!, w3: w3TextField.text!)
+        saveLatihan(judul: titleTextField.text!, pertanyaan: questionTextField.text!, benar: correctAnswerTextField.text!, salah1: w1TextField.text!, salah2: w2TextField.text!, salah3: w3TextField.text!)
         back()
     }
 }
 
 extension NewLatihanViewController {
     func configurePage() {
-        titleTextField.text = question?.title
-        questionTextField.text = question?.question
-        correctAnswerTextField.text = question?.answer
-        w1TextField.text = question?.w1
-        w2TextField.text = question?.w2
-        w3TextField.text = question?.w3
+        
     }
     
     func back() {
         let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AdminHome") as! AdminHomeViewController
-        sb.modalTransitionStyle = .coverVertical
         sb.modalPresentationStyle = .fullScreen
-        sb.teacher = teacher
-        
+        sb.teacherName = teacherName
         present(sb, animated: true, completion: nil)
     }
     
-    private func saveQuestion(teacher: Teacher, title: String, question: String, correctAnswer: String ,w1: String, w2: String, w3: String) {
+    func saveLatihan(judul: String, pertanyaan: String, benar: String, salah1: String, salah2: String, salah3: String) {
+        latihan["\(judul)"] = [judul,pertanyaan,benar,salah1,salah2,salah3]
+        teacher["latihan"] = latihan
         
-        if isEdit {
-            self.question?.title = titleTextField.text
-            self.question?.question = questionTextField.text
-            self.question?.answer = correctAnswerTextField.text
-            self.question?.w1 = w1TextField.text
-            self.question?.w2 = w2TextField.text
-            self.question?.w3 = w3TextField.text
-        }
-        else {
-            let newQuestion = Question(context: AppDelegate.viewContext)
-            newQuestion.owner = teacher
-            newQuestion.title = title
-            newQuestion.question = question
-            newQuestion.answer = correctAnswer
-            newQuestion.w1 = w1
-            newQuestion.w2 = w2
-            newQuestion.w3 = w3
-        }
-        
-        try? AppDelegate.viewContext.save()
+        database?.child(teacherName).setValue(teacher)
     }
 }
