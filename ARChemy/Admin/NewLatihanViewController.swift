@@ -38,7 +38,7 @@ class NewLatihanViewController: UIViewController {
         changeBorderToGreen()
         changeBorderToRed()
         super.viewDidLoad()
-        initializeHideKeyboard()
+//        initializeHideKeyboard()
         database = Database.database().reference()
         
         if isEdit {
