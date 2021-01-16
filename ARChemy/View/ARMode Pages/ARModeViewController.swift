@@ -46,8 +46,6 @@ class ARModeViewController: UIViewController, UISearchBarDelegate{
         ZatTableView.dataSource = self
         ZatTableView.backgroundColor = .white
         
-        searchZat.backgroundColor = .white
-        
         searchZat.delegate = self
         
         filteredData = namaZat
