@@ -20,8 +20,4 @@ class TabBarViewController: UITabBarController {
         
         self.selectedIndex = idx
     }
-
-    func check() {
-        
-    }
 }

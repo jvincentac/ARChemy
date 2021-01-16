@@ -55,6 +55,7 @@ class NewLatihanViewController: UIViewController {
         w3TextField.layer.borderWidth = 1
         w3TextField.layer.borderColor = .init(red: 255, green: 0, blue: 0, alpha: 1)
         
+        questionTextField.backgroundColor = .white
     }
     
     @IBAction func cancelBtn(_ sender: Any) {
