@@ -27,9 +27,18 @@ class NewLatihanViewController: UIViewController {
     var judul = ""
     
     override func viewDidLoad() {
-        changeBorderToGreen()
-        super.viewDidLoad()
+        
+        // test code
         initializeHideKeyboard()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        // test code
+        
+        changeBorderToGreen()
+        changeBorderToRed()
+        super.viewDidLoad()
+//        initializeHideKeyboard()
         database = Database.database().reference()
         
         if isEdit {
@@ -118,5 +127,26 @@ extension NewLatihanViewController {
           w1TextField.layer.borderColor = myColor.cgColor
           w2TextField.layer.borderColor = myColor.cgColor
           w3TextField.layer.borderColor = myColor.cgColor
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+}
+
+extension NewLatihanViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
