@@ -16,13 +16,13 @@ class MateriTableViewCell: UITableViewCell {
     }
     
     
-    @IBOutlet var materiImage : UIImageView!
+
     @IBOutlet var materiTitle : UILabel!
     
     
-    public func configure(with title: String, imageName: String){
+    public func configure(with title: String){
         materiTitle.text = title
-        materiImage.image = UIImage(named: imageName)
+
         
     }
     
