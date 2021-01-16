@@ -11,6 +11,8 @@ import CoreData
     
 class ARModeViewController: UIViewController, UISearchBarDelegate{
 
+    @IBOutlet weak var modeARTabBar: UITabBarItem!
+    
     @IBOutlet weak var searchZat: UISearchBar!
     
     @IBOutlet weak var ZatTableView: UITableView!
@@ -37,6 +39,8 @@ class ARModeViewController: UIViewController, UISearchBarDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        modeARTabBar.imag = UIImage(named: "selectedModeAR")
         
         initializeHideKeyboard()
         

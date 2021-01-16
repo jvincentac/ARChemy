@@ -13,7 +13,6 @@ class MateriViewController: UIViewController {
     @IBOutlet weak var MateriTableView: UITableView!
     @IBOutlet weak var searchGuruTextField: UITextField!
     
-    var ListMateri :[String] = ["Apa itu Proton?","Apa itu Neutron?","Apa itu Elektron?"]
     
     var database: DatabaseReference?
     
@@ -89,7 +88,7 @@ extension MateriViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let MateriCell = MateriTableView.dequeueReusableCell(withIdentifier: MateriTableViewCell.identifier, for: indexPath) as! MateriTableViewCell
-        MateriCell.configure(with: Array(materi.keys)[indexPath.row], imageName: "materi")
+        MateriCell.configure(with: Array(materi.keys)[indexPath.row])
         return MateriCell
     }
 }
