@@ -31,6 +31,24 @@ class InitViewController: UIViewController {
         "SO3" : UIImage(named: "SO3")!,
     ]
     
+    static var newReaksiList: [String: [Any]] = [
+        "BeCl2" : [UIImage(named: "BeCl2")!,"Be","Cl"],
+        "BF3" : [UIImage(named: "BF3")!,"B","F"],
+        "CH3COOH" : [UIImage(named: "CH3COOH")!,"C","H","O"],
+        "CH4" : [UIImage(named: "CH4")!,"C","H"],
+        "CO2" : [UIImage(named: "CO2")!,"C","O"],
+        "H2O" : [UIImage(named: "H2O")!,"H","O"],
+        "H2SO4" : [UIImage(named: "H2SO4")!,"H","S","O"],
+        "HCl" : [UIImage(named: "HCl")!,"H","Cl"],
+        "HNO3" : [UIImage(named: "HNO3")!,"H","N","O"],
+        "NaCl" : [UIImage(named: "NaCl")!,"Na","Cl"],
+        "NaOH" : [UIImage(named: "NaOH")!,"Na","O","H"],
+        "NH3" : [UIImage(named: "NH3")!,"N","H"],
+        "SF4" : [UIImage(named: "SF4")!,"S","F"],
+        "SO2" : [UIImage(named: "SO2")!,"S","O"],
+        "SO3" : [UIImage(named: "SO3")!,"S","O"],
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

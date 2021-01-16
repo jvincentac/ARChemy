@@ -132,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="341" y="2774"/>
+            <point key="canvasLocation" x="340.57971014492756" y="2773.6607142857142"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="C2i-rd-xYI">
@@ -846,7 +846,7 @@ lupa untuk melatih kemampuanmu dengan soal-soal ini</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ejf-5A-ngZ">
-                                        <rect key="frame" x="312" y="55" width="63" height="36"/>
+                                        <rect key="frame" x="312" y="52" width="63" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.43137254899999999" green="0.42352941179999998" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>

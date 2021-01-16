@@ -15,6 +15,7 @@ class DescriptionViewController: UIViewController {
     var colorIndex = 0
     
     var reaksiList: [String: UIImage] = InitViewController.reaksiList
+    var newReaksiList: [String: [Any]] = InitViewController.newReaksiList
     var imageList: [UIImage] = []
     
     @IBOutlet weak var reaksiTableView: UITableView!
@@ -55,9 +56,7 @@ extension DescriptionViewController {
     func checkForReaction(userInput: Int) {
         if userInput == 1 {
             for name in Array(reaksiList.keys) {
-                print(name)
                 if name.contains(elementDesc[0].symbol) {
-                    print("tess")
                     imageList.append(reaksiList[name]!)
                 }
             }

@@ -54,7 +54,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func signUpBtn(_ sender: Any) {
-        addNewTeacher(name: nameTextField.text!, password: passwordTextField.text!)
+        if nameTextField.text != "" && passwordTextField.text != "" {
+            addNewTeacher(name: nameTextField.text!, password: passwordTextField.text!)
+        }
     }
     
     @IBAction func masukMuridBtn(_ sender: Any) {
