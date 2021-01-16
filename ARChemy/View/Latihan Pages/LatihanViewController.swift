@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import FirebaseDatabase
 
-class LatihanViewController: UIViewController {
+class LatihanViewController: UIViewController{
 
     @IBOutlet weak var LatihanTableView: UITableView!
     @IBOutlet weak var searchGuruTextField: UITextField!
@@ -33,7 +33,7 @@ class LatihanViewController: UIViewController {
         
         configurePage(name: teacherName!)
         searchGuruTextField.text = teacherName
-        
+        searchGuruTextField.delegate = self
         
         if searchGuruTextField.text == "Masukkan Nama Guru" {
             searchGuruTextField.clearsOnBeginEditing = true
@@ -47,6 +47,12 @@ class LatihanViewController: UIViewController {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+}
+
+extension LatihanViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
     }
 }
 

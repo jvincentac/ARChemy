@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
     
-class ARModeViewController: UIViewController, UISearchBarDelegate{
+class ARModeViewController: UIViewController {
 
     @IBOutlet weak var modeARTabBar: UITabBarItem!
     
@@ -40,10 +40,6 @@ class ARModeViewController: UIViewController, UISearchBarDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        modeARTabBar.imag = UIImage(named: "selectedModeAR")
-        
-        initializeHideKeyboard()
-        
         getAllElements()
         
         ZatTableView.delegate = self
@@ -55,7 +51,13 @@ class ARModeViewController: UIViewController, UISearchBarDelegate{
         filteredData = namaZat
         
     }
-    // MARK : Search Bar Config
+}
+
+extension ARModeViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         filteredData = []

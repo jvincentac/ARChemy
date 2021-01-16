@@ -31,6 +31,8 @@ class MateriViewController: UIViewController {
         
         database = Database.database().reference()
         
+        searchGuruTextField.delegate = self
+        
         configurePage(name: teacherName!)
         searchGuruTextField.text = teacherName
         
@@ -60,6 +62,12 @@ extension MateriViewController {
             self.MateriTableView.reloadData()
             UserDefaults.standard.setValue(name, forKey: "materiTeacherName")
         })
+    }
+}
+
+extension MateriViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
     }
 }
 
