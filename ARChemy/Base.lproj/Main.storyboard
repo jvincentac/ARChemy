@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DrO-6K-jO5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DrO-6K-jO5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -713,6 +713,7 @@ Yuk pahami materi pembelajaran yang sudah disiapkan!</string>
                     </tabBarItem>
                     <connections>
                         <outlet property="ZatTableView" destination="sth-bT-dtz" id="IC8-O5-29f"/>
+                        <outlet property="modeARTabBar" destination="8lg-mx-qMR" id="LkN-rQ-4eh"/>
                         <outlet property="searchZat" destination="yoY-ET-0DG" id="vQH-JC-ZFd"/>
                     </connections>
                 </viewController>
@@ -829,16 +830,17 @@ lupa untuk melatih kemampuanmu dengan soal-soal ini</string>
             </objects>
             <point key="canvasLocation" x="-2352.1739130434785" y="2055.8035714285716"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="L4h-a5-737">
             <objects>
-                <tabBarController storyboardIdentifier="InitTab" id="WYn-PB-zpJ" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="InitTab" id="WYn-PB-zpJ" customClass="TabBarViewController" customModule="ARChemy" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bYY-1w-GoH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <outlet property="ThreeMainBar" destination="bYY-1w-GoH" id="0gk-sg-Sl3"/>
                         <segue destination="ZZz-tv-HwK" kind="relationship" relationship="viewControllers" id="Zn2-RE-Vsp"/>
                         <segue destination="NHD-zm-W1U" kind="relationship" relationship="viewControllers" id="xDH-9D-72i"/>
                         <segue destination="tm5-qS-kJ1" kind="relationship" relationship="viewControllers" id="Obb-EA-ldU"/>
