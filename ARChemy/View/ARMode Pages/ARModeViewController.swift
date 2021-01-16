@@ -51,6 +51,10 @@ class ARModeViewController: UIViewController {
         filteredData = namaZat
         
     }
+    
+    @IBAction func logOutBtn(_ sender: Any) {
+        logOut()
+    }
 }
 
 extension ARModeViewController: UISearchBarDelegate {

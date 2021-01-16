@@ -29,7 +29,11 @@ class AdminHomeViewController: UIViewController {
         
         combineTableView.backgroundColor = .white
     }
-
+    
+    @IBAction func logOutBtn(_ sender: Any) {
+        logOut()
+    }
+    
     @IBAction func addMateriBtn(_ sender: Any) {
         let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewMaterial") as! NewMateriViewController
         

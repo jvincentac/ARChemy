@@ -41,6 +41,10 @@ class MateriViewController: UIViewController {
         }
     }
     
+    @IBAction func logOutBtn(_ sender: Any) {
+        logOut()
+    }
+    
     @IBAction func cariBtn(_ sender: Any) {
         configurePage(name: searchGuruTextField.text!)
     }
