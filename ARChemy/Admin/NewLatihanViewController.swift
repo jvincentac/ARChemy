@@ -69,7 +69,12 @@ class NewLatihanViewController: UIViewController {
 
 extension NewLatihanViewController {
     func configurePage() {
-        
+        titleTextField.text = latihan[judul]![0]
+        questionTextField.text = latihan[judul]![1]
+        correctAnswerTextField.text = latihan[judul]![2]
+        w1TextField.text = latihan[judul]![3]
+        w2TextField.text = latihan[judul]![4]
+        w3TextField.text = latihan[judul]![5]
     }
     
     func back() {
@@ -86,7 +91,12 @@ extension NewLatihanViewController {
         }
         else {
             if isEdit {
-                latihan["\(self.judul)"] = []
+                if judul == self.judul {
+                    print("Judul Tidak Boleh Sama")
+                }
+                else {
+                    latihan["\(self.judul)"] = []
+                }
             }
             
             latihan["\(judul)"] = [judul,pertanyaan,benar,salah1,salah2,salah3]

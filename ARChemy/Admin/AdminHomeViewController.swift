@@ -24,7 +24,7 @@ class AdminHomeViewController: UIViewController {
         super.viewDidLoad()
         
         database = Database.database().reference()
-        initializeHideKeyboard()
+
         configurePage()
     }
 
@@ -64,6 +64,21 @@ extension AdminHomeViewController {
         })
         
         haiLabel.text = "Hai, \(teacherName)!"
+    }
+    
+    func delete(index: Int, title: String) {
+        if index < self.latihan.count {
+            database?.child("\(teacherName)/latihan/\(title)").removeValue()
+        }
+        else {
+            database?.child("\(teacherName)/materi/\(title)").removeValue()
+        }
+        
+        self.configurePage()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.combineTableView.reloadData()
+        }
     }
 }
 
@@ -113,7 +128,23 @@ extension AdminHomeViewController: UITableViewDataSource {
         }
         
         cell.textLabel?.text = word
+        cell.textLabel?.textColor = .black
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            var word = ""
+            if indexPath.row < self.latihan.count {
+                word = Array(latihan.keys)[indexPath.row]
+            }
+            else {
+                word = Array(materi.keys)[indexPath.row - latihan.count]
+            }
+            
+            delete(index: indexPath.row, title: word)
+        }
     }
 }

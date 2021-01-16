@@ -66,7 +66,12 @@ extension NewMateriViewController {
         }
         else {
             if isEdit {
-                materi["\(self.judul)"] = []
+                if judul == self.judul {
+                    print("Judul Tidak Boleh Sama")
+                }
+                else {
+                    materi["\(self.judul)"] = []
+                }
             }
             
             materi["\(judul)"] = ["\(judul)","\(isi)"]
