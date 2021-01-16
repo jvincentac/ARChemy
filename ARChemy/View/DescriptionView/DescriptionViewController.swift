@@ -14,8 +14,7 @@ class DescriptionViewController: UIViewController {
     var tempColorIndex = 0
     var colorIndex = 0
     
-    var reaksiList: [String: UIImage] = InitViewController.reaksiList
-    var newReaksiList: [String: [Any]] = InitViewController.newReaksiList
+    var newReaksiList: [String: [String]] = InitViewController.newReaksiList
     var imageList: [UIImage] = []
     
     @IBOutlet weak var reaksiTableView: UITableView!
@@ -41,7 +40,8 @@ class DescriptionViewController: UIViewController {
         
         print(reaksiTableView.rowHeight)
         
-        checkForReaction(userInput: elementDesc.count)
+//        checkForReaction(userInput: elementDesc.count)
+        checkForReaction2()
     }
     
     @IBAction func doneBtn(_ sender: Any) {
@@ -53,40 +53,47 @@ class DescriptionViewController: UIViewController {
 }
 
 extension DescriptionViewController {
-    func checkForReaction(userInput: Int) {
-        if userInput == 1 {
-            for name in Array(reaksiList.keys) {
-                if name.contains(elementDesc[0].symbol) {
-                    imageList.append(reaksiList[name]!)
-                }
-            }
+    
+    func checkForReaction2() {
+        var userInput: [String] = []
+        let arr = Array(newReaksiList.keys)
+        
+        for ele in elementDesc {
+            userInput.append(ele.symbol)
         }
         
-        else if userInput == 2 {
-            for name in Array(reaksiList.keys) {
-                if name.contains(elementDesc[0].symbol) && name.contains(elementDesc[1].symbol) {
-                    imageList.append(reaksiList[name]!)
+        if elementDesc.count == 1 {
+            for name in arr {
+                if newReaksiList[name]!.contains(userInput[0]) {
+                    imageList.append(UIImage(named: newReaksiList[name]![0])!)
                 }
             }
         }
-        else if userInput == 3 {
-            for name in Array(reaksiList.keys) {
-                if name.contains(elementDesc[0].symbol) && name.contains(elementDesc[1].symbol) && name.contains(elementDesc[2].symbol) {
-                    imageList.append(reaksiList[name]!)
+        else if elementDesc.count == 2 {
+            for name in arr {
+                if newReaksiList[name]!.contains(userInput[0]) && newReaksiList[name]!.contains(userInput[1]) {
+                    imageList.append(UIImage(named: newReaksiList[name]![0])!)
                 }
             }
         }
-        else if userInput == 4 {
-            for name in Array(reaksiList.keys) {
-                if name.contains(elementDesc[0].symbol) && name.contains(elementDesc[1].symbol) && name.contains(elementDesc[2].symbol) && name.contains(elementDesc[3].symbol){
-                    imageList.append(reaksiList[name]!)
+        else if elementDesc.count == 3 {
+            for name in arr {
+                if newReaksiList[name]!.contains(userInput[0]) && newReaksiList[name]!.contains(userInput[1]) && newReaksiList[name]!.contains(userInput[2]) {
+                    imageList.append(UIImage(named: newReaksiList[name]![0])!)
                 }
             }
         }
-        else {
-            for name in Array(reaksiList.keys) {
-                if name.contains(elementDesc[0].symbol) && name.contains(elementDesc[1].symbol) && name.contains(elementDesc[2].symbol) && name.contains(elementDesc[3].symbol) && name.contains(elementDesc[4].symbol){
-                    imageList.append(reaksiList[name]!)
+        else if elementDesc.count == 4 {
+            for name in arr {
+                if newReaksiList[name]!.contains(userInput[0]) && newReaksiList[name]!.contains(userInput[1]) && newReaksiList[name]!.contains(userInput[2]) && newReaksiList[name]!.contains(userInput[3]) {
+                    imageList.append(UIImage(named: newReaksiList[name]![0])!)
+                }
+            }
+        }
+        else if elementDesc.count == 5 {
+            for name in arr {
+                if newReaksiList[name]!.contains(userInput[0]) && newReaksiList[name]!.contains(userInput[1]) && newReaksiList[name]!.contains(userInput[2]) && newReaksiList[name]!.contains(userInput[3]) && newReaksiList[name]!.contains(userInput[4]) {
+                    imageList.append(UIImage(named: newReaksiList[name]![0])!)
                 }
             }
         }
