@@ -16,6 +16,9 @@ class ARView: UIViewController, ARSCNViewDelegate {
     var symbol = ""
     var elementCount = InitViewController.arrayOfElements.count
     
+    var reaksiList: [String: UIImage] = [:]
+    var imageList: [UIImage] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -79,12 +82,25 @@ extension ARView {
         if elementCount == 1 {
             symbol = InitViewController.arrayOfElements[elementCount-1].symbol
             addSphere(x: 0, y: 0, z: -1.5, symbol: symbol, color: UIColor.orange)
+            
+            for name in Array(reaksiList.keys) {
+                if name.contains(symbol) {
+                    imageList.append(reaksiList[name]!)
+                }
+            }
+            
         }
         else if elementCount == 2 {
             symbol = InitViewController.arrayOfElements[0].symbol
             addSphere(x: -0.2, y: 0, z: -1.5, symbol: symbol, color: UIColor.orange)
             symbol = InitViewController.arrayOfElements[1].symbol
             addSphere(x: 0.2, y: 0, z: -1.5, symbol: symbol, color: UIColor.blue)
+            
+            for name in Array(reaksiList.keys) {
+                if name.contains(InitViewController.arrayOfElements[0].symbol) && name.contains(InitViewController.arrayOfElements[1].symbol) {
+                    imageList.append(reaksiList[name]!)
+                }
+            }
         }
         else if elementCount == 3 {
             symbol = InitViewController.arrayOfElements[0].symbol
@@ -93,6 +109,12 @@ extension ARView {
             addSphere(x: 0.25, y: -0.25, z: -1.5, symbol: symbol, color: UIColor.blue)
             symbol = InitViewController.arrayOfElements[2].symbol
             addSphere(x: -0.25, y: -0.25, z: -1.5, symbol: symbol, color: UIColor.red)
+            
+            for name in Array(reaksiList.keys) {
+                if name.contains(InitViewController.arrayOfElements[0].symbol) && name.contains(InitViewController.arrayOfElements[1].symbol) && name.contains(InitViewController.arrayOfElements[2].symbol) {
+                    imageList.append(reaksiList[name]!)
+                }
+            }
         }
         else if elementCount == 4 {
             symbol = InitViewController.arrayOfElements[0].symbol
@@ -103,6 +125,12 @@ extension ARView {
             addSphere(x: -0.25, y: -0.25, z: -1.5, symbol: symbol, color: UIColor.red)
             symbol = InitViewController.arrayOfElements[3].symbol
             addSphere(x: -0.25, y: 0.25, z: -1.5, symbol: symbol, color: UIColor.yellow)
+            
+            for name in Array(reaksiList.keys) {
+                if name.contains(InitViewController.arrayOfElements[0].symbol) && name.contains(InitViewController.arrayOfElements[1].symbol) && name.contains(InitViewController.arrayOfElements[2].symbol) && name.contains(InitViewController.arrayOfElements[3].symbol){
+                    imageList.append(reaksiList[name]!)
+                }
+            }
         }
         else if elementCount == 5 {
             symbol = InitViewController.arrayOfElements[0].symbol
@@ -115,6 +143,12 @@ extension ARView {
             addSphere(x: -0.25, y: 0.25, z: -1.5, symbol: symbol, color: UIColor.yellow)
             symbol = InitViewController.arrayOfElements[4].symbol
             addSphere(x: 0.25, y: 0.25, z: -1.5, symbol: symbol, color: UIColor.green)
+            
+            for name in Array(reaksiList.keys) {
+                if name.contains(InitViewController.arrayOfElements[0].symbol) && name.contains(InitViewController.arrayOfElements[1].symbol) && name.contains(InitViewController.arrayOfElements[2].symbol) && name.contains(InitViewController.arrayOfElements[3].symbol) && name.contains(InitViewController.arrayOfElements[4].symbol) {
+                    imageList.append(reaksiList[name]!)
+                }
+            }
         }
     }
     
