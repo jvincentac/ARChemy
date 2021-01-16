@@ -25,8 +25,4 @@ class TabBarViewController: UITabBarController {
             
         }
     }
-
-    func check() {
-        
-    }
 }

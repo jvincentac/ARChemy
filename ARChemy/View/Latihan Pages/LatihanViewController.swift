@@ -31,12 +31,9 @@ class LatihanViewController: UIViewController {
         
         LatihanTableView.backgroundColor = .white
         
-        LatihanTableView.separatorStyle = .none
-        
         configurePage(name: teacherName!)
         searchGuruTextField.text = teacherName
         
-        searchGuruTextField.layer.borderWidth = 2
         
         if searchGuruTextField.text == "Masukkan Nama Guru" {
             searchGuruTextField.clearsOnBeginEditing = true

@@ -26,6 +26,8 @@ class AdminHomeViewController: UIViewController {
         database = Database.database().reference()
 
         configurePage()
+        
+        combineTableView.backgroundColor = .white
     }
 
     @IBAction func addMateriBtn(_ sender: Any) {
@@ -127,6 +129,7 @@ extension AdminHomeViewController: UITableViewDataSource {
             word = "M = \(Array(materi.keys)[indexPath.row - latihan.count])"
         }
         
+        cell.backgroundColor = .white
         cell.textLabel?.text = word
         cell.textLabel?.textColor = .black
         

@@ -34,6 +34,8 @@ class NewMateriViewController: UIViewController {
             titleTextField.clearsOnBeginEditing = true
             materialTextField.clearsOnInsertion = true
         }
+        
+        materialTextField.backgroundColor = .white
     }
     
     @IBAction func CancelBtn(_ sender: Any) {
