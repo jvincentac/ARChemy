@@ -23,6 +23,9 @@ class InitViewController: UIViewController {
         UserDefaults.standard.setValue("Masukkan Nama Guru", forKey: "latihanTeacherName")
         UserDefaults.standard.setValue("Masukkan Nama Guru", forKey: "materiTeacherName")
         if UserDefaults.standard.object(forKey: "isOnboarding") == nil {
+            
+            print("onboarding")
+            
             getAllElement()
             
             let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Onboarding") as! OnboardingViewController
@@ -32,6 +35,8 @@ class InitViewController: UIViewController {
         }
         else {
             let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login") as! LoginViewController
+            
+            print("login")
             
             sb.modalPresentationStyle = .fullScreen
             present(sb, animated: true, completion: nil)

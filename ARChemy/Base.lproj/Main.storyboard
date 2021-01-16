@@ -626,10 +626,11 @@ Yuk pahami materi pembelajaran yang sudah disiapkan!</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Cari" translatesAutoresizingMaskIntoConstraints="NO" id="yoY-ET-0DG">
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Cari" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoY-ET-0DG">
                                 <rect key="frame" x="0.0" y="164" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
