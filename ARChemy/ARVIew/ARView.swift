@@ -64,7 +64,7 @@ class ARView: UIViewController, ARSCNViewDelegate {
     
     @IBAction func addElement(_ sender: Any) {
         let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ARMode")
-        sb.modalPresentationStyle = .fullScreen
+        sb.modalPresentationStyle = .overFullScreen
         present(sb, animated: true, completion: nil)
     }
     
