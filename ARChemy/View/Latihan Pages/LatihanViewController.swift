@@ -23,6 +23,8 @@ class LatihanViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        initializeHideKeyboard()
+        
         database = Database.database().reference()
         
         LatihanTableView.register(LatihanTableViewCell.nib(), forCellReuseIdentifier: LatihanTableViewCell.identifier)
@@ -35,6 +37,8 @@ class LatihanViewController: UIViewController {
         
         configurePage(name: teacherName!)
         searchGuruTextField.text = teacherName
+        
+        searchGuruTextField.layer.borderWidth = 2
         
         if searchGuruTextField.text == "Masukkan Nama Guru" {
             searchGuruTextField.clearsOnBeginEditing = true

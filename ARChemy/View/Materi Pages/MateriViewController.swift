@@ -22,6 +22,9 @@ class MateriViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        initializeHideKeyboard()
+        
         MateriTableView.delegate = self
         MateriTableView.dataSource = self
         

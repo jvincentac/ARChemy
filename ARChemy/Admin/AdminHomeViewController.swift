@@ -24,7 +24,7 @@ class AdminHomeViewController: UIViewController {
         super.viewDidLoad()
         
         database = Database.database().reference()
-        
+        initializeHideKeyboard()
         configurePage()
     }
 
