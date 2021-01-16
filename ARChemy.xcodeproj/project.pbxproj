@@ -40,6 +40,8 @@
 		9D67134425A87F8A00935A60 /* ElementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D67134325A87F8A00935A60 /* ElementModel.swift */; };
 		9D6F8384258FC87000FB4821 /* ARChemy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D6F8382258FC87000FB4821 /* ARChemy.xcdatamodeld */; };
 		9D6F83872590581C00FB4821 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6F83862590581C00FB4821 /* Helper.swift */; };
+		9DC8246C25B2FEAD00F7357C /* ReaksiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC8246A25B2FEAD00F7357C /* ReaksiTableViewCell.swift */; };
+		9DC8246D25B2FEAD00F7357C /* ReaksiTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DC8246B25B2FEAD00F7357C /* ReaksiTableViewCell.xib */; };
 		9DCF6C0725741B72001B55D4 /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF6C0625741B72001B55D4 /* ARView.swift */; };
 		9DCF6C0F25741B87001B55D4 /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF6C0C25741B87001B55D4 /* InitViewController.swift */; };
 /* End PBXBuildFile section */
@@ -82,6 +84,8 @@
 		9D67134325A87F8A00935A60 /* ElementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementModel.swift; sourceTree = "<group>"; };
 		9D6F8383258FC87000FB4821 /* ARChemy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ARChemy.xcdatamodel; sourceTree = "<group>"; };
 		9D6F83862590581C00FB4821 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		9DC8246A25B2FEAD00F7357C /* ReaksiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaksiTableViewCell.swift; sourceTree = "<group>"; };
+		9DC8246B25B2FEAD00F7357C /* ReaksiTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReaksiTableViewCell.xib; sourceTree = "<group>"; };
 		9DCF6C0625741B72001B55D4 /* ARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
 		9DCF6C0C25741B87001B55D4 /* InitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitViewController.swift; sourceTree = "<group>"; };
 		F86D4C6AF6C3C6F875F7D0A2 /* Pods-ARChemy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARChemy.debug.xcconfig"; path = "Target Support Files/Pods-ARChemy/Pods-ARChemy.debug.xcconfig"; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 				9D3A1C5025AD6A230064B9F0 /* Description.swift */,
 				9D3A1C5125AD6A230064B9F0 /* DescriptionViewController.swift */,
 				9D3A1C5225AD6A230064B9F0 /* Description.xib */,
+				9DC8246A25B2FEAD00F7357C /* ReaksiTableViewCell.swift */,
+				9DC8246B25B2FEAD00F7357C /* ReaksiTableViewCell.xib */,
 			);
 			path = DescriptionView;
 			sourceTree = "<group>";
@@ -305,6 +311,7 @@
 				9D3A1CFB25B14E670064B9F0 /* GoogleService-Info.plist in Resources */,
 				756D5D9625A9786B0028BD33 /* MateriTableViewCell.xib in Resources */,
 				9D3BA531257417D400E866A6 /* LaunchScreen.storyboard in Resources */,
+				9DC8246D25B2FEAD00F7357C /* ReaksiTableViewCell.xib in Resources */,
 				9D3BA52E257417D400E866A6 /* Assets.xcassets in Resources */,
 				9D3BA52C257417D300E866A6 /* Main.storyboard in Resources */,
 				756D5D9025A974950028BD33 /* LatihanTableViewCell.xib in Resources */,
@@ -363,6 +370,7 @@
 			files = (
 				9D3BA529257417D300E866A6 /* ViewController.swift in Sources */,
 				9D3A1CB125B0551C0064B9F0 /* NewMateriViewController.swift in Sources */,
+				9DC8246C25B2FEAD00F7357C /* ReaksiTableViewCell.swift in Sources */,
 				9D3BA525257417D300E866A6 /* AppDelegate.swift in Sources */,
 				9D6F8384258FC87000FB4821 /* ARChemy.xcdatamodeld in Sources */,
 				9D3A1C9725B02FA30064B9F0 /* Question.swift in Sources */,

@@ -42,6 +42,7 @@ class LatihanViewController: UIViewController{
     }
     
     @IBAction func logOutBtn(_ sender: Any) {
+        print("aa")
         logOut()
     }
     

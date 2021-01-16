@@ -13,6 +13,23 @@ class InitViewController: UIViewController {
     
     var arrayOfElement: [ElementModel] = []
     static var arrayOfElements: [ElementModel] = []
+    static var reaksiList: [String: UIImage] = [
+        "BeCl2" : UIImage(named: "BeCl2")!,
+        "BF3" : UIImage(named: "BF3")!,
+        "CH3COOH" : UIImage(named: "CH3COOH")!,
+        "CH4" : UIImage(named: "CH4")!,
+        "CO2" : UIImage(named: "CO2")!,
+        "H2O" : UIImage(named: "H2O")!,
+        "H2SO4" : UIImage(named: "H2SO4")!,
+        "HCl" : UIImage(named: "HCl")!,
+        "HNO3" : UIImage(named: "HNO3")!,
+        "NaCl" : UIImage(named: "NaCl")!,
+        "NaOH" : UIImage(named: "NaOH")!,
+        "NH3" : UIImage(named: "NH3")!,
+        "SF4" : UIImage(named: "SF4")!,
+        "SO2" : UIImage(named: "SO2")!,
+        "SO3" : UIImage(named: "SO3")!,
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
