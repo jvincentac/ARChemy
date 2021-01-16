@@ -24,7 +24,7 @@ class NewMateriViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        initializeHideKeyboard()
         database = Database.database().reference()
 
         if isEdit {

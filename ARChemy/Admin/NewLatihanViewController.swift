@@ -28,7 +28,7 @@ class NewLatihanViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        initializeHideKeyboard()
         database = Database.database().reference()
         
         if isEdit {
@@ -42,6 +42,19 @@ class NewLatihanViewController: UIViewController {
             w2TextField.clearsOnBeginEditing = true
             w3TextField.clearsOnBeginEditing = true
         }
+        
+        correctAnswerTextField.layer.borderWidth = 1
+        correctAnswerTextField.layer.borderColor = .init(red: 0, green: 255, blue: 0, alpha: 1)
+        
+        w1TextField.layer.borderWidth = 1
+        w1TextField.layer.borderColor = .init(red: 255, green: 0, blue: 0, alpha: 1)
+        
+        w2TextField.layer.borderWidth = 1
+        w2TextField.layer.borderColor = .init(red: 255, green: 0, blue: 0, alpha: 1)
+        
+        w3TextField.layer.borderWidth = 1
+        w3TextField.layer.borderColor = .init(red: 255, green: 0, blue: 0, alpha: 1)
+        
     }
     
     @IBAction func cancelBtn(_ sender: Any) {

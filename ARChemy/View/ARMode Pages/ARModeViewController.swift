@@ -38,11 +38,15 @@ class ARModeViewController: UIViewController, UISearchBarDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        initializeHideKeyboard()
+        
         getAllElements()
         
         ZatTableView.delegate = self
         ZatTableView.dataSource = self
         ZatTableView.backgroundColor = .white
+        
+        searchZat.backgroundColor = .white
         
         searchZat.delegate = self
         
