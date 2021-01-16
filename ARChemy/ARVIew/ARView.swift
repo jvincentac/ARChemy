@@ -56,7 +56,8 @@ class ARView: UIViewController, ARSCNViewDelegate {
     
     @IBAction func backToHome(_ sender: Any) {
         InitViewController.arrayOfElements.removeAll()
-        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InitTab")
+        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InitTab") as! TabBarViewController
+        sb.idx = 1
         sb.modalPresentationStyle = .fullScreen
         present(sb, animated: true, completion: nil)
     }

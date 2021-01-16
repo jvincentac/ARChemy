@@ -22,7 +22,8 @@ class ContentMateriViewController: UIViewController {
     }
     
     @IBAction func backBtn(_ sender: Any) {
-        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InitTab")
+        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InitTab") as! TabBarViewController
+        sb.idx = 2
         
         sb.modalPresentationStyle = .fullScreen
         

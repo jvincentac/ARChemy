@@ -23,8 +23,6 @@ class LatihanViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initializeHideKeyboard()
-        
         database = Database.database().reference()
         
         LatihanTableView.register(LatihanTableViewCell.nib(), forCellReuseIdentifier: LatihanTableViewCell.identifier)
