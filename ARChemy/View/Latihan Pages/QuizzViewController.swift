@@ -48,6 +48,7 @@ class QuizzViewController: UIViewController {
     @IBAction func backBtn(_ sender: Any) {
         let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InitTab") as! TabBarViewController
         sb.idx = 0
+        
         sb.modalPresentationStyle = .fullScreen
         
         present(sb, animated: true, completion: nil)
