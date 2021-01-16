@@ -3,7 +3,7 @@
 //  ARChemy
 //
 //  Created by Yudis Huang on 16/01/21.
-//
+// aa
 
 import UIKit
 
@@ -12,9 +12,9 @@ class TabBarViewController: UITabBarController {
     @IBOutlet weak var ThreeMainBar: UITabBar!
     
 //    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-//        
+//
 //        let indexTab = tabBar.items?.index(i, offsetBy: 3)
-//        
+//
 //    }
     
     override func viewDidLoad() {
