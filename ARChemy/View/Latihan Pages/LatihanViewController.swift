@@ -40,7 +40,11 @@ class LatihanViewController: UIViewController{
         }
         
     }
-
+    
+    @IBAction func logOutBtn(_ sender: Any) {
+        logOut()
+    }
+    
     @IBAction func CariBtn(_ sender: Any) {
         configurePage(name: searchGuruTextField.text!)
     }

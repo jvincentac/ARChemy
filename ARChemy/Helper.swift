@@ -28,4 +28,10 @@ extension UIViewController {
     @objc func dismissMyKeyboard(){
         view.endEditing(true)
     }
+    
+    func logOut() {
+        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login") as! LoginViewController
+        sb.modalPresentationStyle = .fullScreen
+        present(sb, animated: true, completion: nil)
+    }
 }
