@@ -27,6 +27,7 @@ class NewLatihanViewController: UIViewController {
     var judul = ""
     
     override func viewDidLoad() {
+        changeBorderToGreen()
         super.viewDidLoad()
         initializeHideKeyboard()
         database = Database.database().reference()
@@ -105,5 +106,17 @@ extension NewLatihanViewController {
             
             database?.child(teacherName).setValue(teacher)
         }
+    }
+    
+    func changeBorderToGreen(){
+        let myColor = UIColor.green
+          correctAnswerTextField.layer.borderColor = myColor.cgColor
+    }
+    
+    func changeBorderToRed(){
+        let myColor = UIColor.red
+          w1TextField.layer.borderColor = myColor.cgColor
+          w2TextField.layer.borderColor = myColor.cgColor
+          w3TextField.layer.borderColor = myColor.cgColor
     }
 }
