@@ -42,12 +42,13 @@ extension UIViewController {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= keyboardSize.height
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+               // if keyboard size is not available for some reason, dont do anything
+               return
             }
-        }
-    }
+          
+          // move the root view up by the distance of keyboard height
+          self.view.frame.origin.y = 0 - keyboardSize.height    }
 
     @objc func keyboardWillHide(notification: NSNotification) {
         if self.view.frame.origin.y != 0 {

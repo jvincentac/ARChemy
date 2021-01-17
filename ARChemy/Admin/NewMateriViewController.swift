@@ -63,23 +63,28 @@ extension NewMateriViewController {
     
     func saveMaterial(judul: String, isi: String) {
         
-        if Array(materi.keys).contains(judul) && isEdit == false {
-            print("Judul Harus Unik")
+        if titleTextField.text == "" || materialTextField.text == "" {
+            makeAlert(title: "Gagal", desc: "Semua Harus Terisi")
         }
         else {
-            if isEdit {
-                if judul == self.judul {
-                    print("Judul Tidak Boleh Sama")
-                }
-                else {
-                    materi["\(self.judul)"] = []
-                }
+            if Array(materi.keys).contains(judul) && isEdit == false {
+                print("Judul Harus Unik")
             }
-            
-            materi["\(judul)"] = ["\(judul)","\(isi)"]
-            teacher["materi"] = materi
-            
-            database?.child(teacherName).setValue(teacher)
+            else {
+                if isEdit {
+                    if judul == self.judul {
+                        print("Judul Tidak Boleh Sama")
+                    }
+                    else {
+                        materi["\(self.judul)"] = []
+                    }
+                }
+                
+                materi["\(judul)"] = ["\(judul)","\(isi)"]
+                teacher["materi"] = materi
+                
+                database?.child(teacherName).setValue(teacher)
+            }
         }
     }
 }
