@@ -34,4 +34,24 @@ extension UIViewController {
         sb.modalPresentationStyle = .fullScreen
         present(sb, animated: true, completion: nil)
     }
+    
+    func makeAlert(title: String, desc: String) {
+        let alert = UIAlertController(title: title, message: desc, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
 }
