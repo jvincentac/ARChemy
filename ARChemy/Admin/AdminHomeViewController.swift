@@ -151,7 +151,27 @@ extension AdminHomeViewController: UITableViewDataSource {
                 word = Array(materi.keys)[indexPath.row - latihan.count]
             }
             
-            delete(index: indexPath.row, title: word)
+            if indexPath.row < self.latihan.count {
+                if latihan.count > 1 {
+                    delete(index: indexPath.row, title: word)
+                }
+                else {
+                    let alert = UIAlertController(title: "Tidak Dapat Dihapus", message: "Harus Terdapat Minimal 1 Latihan", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+            else {
+                if materi.count > 1 {
+                    delete(index: indexPath.row, title: word)
+                }
+                else {
+                    let alert = UIAlertController(title: "Tidak Dapat Dihapus", message: "Harus Terdapat Minimal 1 Materi", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+            
         }
     }
 }
