@@ -37,5 +37,7 @@ extension ContentMateriViewController {
         materiTextField.text = konten
         materiTextField.isUserInteractionEnabled = false
         titleTextField.isUserInteractionEnabled = false
+        materiTextField.backgroundColor = .white
+        materiTextField.tintColor = .white
     }
 }
