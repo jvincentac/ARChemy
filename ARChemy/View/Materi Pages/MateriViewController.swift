@@ -48,10 +48,6 @@ class MateriViewController: UIViewController {
     @IBAction func cariBtn(_ sender: Any) {
         configurePage(name: searchGuruTextField.text!)
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
 }
 
 extension MateriViewController {

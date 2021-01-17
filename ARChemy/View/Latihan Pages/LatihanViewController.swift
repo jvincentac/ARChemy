@@ -49,10 +49,6 @@ class LatihanViewController: UIViewController{
     @IBAction func CariBtn(_ sender: Any) {
         configurePage(name: searchGuruTextField.text!)
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
 }
 
 extension LatihanViewController: UITextFieldDelegate {
@@ -98,7 +94,7 @@ extension LatihanViewController : UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let LatihanCell = LatihanTableView.dequeueReusableCell(withIdentifier: LatihanTableViewCell.identifier, for: indexPath) as! LatihanTableViewCell
-        LatihanCell.configure(with: Array(latihan.keys)[indexPath.row], imageName: "modeAR")
+        LatihanCell.configure(with: Array(latihan.keys)[indexPath.row])
 
         return LatihanCell
     }

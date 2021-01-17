@@ -15,15 +15,12 @@ class LatihanTableViewCell: UITableViewCell {
         return UINib(nibName: "LatihanTableViewCell", bundle: nil)
     }
     
-    public func configure(with title: String, imageName: String){
+    public func configure(with title: String){
         latihanTitle.text = title
-        latihanImage.image = UIImage(named: imageName)
         
     }
     
     @IBOutlet var latihanTitle : UILabel!
-    @IBOutlet var latihanImage : UIImageView!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()

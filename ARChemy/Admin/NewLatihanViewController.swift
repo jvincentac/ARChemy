@@ -26,13 +26,16 @@ class NewLatihanViewController: UIViewController {
     
     var judul = ""
     
+    var activeTextField: UITextField? = nil
+    
     override func viewDidLoad() {
         
         // test code
         initializeHideKeyboard()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow2), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         // test code
         
         changeBorderToGreen()
@@ -66,6 +69,12 @@ class NewLatihanViewController: UIViewController {
         w3TextField.layer.borderColor = .init(red: 255, green: 0, blue: 0, alpha: 1)
         
         questionTextField.backgroundColor = .white
+        
+        titleTextField.delegate = self
+        correctAnswerTextField.delegate = self
+        w1TextField.delegate = self
+        w2TextField.delegate = self
+        w3TextField.delegate = self
     }
     
     @IBAction func cancelBtn(_ sender: Any) {
@@ -75,6 +84,21 @@ class NewLatihanViewController: UIViewController {
     @IBAction func saveBtn(_ sender: Any) {
         saveLatihan(judul: titleTextField.text!, pertanyaan: questionTextField.text!, benar: correctAnswerTextField.text!, salah1: w1TextField.text!, salah2: w2TextField.text!, salah3: w3TextField.text!)
         back()
+    }
+}
+
+extension NewLatihanViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.activeTextField = textField
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.activeTextField = nil
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 
@@ -97,23 +121,28 @@ extension NewLatihanViewController {
     
     func saveLatihan(judul: String, pertanyaan: String, benar: String, salah1: String, salah2: String, salah3: String) {
         
-        if Array(latihan.keys).contains(judul) {
-            print("Judul Harus Unik")
+        if questionTextField.text == "" || correctAnswerTextField.text == "" || w1TextField.text == "" || w2TextField.text == "" || w3TextField.text == "" {
+            makeAlert(title: "Gagal", desc: "Semua Harus Terisi")
         }
         else {
-            if isEdit {
-                if judul == self.judul {
-                    print("Judul Tidak Boleh Sama")
-                }
-                else {
-                    latihan["\(self.judul)"] = []
-                }
+            if Array(latihan.keys).contains(judul) {
+                print("Judul Harus Unik")
             }
-            
-            latihan["\(judul)"] = [judul,pertanyaan,benar,salah1,salah2,salah3]
-            teacher["latihan"] = latihan
-            
-            database?.child(teacherName).setValue(teacher)
+            else {
+                if isEdit {
+                    if judul == self.judul {
+                        print("Judul Tidak Boleh Sama")
+                    }
+                    else {
+                        latihan["\(self.judul)"] = []
+                    }
+                }
+                
+                latihan["\(judul)"] = [judul,pertanyaan,benar,salah1,salah2,salah3]
+                teacher["latihan"] = latihan
+                
+                database?.child(teacherName).setValue(teacher)
+            }
         }
     }
     
@@ -128,11 +157,28 @@ extension NewLatihanViewController {
           w2TextField.layer.borderColor = myColor.cgColor
           w3TextField.layer.borderColor = myColor.cgColor
     }
-}
+    
+    @objc func keyboardWillShow2(notification: NSNotification) {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+        
+        var shouldMoveViewUp = false
+        
+        if let activeTextField = activeTextField {
 
-extension NewLatihanViewController : UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+            let bottomOfTextField = activeTextField.convert(activeTextField.bounds, to: self.view).maxY;
+            
+            let topOfKeyboard = self.view.frame.height - keyboardSize.height
+
+            // if the bottom of Textfield is below the top of keyboard, move up
+            if bottomOfTextField > topOfKeyboard {
+              shouldMoveViewUp = true
+            }
+        }
+        
+        if shouldMoveViewUp {
+            self.view.frame.origin.y = 0 - keyboardSize.height
+        }
     }
 }
