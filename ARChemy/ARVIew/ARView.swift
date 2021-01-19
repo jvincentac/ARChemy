@@ -63,9 +63,14 @@ class ARView: UIViewController, ARSCNViewDelegate {
     }
     
     @IBAction func addElement(_ sender: Any) {
-        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ARMode")
-        sb.modalPresentationStyle = .overFullScreen
-        present(sb, animated: true, completion: nil)
+        if elementCount == 5 {
+            makeAlert(title: "Gagal", desc: "Maksimal 5 Elemen")
+        }
+        else {
+            let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ARMode")
+            sb.modalPresentationStyle = .overFullScreen
+            present(sb, animated: true, completion: nil)
+        }
     }
     
     @IBAction func toDesc(_ sender: Any) {
