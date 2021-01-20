@@ -153,86 +153,9 @@ extension ARView {
         }
     }
     
-    func addSphere(x: CGFloat, y: CGFloat, z: CGFloat, symbol: String, color: UIColor) {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
-        view.backgroundColor = color
-        let label = UILabel(frame: CGRect(x: 0, y: 35, width: 200, height: 30))
-        label.font = UIFont.systemFont(ofSize: 30)
-        view.addSubview(label)
-        label.textAlignment = .center
-        label.text = symbol
-        label.textColor = .white
-        
-        let electronView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
-        electronView.backgroundColor = .lightGray
-        let electronLabel = UILabel(frame: CGRect(x: 0, y: 35, width: 200, height: 30))
-        electronLabel.font = UIFont.systemFont(ofSize: 30)
-        electronView.addSubview(electronLabel)
-        electronLabel.textAlignment = .center
-        electronLabel.text = "-"
-        electronLabel.font = .systemFont(ofSize: 80)
-        electronLabel.textColor = .black
-        
-        let sphere = SCNSphere(radius: 0.1)
-        sphere.firstMaterial?.diffuse.contents = view
-        
-        let action = SCNAction.rotateBy(x: 0, y: CGFloat(2 * Double.pi), z: 0, duration: 7)
-        let repAction = SCNAction.repeatForever(action)
-        
-        let helperAction = SCNAction.rotateBy(x: 0, y: 0, z: 0, duration: 8)
-        let repHelperAction = SCNAction.repeatForever(helperAction)
-        
-        let sphereNode = SCNNode(geometry: sphere)
-        sphereNode.position = SCNVector3(x, y, z)
-        sphereNode.runAction(repAction)
-        
-        let helperNode = SCNNode()
-        helperNode.position = SCNVector3(0,0,0)
-        helperArr.append(helperNode)
-        
-        var initX: CGFloat = 0
-        var initZ: CGFloat = 0
-        
-        for node in InitViewController.arrayOfElements {
-            let angle: CGFloat = 360 / CGFloat(node.electrons)
-            var initAngle = angle
-
-            for _ in 0..<node.electrons {
-                let moon = SCNSphere(radius: 0.02)
-                moon.firstMaterial?.diffuse.contents = electronView
-
-                let moonNode = SCNNode(geometry: moon)
-
-                initX = 0.3 * cos(initAngle)
-                initZ = 0.3 * sin(initAngle)
-
-                moonNode.position = SCNVector3(initX,0,initZ)
-                helperNode.addChildNode(moonNode)
-
-                initAngle += angle
-            }
-        }
-        
-        sphereNode.addChildNode(helperNode)
-        
-        helperNode.runAction(repHelperAction)
-        helperNode.isHidden = true
-        
-        sceneView.scene.rootNode.addChildNode(sphereNode)
-    }
-    
     func addSphere2(x: CGFloat, y: CGFloat, z: CGFloat, symbol: String, color: UIColor) {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
-        view.backgroundColor = color
-        let label = UILabel(frame: CGRect(x: 0, y: 35, width: 200, height: 30))
-        label.font = UIFont.systemFont(ofSize: 30)
-        view.addSubview(label)
-        label.textAlignment = .center
-        label.text = symbol
-        label.textColor = .white
-        
         let sphere = SCNSphere(radius: 0.1)
-        sphere.firstMaterial?.diffuse.contents = view
+        sphere.firstMaterial?.diffuse.contents = childView(text: symbol, bgColor: color, textColor: .white)
         
         let action = SCNAction.rotateBy(x: 0, y: CGFloat(2 * Double.pi), z: 0, duration: 7)
         let repAction = SCNAction.repeatForever(action)
@@ -248,16 +171,6 @@ extension ARView {
         var initX: CGFloat = 0
         var initZ: CGFloat = 0
         
-        let electronView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
-        electronView.backgroundColor = .lightGray
-        let electronLabel = UILabel(frame: CGRect(x: 0, y: 35, width: 200, height: 30))
-        electronLabel.font = UIFont.systemFont(ofSize: 30)
-        electronView.addSubview(electronLabel)
-        electronLabel.textAlignment = .center
-        electronLabel.text = "-"
-        electronLabel.font = .systemFont(ofSize: 80)
-        electronLabel.textColor = .black
-        
         let helperNode = SCNNode()
         helperNode.position = SCNVector3(0,0,0)
         helperArr.append(helperNode)
@@ -266,19 +179,44 @@ extension ARView {
         var initAngle = angle
         
         for _ in 0..<InitViewController.arrayOfElements[index].electrons {
-            let moon = SCNSphere(radius: 0.02)
-            moon.firstMaterial?.diffuse.contents = electronLabel
-            let moonNode = SCNNode(geometry: moon)
+            let electron = SCNSphere(radius: 0.02)
+            electron.firstMaterial?.diffuse.contents = childView(text: "-", bgColor: .lightGray, textColor: .black)
+            let electronNode = SCNNode(geometry: electron)
+            
             
             initX = 0.3 * cos(initAngle)
             initZ = 0.3 * sin(initAngle)
             
-            moonNode.position = SCNVector3(initX, 0, initZ)
-            helperNode.addChildNode(moonNode)
+            electronNode.position = SCNVector3(initX, 0, initZ)
+            helperNode.addChildNode(electronNode)
             
             initAngle += angle
         }
         
+        helperNode.isHidden = true
+        
         nodeArr[index].addChildNode(helperNode)
+    }
+    
+    func childView(text: String, bgColor: UIColor, textColor: UIColor) -> UIView {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
+        view.backgroundColor = bgColor
+        let label = UILabel(frame: CGRect(x: 0, y: 35, width: 200, height: 30))
+        label.font = UIFont.systemFont(ofSize: 30)
+        view.addSubview(label)
+        label.textAlignment = .center
+        label.text = text
+        label.font = .systemFont(ofSize: 80)
+        label.textColor = textColor
+        
+        return view
+    }
+    
+    func createCylinder() {
+        let cylinder = SCNCylinder(radius: 0.15, height: 1)
+        let cylinderNode = SCNNode(geometry: cylinder)
+        cylinderNode.position = SCNVector3(0, 1, -2.5)
+        
+        sceneView.scene.rootNode.addChildNode(cylinderNode)
     }
 }
