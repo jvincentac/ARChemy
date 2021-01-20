@@ -110,6 +110,8 @@ extension NewLatihanViewController {
         w1TextField.text = latihan[judul]![3]
         w2TextField.text = latihan[judul]![4]
         w3TextField.text = latihan[judul]![5]
+        
+        
     }
     
     func back() {
