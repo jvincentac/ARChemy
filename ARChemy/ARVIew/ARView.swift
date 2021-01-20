@@ -16,6 +16,8 @@ class ARView: UIViewController, ARSCNViewDelegate {
     var symbol = ""
     var elementCount = InitViewController.arrayOfElements.count
     
+    var nodeArr: [SCNNode] = []
+    
     var helperArr: [SCNNode] = []
     
     override func viewDidLoad() {
@@ -37,6 +39,14 @@ class ARView: UIViewController, ARSCNViewDelegate {
         sceneView.scene = scene
         
         configureAR()
+        
+        for idx in 0..<nodeArr.count {
+            configureChild(index: idx)
+        }
+        
+        for node in nodeArr {
+            sceneView.scene.rootNode.addChildNode(node)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,43 +113,43 @@ extension ARView {
     func configureAR() {
         if elementCount == 1 {
             symbol = InitViewController.arrayOfElements[elementCount-1].symbol
-            addSphere(x: 0, y: 0, z: -1.5, symbol: symbol, color: UIColor.orange)
+            addSphere2(x: 0, y: 0, z: -1.5, symbol: symbol, color: UIColor.orange)
         }
         else if elementCount == 2 {
             symbol = InitViewController.arrayOfElements[0].symbol
-            addSphere(x: -0.25, y: 0, z: -1.5, symbol: symbol, color: UIColor.orange)
+            addSphere2(x: -0.25, y: 0, z: -1.5, symbol: symbol, color: UIColor.orange)
             symbol = InitViewController.arrayOfElements[1].symbol
-            addSphere(x: 0.25, y: 0, z: -1.5, symbol: symbol, color: UIColor.blue)
+            addSphere2(x: 0.25, y: 0, z: -1.5, symbol: symbol, color: UIColor.blue)
         }
         else if elementCount == 3 {
             symbol = InitViewController.arrayOfElements[0].symbol
-            addSphere(x: 0, y: 0, z: -1.5, symbol: symbol, color: UIColor.orange)
+            addSphere2(x: 0, y: 0, z: -1.5, symbol: symbol, color: UIColor.orange)
             symbol = InitViewController.arrayOfElements[1].symbol
-            addSphere(x: 0.25, y: -0.25, z: -1.5, symbol: symbol, color: UIColor.blue)
+            addSphere2(x: 0.25, y: -0.25, z: -1.5, symbol: symbol, color: UIColor.blue)
             symbol = InitViewController.arrayOfElements[2].symbol
-            addSphere(x: -0.25, y: -0.25, z: -1.5, symbol: symbol, color: UIColor.red)
+            addSphere2(x: -0.25, y: -0.25, z: -1.5, symbol: symbol, color: UIColor.red)
         }
         else if elementCount == 4 {
             symbol = InitViewController.arrayOfElements[0].symbol
-            addSphere(x: 0, y: 0, z: -1.5, symbol: symbol, color: UIColor.orange)
+            addSphere2(x: 0, y: 0, z: -1.5, symbol: symbol, color: UIColor.orange)
             symbol = InitViewController.arrayOfElements[1].symbol
-            addSphere(x: 0.25, y: -0.25, z: -1.5, symbol: symbol, color: UIColor.blue)
+            addSphere2(x: 0.25, y: -0.25, z: -1.5, symbol: symbol, color: UIColor.blue)
             symbol = InitViewController.arrayOfElements[2].symbol
-            addSphere(x: -0.25, y: -0.25, z: -1.5, symbol: symbol, color: UIColor.red)
+            addSphere2(x: -0.25, y: -0.25, z: -1.5, symbol: symbol, color: UIColor.red)
             symbol = InitViewController.arrayOfElements[3].symbol
-            addSphere(x: -0.25, y: 0.25, z: -1.5, symbol: symbol, color: UIColor.yellow)
+            addSphere2(x: -0.25, y: 0.25, z: -1.5, symbol: symbol, color: UIColor.yellow)
         }
         else if elementCount == 5 {
             symbol = InitViewController.arrayOfElements[0].symbol
-            addSphere(x: 0, y: 0, z: -1.5, symbol: symbol, color: UIColor.orange)
+            addSphere2(x: 0, y: 0, z: -1.5, symbol: symbol, color: UIColor.orange)
             symbol = InitViewController.arrayOfElements[1].symbol
-            addSphere(x: 0.25, y: -0.25, z: -1.5, symbol: symbol, color: UIColor.blue)
+            addSphere2(x: 0.25, y: -0.25, z: -1.5, symbol: symbol, color: UIColor.blue)
             symbol = InitViewController.arrayOfElements[2].symbol
-            addSphere(x: -0.25, y: -0.25, z:-1.5, symbol: symbol, color: UIColor.red)
+            addSphere2(x: -0.25, y: -0.25, z:-1.5, symbol: symbol, color: UIColor.red)
             symbol = InitViewController.arrayOfElements[3].symbol
-            addSphere(x: -0.25, y: 0.25, z: -1.5, symbol: symbol, color: UIColor.yellow)
+            addSphere2(x: -0.25, y: 0.25, z: -1.5, symbol: symbol, color: UIColor.yellow)
             symbol = InitViewController.arrayOfElements[4].symbol
-            addSphere(x: 0.25, y: 0.25, z: -1.5, symbol: symbol, color: UIColor.green)
+            addSphere2(x: 0.25, y: 0.25, z: -1.5, symbol: symbol, color: UIColor.green)
         }
     }
     
@@ -209,5 +219,66 @@ extension ARView {
         helperNode.isHidden = true
         
         sceneView.scene.rootNode.addChildNode(sphereNode)
+    }
+    
+    func addSphere2(x: CGFloat, y: CGFloat, z: CGFloat, symbol: String, color: UIColor) {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
+        view.backgroundColor = color
+        let label = UILabel(frame: CGRect(x: 0, y: 35, width: 200, height: 30))
+        label.font = UIFont.systemFont(ofSize: 30)
+        view.addSubview(label)
+        label.textAlignment = .center
+        label.text = symbol
+        label.textColor = .white
+        
+        let sphere = SCNSphere(radius: 0.1)
+        sphere.firstMaterial?.diffuse.contents = view
+        
+        let action = SCNAction.rotateBy(x: 0, y: CGFloat(2 * Double.pi), z: 0, duration: 7)
+        let repAction = SCNAction.repeatForever(action)
+        
+        let sphereNode = SCNNode(geometry: sphere)
+        sphereNode.position = SCNVector3(x, y, z)
+        sphereNode.runAction(repAction)
+        
+        nodeArr.append(sphereNode)
+    }
+    
+    func configureChild(index: Int) {
+        var initX: CGFloat = 0
+        var initZ: CGFloat = 0
+        
+        let electronView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
+        electronView.backgroundColor = .lightGray
+        let electronLabel = UILabel(frame: CGRect(x: 0, y: 35, width: 200, height: 30))
+        electronLabel.font = UIFont.systemFont(ofSize: 30)
+        electronView.addSubview(electronLabel)
+        electronLabel.textAlignment = .center
+        electronLabel.text = "-"
+        electronLabel.font = .systemFont(ofSize: 80)
+        electronLabel.textColor = .black
+        
+        let helperNode = SCNNode()
+        helperNode.position = SCNVector3(0,0,0)
+        helperArr.append(helperNode)
+        
+        let angle: CGFloat = 360 / CGFloat(InitViewController.arrayOfElements[index].electrons)
+        var initAngle = angle
+        
+        for _ in 0..<InitViewController.arrayOfElements[index].electrons {
+            let moon = SCNSphere(radius: 0.02)
+            moon.firstMaterial?.diffuse.contents = electronLabel
+            let moonNode = SCNNode(geometry: moon)
+            
+            initX = 0.3 * cos(initAngle)
+            initZ = 0.3 * sin(initAngle)
+            
+            moonNode.position = SCNVector3(initX, 0, initZ)
+            helperNode.addChildNode(moonNode)
+            
+            initAngle += angle
+        }
+        
+        nodeArr[index].addChildNode(helperNode)
     }
 }
