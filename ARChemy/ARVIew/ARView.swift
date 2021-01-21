@@ -18,7 +18,8 @@ class ARView: UIViewController, ARSCNViewDelegate {
     
     var nodeArr: [SCNNode] = []
     
-    var helperArr: [SCNNode] = []
+    var helperArrElectron: [SCNNode] = []
+    var helperArrNeutron: [SCNNode] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +42,8 @@ class ARView: UIViewController, ARSCNViewDelegate {
         configureAR()
         
         for idx in 0..<nodeArr.count {
-            configureChild(index: idx)
+            configureElectron(index: idx)
+            configureNeutron(index: idx)
         }
         
         for node in nodeArr {
@@ -101,7 +103,14 @@ extension ARView {
         if hitResults.count > 0 {
             let tappedPiece = hitResults[0].node
             
-            for helper in helperArr {
+            for helper in helperArrElectron {
+                if helper.parent == tappedPiece {
+                    helper.isHidden.toggle()
+                    break
+                }
+            }
+            
+            for helper in helperArrNeutron {
                 if helper.parent == tappedPiece {
                     helper.isHidden.toggle()
                     break
@@ -167,13 +176,13 @@ extension ARView {
         nodeArr.append(sphereNode)
     }
     
-    func configureChild(index: Int) {
+    func configureElectron(index: Int) {
         var initX: CGFloat = 0
         var initZ: CGFloat = 0
         
         let helperNode = SCNNode()
         helperNode.position = SCNVector3(0,0,0)
-        helperArr.append(helperNode)
+        helperArrElectron.append(helperNode)
         
         let angle: CGFloat = 360 / CGFloat(InitViewController.arrayOfElements[index].electrons)
         var initAngle = angle
@@ -183,12 +192,46 @@ extension ARView {
             electron.firstMaterial?.diffuse.contents = childView(text: "-", bgColor: .lightGray, textColor: .black)
             let electronNode = SCNNode(geometry: electron)
             
-            
             initX = 0.3 * cos(initAngle)
             initZ = 0.3 * sin(initAngle)
             
             electronNode.position = SCNVector3(initX, 0, initZ)
             helperNode.addChildNode(electronNode)
+            
+            initAngle += angle
+        }
+        
+        helperNode.isHidden = true
+        
+        nodeArr[index].addChildNode(helperNode)
+    }
+    
+    func configureNeutron(index: Int) {
+        var initX: CGFloat = 0
+        var initZ: CGFloat = 0
+        
+        let helperNode = SCNNode()
+        helperNode.position = SCNVector3(0,0,0)
+        helperArrNeutron.append(helperNode)
+        
+        let action = SCNAction.rotateBy(x: CGFloat(2 * Double.pi), y: 0, z: 0, duration: 8)
+        let repAction = SCNAction.repeatForever(action)
+        
+        helperNode.runAction(repAction)
+        
+        let angle: CGFloat = 360 / CGFloat(InitViewController.arrayOfElements[index].neutrons)
+        var initAngle = angle
+        
+        for _ in 0..<InitViewController.arrayOfElements[index].neutrons {
+            let neutron = SCNSphere(radius: 0.02)
+            neutron.firstMaterial?.diffuse.contents = childView(text: "n", bgColor: .darkGray, textColor: .white)
+            let neutronNode = SCNNode(geometry: neutron)
+            
+            initX = 0.4 * cos(initAngle)
+            initZ = 0.4 * sin(initAngle)
+            
+            neutronNode.position = SCNVector3(initX, 0, initZ)
+            helperNode.addChildNode(neutronNode)
             
             initAngle += angle
         }
@@ -206,17 +249,9 @@ extension ARView {
         view.addSubview(label)
         label.textAlignment = .center
         label.text = text
-        label.font = .systemFont(ofSize: 80)
+        label.font = .systemFont(ofSize: 30)
         label.textColor = textColor
         
         return view
-    }
-    
-    func createCylinder() {
-        let cylinder = SCNCylinder(radius: 0.15, height: 1)
-        let cylinderNode = SCNNode(geometry: cylinder)
-        cylinderNode.position = SCNVector3(0, 1, -2.5)
-        
-        sceneView.scene.rootNode.addChildNode(cylinderNode)
     }
 }
