@@ -127,10 +127,10 @@ extension AdminHomeViewController: UITableViewDataSource {
         
         var word = ""
         if indexPath.row < self.latihan.count {
-            word = "L = \(Array(latihan.keys)[indexPath.row])"
+            word = "Latihan = \(Array(latihan.keys)[indexPath.row])"
         }
         else {
-            word = "M = \(Array(materi.keys)[indexPath.row - latihan.count])"
+            word = "Materi = \(Array(materi.keys)[indexPath.row - latihan.count])"
         }
         
         cell.backgroundColor = .white

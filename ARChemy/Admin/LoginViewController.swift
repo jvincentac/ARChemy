@@ -32,35 +32,41 @@ class LoginViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        passwordTextField.isSecureTextEntry = true
     }
     
     @IBAction func loginBtn(_ sender: Any) {
-        login(name: nameTextField.text!, password: passwordTextField.text!)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [self] in
-            if self.isLogin == true{
-                print("login success")
-                
-                let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AdminHome") as! AdminHomeViewController
-                sb.modalPresentationStyle = .fullScreen
-                sb.teacher = self.teacher
-                sb.teacherName = nameTextField.text!
-
-                self.present(sb, animated: true, completion: nil)
+        if nameTextField.text != "" && passwordTextField.text != "" {
+            login(name: nameTextField.text!, password: passwordTextField.text!)
             
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [self] in
+                if self.isLogin == true{
+                    print("login success")
+                    
+                    let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AdminHome") as! AdminHomeViewController
+                    sb.modalPresentationStyle = .fullScreen
+                    sb.teacher = self.teacher
+                    sb.teacherName = nameTextField.text!
+
+                    self.present(sb, animated: true, completion: nil)
+                
+                }
+                else {
+                    makeAlert(title: "Gagal", desc: "Nama atau Password salah")
+                    nameTextField.endEditing(true)
+                    passwordTextField.endEditing(true)
+                }
             }
-            else {
-                makeAlert(title: "Gagal", desc: "Nama atau Password salah")
-                nameTextField.endEditing(true)
-                passwordTextField.endEditing(true)
-            }
+        }
+        else {
+            makeAlert(title: "Perhatian", desc: "Mohon Isi Nama dan Password")
         }
     }
     
     @IBAction func signUpBtn(_ sender: Any) {
         if nameTextField.text != "" && passwordTextField.text != "" {
             addNewTeacher(name: nameTextField.text!, password: passwordTextField.text!)
-            
             makeAlert(title: self.warningTitle, desc: self.warningDesc)
         }
         else {
