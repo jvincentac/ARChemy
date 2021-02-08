@@ -28,7 +28,6 @@
 		9D3A1CA825B042FB0064B9F0 /* AdminHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A1CA725B042FB0064B9F0 /* AdminHomeViewController.swift */; };
 		9D3A1CAB25B045C10064B9F0 /* NewLatihanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A1CAA25B045C10064B9F0 /* NewLatihanViewController.swift */; };
 		9D3A1CB125B0551C0064B9F0 /* NewMateriViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A1CB025B0551C0064B9F0 /* NewMateriViewController.swift */; };
-		9D3A1CFB25B14E670064B9F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D3A1CFA25B14E670064B9F0 /* GoogleService-Info.plist */; };
 		9D3BA525257417D300E866A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3BA524257417D300E866A6 /* AppDelegate.swift */; };
 		9D3BA527257417D300E866A6 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D3BA526257417D300E866A6 /* art.scnassets */; };
 		9D3BA529257417D300E866A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3BA528257417D300E866A6 /* ViewController.swift */; };
@@ -44,6 +43,7 @@
 		9DC8246D25B2FEAD00F7357C /* ReaksiTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DC8246B25B2FEAD00F7357C /* ReaksiTableViewCell.xib */; };
 		9DCF6C0725741B72001B55D4 /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF6C0625741B72001B55D4 /* ARView.swift */; };
 		9DCF6C0F25741B87001B55D4 /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF6C0C25741B87001B55D4 /* InitViewController.swift */; };
+		9DF5273225D0F98E005601F3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9DF5273125D0F98E005601F3 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,7 +70,6 @@
 		9D3A1CA725B042FB0064B9F0 /* AdminHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHomeViewController.swift; sourceTree = "<group>"; };
 		9D3A1CAA25B045C10064B9F0 /* NewLatihanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLatihanViewController.swift; sourceTree = "<group>"; };
 		9D3A1CB025B0551C0064B9F0 /* NewMateriViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMateriViewController.swift; sourceTree = "<group>"; };
-		9D3A1CFA25B14E670064B9F0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9D3BA521257417D300E866A6 /* ARChemy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARChemy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D3BA524257417D300E866A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D3BA526257417D300E866A6 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -88,6 +87,7 @@
 		9DC8246B25B2FEAD00F7357C /* ReaksiTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReaksiTableViewCell.xib; sourceTree = "<group>"; };
 		9DCF6C0625741B72001B55D4 /* ARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
 		9DCF6C0C25741B87001B55D4 /* InitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitViewController.swift; sourceTree = "<group>"; };
+		9DF5273125D0F98E005601F3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F86D4C6AF6C3C6F875F7D0A2 /* Pods-ARChemy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARChemy.debug.xcconfig"; path = "Target Support Files/Pods-ARChemy/Pods-ARChemy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -209,7 +209,7 @@
 				9D3BA52F257417D400E866A6 /* LaunchScreen.storyboard */,
 				9D3BA532257417D400E866A6 /* Info.plist */,
 				9D6F8382258FC87000FB4821 /* ARChemy.xcdatamodeld */,
-				9D3A1CFA25B14E670064B9F0 /* GoogleService-Info.plist */,
+				9DF5273125D0F98E005601F3 /* GoogleService-Info.plist */,
 				9D6F83862590581C00FB4821 /* Helper.swift */,
 			);
 			path = ARChemy;
@@ -308,8 +308,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D3BA527257417D300E866A6 /* art.scnassets in Resources */,
-				9D3A1CFB25B14E670064B9F0 /* GoogleService-Info.plist in Resources */,
 				756D5D9625A9786B0028BD33 /* MateriTableViewCell.xib in Resources */,
+				9DF5273225D0F98E005601F3 /* GoogleService-Info.plist in Resources */,
 				9D3BA531257417D400E866A6 /* LaunchScreen.storyboard in Resources */,
 				9DC8246D25B2FEAD00F7357C /* ReaksiTableViewCell.xib in Resources */,
 				9D3BA52E257417D400E866A6 /* Assets.xcassets in Resources */,
@@ -551,7 +551,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ici.ARChemy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vincent.ARChemy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -574,7 +574,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ici.ARChemy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vincent.ARChemy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

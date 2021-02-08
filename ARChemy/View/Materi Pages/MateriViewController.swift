@@ -13,11 +13,10 @@ class MateriViewController: UIViewController {
     @IBOutlet weak var MateriTableView: UITableView!
     @IBOutlet weak var searchGuruTextField: UITextField!
     
+    private var database: DatabaseReference?
     
-    var database: DatabaseReference?
-    
-    var materi: [String: [String]] = [:]
-    var teacherName = UserDefaults.standard.string(forKey: "materiTeacherName")
+    private var materi: [String: [String]] = [:]
+    private var teacherName = UserDefaults.standard.string(forKey: "materiTeacherName")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,8 +77,9 @@ extension MateriViewController : UITableViewDelegate {
         let tempTitle = Array(materi.keys)[indexPath.row]
         let tempContent = materi[tempTitle]![1]
         
-        sb.judul = tempTitle
-        sb.konten = tempContent
+        sb.setJudul(judul: tempTitle)
+        sb.setKonten(konten: tempContent)
+        
         sb.modalPresentationStyle = .fullScreen
         
         present(sb, animated: true, completion: nil)

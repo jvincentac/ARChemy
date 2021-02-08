@@ -12,8 +12,8 @@ class ContentMateriViewController: UIViewController {
     @IBOutlet weak var titleTextField: UILabel!
     @IBOutlet weak var materiTextField: UITextView!
     
-    var judul = ""
-    var konten = ""
+    private var judul = ""
+    private var konten = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,5 +39,13 @@ extension ContentMateriViewController {
         titleTextField.isUserInteractionEnabled = false
         materiTextField.backgroundColor = .white
         materiTextField.tintColor = .white
+    }
+    
+    public func setJudul(judul: String) {
+        self.judul = judul
+    }
+    
+    public func setKonten(konten:String) {
+        self.konten = konten
     }
 }
