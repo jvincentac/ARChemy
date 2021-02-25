@@ -16,6 +16,9 @@
 		756D5D9525A9786B0028BD33 /* MateriTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D5D9325A9786B0028BD33 /* MateriTableViewCell.swift */; };
 		756D5D9625A9786B0028BD33 /* MateriTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 756D5D9425A9786B0028BD33 /* MateriTableViewCell.xib */; };
 		756D5D9925A9787D0028BD33 /* MateriViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D5D9825A9787D0028BD33 /* MateriViewController.swift */; };
+		7579EB1E25C19C820094F3D1 /* correctAnswer.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7579EB1C25C19C820094F3D1 /* correctAnswer.wav */; };
+		7579EB2625C19E710094F3D1 /* wrongAnswer.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7579EB2525C19E710094F3D1 /* wrongAnswer.wav */; };
+		7579EB2A25C1A1690094F3D1 /* tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7579EB2925C1A1690094F3D1 /* tap.wav */; };
 		9D2F875925B1E32600D54C30 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F875825B1E32600D54C30 /* OnboardingViewController.swift */; };
 		9D3A1C5325AD6A230064B9F0 /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A1C5025AD6A230064B9F0 /* Description.swift */; };
 		9D3A1C5425AD6A230064B9F0 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A1C5125AD6A230064B9F0 /* DescriptionViewController.swift */; };
@@ -57,6 +60,9 @@
 		756D5D9325A9786B0028BD33 /* MateriTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriTableViewCell.swift; sourceTree = "<group>"; };
 		756D5D9425A9786B0028BD33 /* MateriTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MateriTableViewCell.xib; sourceTree = "<group>"; };
 		756D5D9825A9787D0028BD33 /* MateriViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriViewController.swift; sourceTree = "<group>"; };
+		7579EB1C25C19C820094F3D1 /* correctAnswer.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correctAnswer.wav; sourceTree = "<group>"; };
+		7579EB2525C19E710094F3D1 /* wrongAnswer.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrongAnswer.wav; sourceTree = "<group>"; };
+		7579EB2925C1A1690094F3D1 /* tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tap.wav; sourceTree = "<group>"; };
 		9D2F875825B1E32600D54C30 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		9D3A1C5025AD6A230064B9F0 /* Description.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Description.swift; sourceTree = "<group>"; };
 		9D3A1C5125AD6A230064B9F0 /* DescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +140,16 @@
 			path = "Materi Pages";
 			sourceTree = "<group>";
 		};
+		7579EB1A25C19C360094F3D1 /* AssetMusic */ = {
+			isa = PBXGroup;
+			children = (
+				7579EB2925C1A1690094F3D1 /* tap.wav */,
+				7579EB1C25C19C820094F3D1 /* correctAnswer.wav */,
+				7579EB2525C19E710094F3D1 /* wrongAnswer.wav */,
+			);
+			path = AssetMusic;
+			sourceTree = "<group>";
+		};
 		8B35FFEE180BFEF62897BB20 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +218,7 @@
 				9D3A1CA225B034FE0064B9F0 /* Admin */,
 				9DCF6C0925741B86001B55D4 /* View */,
 				9D3BA524257417D300E866A6 /* AppDelegate.swift */,
+				7579EB1A25C19C360094F3D1 /* AssetMusic */,
 				9D3BA526257417D300E866A6 /* art.scnassets */,
 				9D3BA528257417D300E866A6 /* ViewController.swift */,
 				9D3BA52A257417D300E866A6 /* Main.storyboard */,
@@ -307,10 +324,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7579EB2A25C1A1690094F3D1 /* tap.wav in Resources */,
 				9D3BA527257417D300E866A6 /* art.scnassets in Resources */,
 				756D5D9625A9786B0028BD33 /* MateriTableViewCell.xib in Resources */,
+				7579EB2625C19E710094F3D1 /* wrongAnswer.wav in Resources */,
 				9DF5273225D0F98E005601F3 /* GoogleService-Info.plist in Resources */,
 				9D3BA531257417D400E866A6 /* LaunchScreen.storyboard in Resources */,
+				7579EB1E25C19C820094F3D1 /* correctAnswer.wav in Resources */,
 				9DC8246D25B2FEAD00F7357C /* ReaksiTableViewCell.xib in Resources */,
 				9D3BA52E257417D400E866A6 /* Assets.xcassets in Resources */,
 				9D3BA52C257417D300E866A6 /* Main.storyboard in Resources */,

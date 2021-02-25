@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import AVFoundation
 
 class QuizzViewController: UIViewController {
 
+    var audioPlayer:AVAudioPlayer?
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answer1: UIButton!
     @IBOutlet weak var answer2: UIButton!
@@ -28,6 +30,8 @@ class QuizzViewController: UIViewController {
     var buttonArr: [UIButton] = []
     var answers: [String] = []
     var temp: [String] = []
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +69,7 @@ class QuizzViewController: UIViewController {
         clearBorder(button: answer2)
         clearBorder(button: answer3)
         clearBorder(button: answer4)
+        playSounds(soundfile: "tap.wav")
     }
     
     @IBAction func answer2Btn(_ sender: Any) {
@@ -74,6 +79,7 @@ class QuizzViewController: UIViewController {
         clearBorder(button: answer1)
         clearBorder(button: answer3)
         clearBorder(button: answer4)
+        playSounds(soundfile: "tap.wav")
     }
     
     @IBAction func answer3Btn(_ sender: Any) {
@@ -83,6 +89,7 @@ class QuizzViewController: UIViewController {
         clearBorder(button: answer2)
         clearBorder(button: answer1)
         clearBorder(button: answer4)
+        playSounds(soundfile: "tap.wav")
     }
     
     @IBAction func answer4Btn(_ sender: Any) {
@@ -92,7 +99,30 @@ class QuizzViewController: UIViewController {
         clearBorder(button: answer1)
         clearBorder(button: answer3)
         clearBorder(button: answer2)
+        playSounds(soundfile: "tap.wav")
     }
+    
+    func playSounds(soundfile: String) {
+
+          if let path = Bundle.main.path(forResource: soundfile, ofType: nil){
+            
+
+              do{
+                audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+                audioPlayer?.prepareToPlay()
+                      try AVAudioSession.sharedInstance().setCategory(.playback)
+
+                audioPlayer?.play()
+
+              }catch {
+                  print("Error")
+              }
+          }
+       }
+    
+        func stopSounds(){
+            audioPlayer?.stop()
+        }
 }
 
 extension QuizzViewController {
@@ -120,11 +150,15 @@ extension QuizzViewController {
             isCorrectImg.isHidden = false
             isCorrectImg.image = UIImage(named: "true")
             greenBorder(button: choosenButton!)
+            playSounds(soundfile: "correctAnswer.wav")
+            
         }
         else {
             isCorrectImg.image = UIImage(named: "false")
             isCorrectImg.isHidden = false
             redBorder(button: choosenButton!)
+            playSounds(soundfile: "wrongAnswer.wav")
+            
         }
     }
     
@@ -146,4 +180,8 @@ extension QuizzViewController {
         button.layer.borderWidth = 1
         button.layer.borderColor = .init(red: 141/255, green: 139/255, blue: 237/255, alpha: 1)
     }
+    
+
+    
+
 }
