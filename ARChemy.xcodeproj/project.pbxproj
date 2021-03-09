@@ -46,6 +46,7 @@
 		9DC8246D25B2FEAD00F7357C /* ReaksiTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DC8246B25B2FEAD00F7357C /* ReaksiTableViewCell.xib */; };
 		9DCF6C0725741B72001B55D4 /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF6C0625741B72001B55D4 /* ARView.swift */; };
 		9DCF6C0F25741B87001B55D4 /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF6C0C25741B87001B55D4 /* InitViewController.swift */; };
+		9DE0A33725F750230024E333 /* Login2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE0A33625F750230024E333 /* Login2ViewController.swift */; };
 		9DF5273225D0F98E005601F3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9DF5273125D0F98E005601F3 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +94,7 @@
 		9DC8246B25B2FEAD00F7357C /* ReaksiTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReaksiTableViewCell.xib; sourceTree = "<group>"; };
 		9DCF6C0625741B72001B55D4 /* ARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
 		9DCF6C0C25741B87001B55D4 /* InitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitViewController.swift; sourceTree = "<group>"; };
+		9DE0A33625F750230024E333 /* Login2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login2ViewController.swift; sourceTree = "<group>"; };
 		9DF5273125D0F98E005601F3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F86D4C6AF6C3C6F875F7D0A2 /* Pods-ARChemy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARChemy.debug.xcconfig"; path = "Target Support Files/Pods-ARChemy/Pods-ARChemy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -187,6 +189,7 @@
 				9D3A1CA725B042FB0064B9F0 /* AdminHomeViewController.swift */,
 				9D3A1CAA25B045C10064B9F0 /* NewLatihanViewController.swift */,
 				9D3A1CB025B0551C0064B9F0 /* NewMateriViewController.swift */,
+				9DE0A33625F750230024E333 /* Login2ViewController.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				9DC8246C25B2FEAD00F7357C /* ReaksiTableViewCell.swift in Sources */,
 				9D3BA525257417D300E866A6 /* AppDelegate.swift in Sources */,
 				9D6F8384258FC87000FB4821 /* ARChemy.xcdatamodeld in Sources */,
+				9DE0A33725F750230024E333 /* Login2ViewController.swift in Sources */,
 				9D3A1C9725B02FA30064B9F0 /* Question.swift in Sources */,
 				9DCF6C0F25741B87001B55D4 /* InitViewController.swift in Sources */,
 				9D3A1C9325B02E6C0064B9F0 /* Teacher.swift in Sources */,

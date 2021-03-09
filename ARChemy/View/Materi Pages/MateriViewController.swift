@@ -51,7 +51,7 @@ class MateriViewController: UIViewController {
 
 extension MateriViewController {
     func configurePage(name: String) {
-        database?.child(name).observe(.value, with: { snapshot in
+        database?.child("guru/\(name)").observe(.value, with: { snapshot in
             guard let value = snapshot.value as? [String: Any] else {
                 self.materi.removeAll()
                 self.MateriTableView.reloadData()

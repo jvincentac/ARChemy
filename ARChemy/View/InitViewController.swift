@@ -42,7 +42,7 @@ class InitViewController: UIViewController {
         UserDefaults.standard.setValue("Masukkan Nama Guru", forKey: "materiTeacherName")
         if UserDefaults.standard.object(forKey: "isOnboarding") == nil {
             
-            print("onboarding")
+//            print("onboarding")
             
             getAllElement()
             
@@ -99,13 +99,14 @@ extension InitViewController {
                 do {
                     dictionary = try (JSONSerialization.jsonObject(with: data!, options: .mutableContainers)) as! [Any]
                     
-                    print(dictionary.count)
+//                    print(dictionary.count)
                     
                     for dict in dictionary {
                         elementName = dict as! [String : Any]
                         tempArrayOfElementName.append(elementName)
                     }
                     
+                    //masukin data ke CoreData
                     for idx in 1..<tempArrayOfElementName.count {
                         let name = String(describing: tempArrayOfElementName[idx]["Element"]!)
                         let discoverer = String(describing: tempArrayOfElementName[idx]["Discoverer"]!)

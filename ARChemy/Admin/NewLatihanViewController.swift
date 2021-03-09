@@ -143,7 +143,7 @@ extension NewLatihanViewController {
                 latihan["\(judul)"] = [judul,pertanyaan,benar,salah1,salah2,salah3]
                 teacher["latihan"] = latihan
                 
-                database?.child(teacherName).setValue(teacher)
+                database?.child("guru/\(teacherName)").setValue(teacher)
             }
         }
     }

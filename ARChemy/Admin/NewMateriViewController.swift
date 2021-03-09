@@ -83,7 +83,7 @@ extension NewMateriViewController {
                 materi["\(judul)"] = ["\(judul)","\(isi)"]
                 teacher["materi"] = materi
                 
-                database?.child(teacherName).setValue(teacher)
+                database?.child("guru/\(teacherName)").setValue(teacher)
             }
         }
     }

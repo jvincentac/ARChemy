@@ -59,7 +59,7 @@ extension LatihanViewController: UITextFieldDelegate {
 
 extension LatihanViewController {
     func configurePage(name: String) {
-        database?.child(name).observe(.value, with: { snapshot in
+        database?.child("guru/\(name)").observe(.value, with: { snapshot in
             guard let value = snapshot.value as? [String: Any] else {
                 self.latihan.removeAll()
                 self.LatihanTableView.reloadData()

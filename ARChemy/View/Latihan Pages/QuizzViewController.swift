@@ -31,8 +31,6 @@ class QuizzViewController: UIViewController {
     var answers: [String] = []
     var temp: [String] = []
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -105,15 +103,13 @@ class QuizzViewController: UIViewController {
     func playSounds(soundfile: String) {
 
           if let path = Bundle.main.path(forResource: soundfile, ofType: nil){
-            
-
+        
               do{
                 audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
                 audioPlayer?.prepareToPlay()
-                      try AVAudioSession.sharedInstance().setCategory(.playback)
+                try AVAudioSession.sharedInstance().setCategory(.playback)
 
                 audioPlayer?.play()
-
               }catch {
                   print("Error")
               }
@@ -180,8 +176,4 @@ extension QuizzViewController {
         button.layer.borderWidth = 1
         button.layer.borderColor = .init(red: 141/255, green: 139/255, blue: 237/255, alpha: 1)
     }
-    
-
-    
-
 }

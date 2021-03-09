@@ -59,7 +59,7 @@ class AdminHomeViewController: UIViewController {
 
 extension AdminHomeViewController {
     func configurePage() {
-        database?.child(teacherName).observe(.value, with: { snapshot in
+        database?.child("guru/\(teacherName)").observe(.value, with: { snapshot in
             guard let value = snapshot.value as? [String: Any] else {
                 return
             }
@@ -74,10 +74,10 @@ extension AdminHomeViewController {
     
     func delete(index: Int, title: String) {
         if index < self.latihan.count {
-            database?.child("\(teacherName)/latihan/\(title)").removeValue()
+            database?.child("guru/\(teacherName)/latihan/\(title)").removeValue()
         }
         else {
-            database?.child("\(teacherName)/materi/\(title)").removeValue()
+            database?.child("guru/\(teacherName)/materi/\(title)").removeValue()
         }
         
         self.configurePage()
